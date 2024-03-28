@@ -28,7 +28,7 @@
             <hr class="sidebar-divider">
             <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('penduduk/tampil')?>">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas faw-fw fa-address-card"></i>
                     <span>Data Penduduk</span></a>
             </li>
 

@@ -7,7 +7,6 @@
     </div>
 </footer>
 
-
 <!-- Bootstrap core JavaScript-->
 <script src="<?php echo base_url() ?>/assets/vendor/jquery/jquery.min.js"></script>
 <script src="<?php echo base_url() ?>/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -25,10 +24,15 @@
 <script src="<?php echo base_url() ?>/assets/js/demo/chart-area-demo.js"></script>
 <script src="<?php echo base_url() ?>/assets/js/demo/chart-pie-demo.js"></script>
 
+<script src="<?php echo base_url(); ?>assets/datatables/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/datepicker/js/bootstrap-datepicker.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+
 <script>
     $(document).ready(function() {
         $('#data').DataTable({
-            "pageLength": 10,
+            "pageLength": 5,
             "language": {
                 "emptyTable": "Belum ada data",
                 "lengthMenu": "_MENU_ data",
@@ -39,8 +43,6 @@
         });
     });
 </script>
-
-
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -66,6 +68,16 @@
         });
     });
 </script>
+
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable({
+            // Tampilkan tombol pagination
+            "paging": true
+        });
+    });
+</script>
+
 
 </body>
 
