@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2024 at 04:23 AM
+-- Generation Time: Apr 26, 2024 at 03:45 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -204,24 +204,28 @@ CREATE TABLE `kelahiran` (
   `nik_ibu` varchar(16) NOT NULL,
   `nama_ibu` varchar(20) NOT NULL,
   `pekerjaan_ibu` varchar(50) NOT NULL,
-  `alamat_ibu` varchar(100) NOT NULL
+  `alamat_ibu` varchar(100) NOT NULL,
+  `rt` varchar(120) NOT NULL,
+  `rw` varchar(120) NOT NULL,
+  `keterangan` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `kelahiran`
 --
 
-INSERT INTO `kelahiran` (`id_kelahiran`, `nama`, `hari`, `tempat_lahir`, `tanggal_lahir`, `pukul`, `jenis_kelahiran`, `anak_ke`, `jenis_kelamin`, `alamat`, `berat_bayi`, `panjang_bayi`, `nik_ayah`, `nama_ayah`, `pekerjaan_ayah`, `alamat_ayah`, `nik_ibu`, `nama_ibu`, `pekerjaan_ibu`, `alamat_ibu`) VALUES
-(4, 'Raihan Aditya Alfaridzi', 'Sabtu', 'Karwang', '2018-08-25', '00:00:00', 'Laki Laki', 'Pe', 'Laki Laki', 'Krajan 1 , Desa Warungbambu kecamatan karawang timur Kota k', '3', '15', '3215262507750011', 'Karsa', 'wiraswasta', 'Krajan 1 , Desa Warungbambu kecamatan karawang timur Kota karawang , 41371', '3215265404800010', 'Wiwin Maryani', 'Mengurus Rumah Tangga', 'Krajan 1 , Desa Warungbambu kecamatan karawang timur Kota karawang , 41371'),
-(5, 'Lavina Asmara Sofyana', 'Minggu', 'Karawang', '2018-05-06', '07:05:00', 'Laki Laki', 'La', 'Perempuan', 'Sukamaju  Rt.010 Rw.003', '0', '0', '0000000000000000', 'Arga Sofyna', 'Buruh', 'Sukamaju  Rt.010 Rw.003', '0000000000000000', 'Maya Handayani', 'Mengurus Rumah Tangga', 'Sukamaju  Rt.010 Rw.003'),
-(6, 'Nailla Zara Aditya', 'Kamis', 'Karawang', '2019-07-11', '09:35:00', 'Laki Laki', 'La', 'Perempuan', 'Suka Mulya Rt.015/004', '0', '0', '0000000000000000', 'Aditya', 'Buruh', 'Suka Mulya Rt.015/004', '0000000000000000', 'Lindawati', 'Mengurus Rumah Tangga', 'Suka Mulya Rt.015/004'),
-(7, 'Abdul Latip', 'Rabu', 'Karawang', '2019-07-12', '19:30:00', 'Laki Laki', 'La', 'Laki Laki', 'Krajan I Rt 002 / 001', '0', '0', '0000000000000000', 'Nanasupriyatna', 'Buruh', 'Krajan I Rt 002 / 001', '0000000000000000', 'Resti', 'Mengurus Rumah Tangga', 'Krajan I Rt 002 / 001'),
-(8, 'Aidil Akbar Sentosa', 'Kamis', 'Karawang', '2019-08-19', '00:00:00', 'Laki Laki', 'La', 'Laki Laki', 'SukaMulya RT.015 / 05', '0', '0', '0000000000000000', 'Firman', 'Buruh', 'SukaMulya RT.015 / 05', '0000000000000000', 'Nuraeni Halim', ' Mengurus Rumah Tangga', 'SukaMulya RT.015 / 05'),
-(9, 'Yonathan Timothy Putra Simatupang', 'Jumat', 'Bekasi', '2019-10-18', '16:34:00', 'Laki Laki', 'La', 'Perempuan', 'Sukamaju RT. 013  / 03', '0', '0', '0000000000000000', 'Agustina Khristine K', 'Buruh', 'Sukamaju RT. 013  / 03', '0000000000000000', 'Ponny Agustin Simatu', 'Mengurus Rumah Tangga', 'Sukamaju RT. 013  / 03'),
-(10, 'Sofia Azzahra', 'Jumat', 'Karawang', '2019-11-01', '00:03:00', 'Laki Laki', 'La', 'Laki Laki', 'Bukaper', '0', '0', '0000000000000000', 'Senjaya', 'Buruh', 'Bukaper', '0000000000000000', 'Intan Rahmawati', 'Mengurus Rumah Tangga', 'Bukaper'),
-(11, 'Yusuf Fhirdaus', 'Senin', 'Karwang', '2019-10-28', '03:17:00', 'Laki Laki', 'La', 'Laki Laki', 'Wanajaya RT 021 / 005', '0', '0', '0000000000000000', 'Agit Suhendar', 'Buruh', 'Wanajaya RT 021 / 005', '0000000000000000', 'Desih', 'Mengurus Rumah Tangga', 'Wanajaya RT 021 / 005'),
-(12, 'Haris Rifqiyana Sofyan', 'Kamis', 'Karawang', '2019-08-29', '14:49:00', 'Laki Laki', 'La', 'Laki Laki', 'Perum Gading Elok 2  RT 029 / 001', '0', '0', '0000000000000000', 'Ahmad Sofyan', 'Buruh', 'Perum Gading Elok 2  RT 029 / 001', '0000000000000000', 'Yani Septiani', 'Mengurus Rumah Tangga', 'Perum Gading Elok 2  RT 029 / 001'),
-(13, 'Az Zahra', 'Senin', 'Karwang', '2019-07-01', '00:00:00', 'Laki Laki', 'La', 'Perempuan', 'Sukamaju', '0', '0', '0000000000000000', 'Ahmad M', 'Buruh', 'Sukamaju', '0000000000000000', 'Vanni V', 'Mengurus Rumah Tangga', 'Sukamaju');
+INSERT INTO `kelahiran` (`id_kelahiran`, `nama`, `hari`, `tempat_lahir`, `tanggal_lahir`, `pukul`, `jenis_kelahiran`, `anak_ke`, `jenis_kelamin`, `alamat`, `berat_bayi`, `panjang_bayi`, `nik_ayah`, `nama_ayah`, `pekerjaan_ayah`, `alamat_ayah`, `nik_ibu`, `nama_ibu`, `pekerjaan_ibu`, `alamat_ibu`, `rt`, `rw`, `keterangan`) VALUES
+(5, 'Wendy', '1', 'Karawang', '2018-05-06', '07:05:00', 'Laki Laki', 'La', 'Laki Laki', 'jalan  ', '0', '0', '0000000000000000', 'Arga Sofyna', 'Buruh', 'Sukamaju  Rt.010 Rw.003', '0000000000000000', 'Maya Handayani', 'Mengurus Rumah Tangga', 'Sukamaju  Rt.010 Rw.003', '12', 'Perumahan Gading Elok 2', '1212'),
+(6, 'Nailla Zara Aditya', 'Kamis', 'Karawang', '2019-07-11', '09:35:00', 'Laki Laki', 'La', 'Perempuan', 'Suka Mulya Rt.015/004', '0', '0', '0000000000000000', 'Aditya', 'Buruh', 'Suka Mulya Rt.015/004', '0000000000000000', 'Lindawati', 'Mengurus Rumah Tangga', 'Suka Mulya Rt.015/004', '', '', ''),
+(7, 'Abdul Latip', 'Rabu', 'Karawang', '2019-07-12', '19:30:00', 'Laki Laki', 'La', 'Laki Laki', 'Krajan I Rt 002 / 001', '0', '0', '0000000000000000', 'Nanasupriyatna', 'Buruh', 'Krajan I Rt 002 / 001', '0000000000000000', 'Resti', 'Mengurus Rumah Tangga', 'Krajan I Rt 002 / 001', '', '', ''),
+(8, 'Aidil Akbar Sentosa', 'Kamis', 'Karawang', '2019-08-19', '00:00:00', 'Laki Laki', 'La', 'Laki Laki', 'SukaMulya RT.015 / 05', '0', '0', '0000000000000000', 'Firman', 'Buruh', 'SukaMulya RT.015 / 05', '0000000000000000', 'Nuraeni Halim', ' Mengurus Rumah Tangga', 'SukaMulya RT.015 / 05', '', '', ''),
+(9, 'Yonathan Timothy Putra Simatupang', 'Jumat', 'Bekasi', '2019-10-18', '16:34:00', 'Laki Laki', 'La', 'Perempuan', 'Sukamaju RT. 013  / 03', '0', '0', '0000000000000000', 'Agustina Khristine K', 'Buruh', 'Sukamaju RT. 013  / 03', '0000000000000000', 'Ponny Agustin Simatu', 'Mengurus Rumah Tangga', 'Sukamaju RT. 013  / 03', '', '', ''),
+(10, 'Sofia Azzahra', 'Jumat', 'Karawang', '2019-11-01', '00:03:00', 'Laki Laki', 'La', 'Laki Laki', 'Bukaper', '0', '0', '0000000000000000', 'Senjaya', 'Buruh', 'Bukaper', '0000000000000000', 'Intan Rahmawati', 'Mengurus Rumah Tangga', 'Bukaper', '', '', ''),
+(11, 'Yusuf Fhirdaus', 'Senin', 'Karwang', '2019-10-28', '03:17:00', 'Laki Laki', 'La', 'Laki Laki', 'Wanajaya RT 021 / 005', '0', '0', '0000000000000000', 'Agit Suhendar', 'Buruh', 'Wanajaya RT 021 / 005', '0000000000000000', 'Desih', 'Mengurus Rumah Tangga', 'Wanajaya RT 021 / 005', '', '', ''),
+(12, 'Haris Rifqiyana Sofyan', 'Kamis', 'Karawang', '2019-08-29', '14:49:00', 'Laki Laki', 'La', 'Laki Laki', 'Perum Gading Elok 2  RT 029 / 001', '0', '0', '0000000000000000', 'Ahmad Sofyan', 'Buruh', 'Perum Gading Elok 2  RT 029 / 001', '0000000000000000', 'Yani Septiani', 'Mengurus Rumah Tangga', 'Perum Gading Elok 2  RT 029 / 001', '', '', ''),
+(13, 'Az Zahra', 'Senin', 'Karwang', '2019-07-01', '00:00:00', 'Laki Laki', 'La', 'Perempuan', 'Sukamaju', '0', '0', '0000000000000000', 'Ahmad M', 'Buruh', 'Sukamaju', '0000000000000000', 'Vanni V', 'Mengurus Rumah Tangga', 'Sukamaju', '', '', ''),
+(14, 'Muhammad Wendy', '3', '', '2024-04-24', '22:54:00', '', '', 'Laki Laki', 'JL Raya Puspitek Serpong, Gang Salem 3 ', '', '', '', 'Qw', '', '', '', 'Qwq', '', '', 'q', 'Kepala Dusun Krajan 1', 'qwqw'),
+(15, 'Anavel', '1', 'tangerang', '2024-04-01', '01:01:00', '', '', 'Laki Laki', 'JL Raya Puspitek Serpong, Gang Salem 3 ', '', '', '', 'Wendy', '', '', '', 'Jisoo', '', '', '12', 'Perumahan Bumi Karawang Permai', 'lahir sukes');
 
 -- --------------------------------------------------------
 
@@ -848,7 +852,7 @@ ALTER TABLE `izin_keluarga`
 -- AUTO_INCREMENT for table `kelahiran`
 --
 ALTER TABLE `kelahiran`
-  MODIFY `id_kelahiran` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_kelahiran` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `menikah`

@@ -14,7 +14,7 @@ class Kelahiran extends CI_Controller
 
 	public function tampil()
 	{
-		$data['title'] = "Data kelahiran - Desa Warung Bambu";
+		$data['title'] = "Data kelahiran - Desa SERPONG";
 		$data['kelahiran'] = $this->m_kelahiran->tampil();
 
 		$this->load->view('template/header', $data);
