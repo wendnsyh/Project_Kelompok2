@@ -10,7 +10,7 @@
     <meta name="author" content="">
 
     <title>Levana</title>
-    <link rel="icon" href="<?= base_url('assets/img/avatars/5.png'); ?>" type="image/x-icon">
+    <link rel="icon" href="<?= base_url('assets/img/logo/logo web.png'); ?>" type="image/x-icon">
 
     <!-- Custom fonts for this template-->
     <link href="<?php echo base_url() ?>/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

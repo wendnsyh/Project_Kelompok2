@@ -1,82 +1,115 @@
 <!DOCTYPE html>
-<html lang="en" class="light-style customizer-hide" dir="ltr" data-theme="theme-default" data-assets-path="assets/" data-template="vertical-menu-template-free">
+<html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-  <title>Login</title>
-  <meta name="description" content="" />
-  <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/vendor/fonts/boxicons.css" />
-  <link rel="stylesheet" href="assets/vendor/css/core.css" class="template-customizer-core-css" />
-  <link rel="stylesheet" href="assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-  <link rel="stylesheet" href="assets/css/demo.css" />
-  <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-  <link rel="stylesheet" href="assets/vendor/css/pages/page-auth.css" />
-  <script src="assets/vendor/js/helpers.js"></script>
-  <script src="assets/js/config.js"></script>
-  <?php
-  $alert_message = $this->session->flashdata('pesan');
-  if ($alert_message) {
-    echo '<script>alert("' . $alert_message . '");</script>';
-  }
-  ?>
+  <title>Login - Pendataan Warga</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--===============================================================================================-->
+  <link rel="icon" type="image/png" href="<?php echo base_url(); ?>assets/img/logo/logo web.png" />
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css"
+    href="<?php echo base_url(); ?>assets/login_/vendor/bootstrap/css/bootstrap.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css"
+    href="<?php echo base_url(); ?>assets/login_/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css"
+    href="<?php echo base_url(); ?>assets/login_/fonts/iconic/css/material-design-iconic-font.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/login_/vendor/animate/animate.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css"
+    href="<?php echo base_url(); ?>assets/login_/vendor/css-hamburgers/hamburgers.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css"
+    href="<?php echo base_url(); ?>assets/login_/vendor/animsition/css/animsition.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/login_/vendor/select2/select2.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css"
+    href="<?php echo base_url(); ?>assets/login_/vendor/daterangepicker/daterangepicker.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/login_/css/util.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/login_/css/main.css">
+  <!--===============================================================================================-->
+</head>
 
+<body>
 
-  <!-- Content -->
+  <div class="limiter">
+    <div class="container-login100">
+      <div>
 
-  <div class="container-xxl">
-    <div class="authentication-wrapper authentication-basic container-p-y">
-      <div class="authentication-inner">
-        <!-- Register -->
-        <div class="card">
-          <div class="card-body">
+        <form class="login100-form validate-form" action="<?php echo base_url('autentifikasi/login'); ?>" method="post" class=""
+          role="form">
+          <span class="login100-form-title p-b-26">
+            SISTEM PENGELOLAAN DATA PENDUDUK <BR>DESA SERPONG RW 001
+          </span>
 
-            <!-- Logo -->
-            <div class="app-brand justify-content-center">
-              <a href="<?php echo base_url('autentifikasi') ?>" class="app-brand-link gap-2">
-                <span class="app-brand-text demo text-body fw-bolder" style="text-transform: uppercase;">MeconAPP</span>
-              </a>
+          <span class="login100-form-title p-b-48">
+            <img src="<?php echo base_url(); ?>/assets/img/logo/logo web.png" width="200" height="200">
+          </span>
+          <?php
+          if ($this->session->flashdata('gagal')) {
+            ?>
+            <div class="callout callout-danger">
+              <p style="font-size:15px">
+                <i class="fa fa-warning"></i> <?php echo $this->session->flashdata('gagal'); ?>
+              </p>
             </div>
-            <!-- /Logo -->
+            <?php
+          }
+          ?>
 
-            <?= $this->session->flashdata('pesan'); ?>
-
-            <form class="user" method="post" action="<?= base_url('autentifikasi/login'); ?>">
-              <div class="form-group my-2">
-                <input type="text" class="form-control form-control-user" value="<?= set_value('email'); ?>" id="email" placeholder="Masukkan Alamat Email" name="email">
-                <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
-              </div>
-
-              <div class="form-group my-2">
-                <input type="password" class="form-control form-control-user" id="password" placeholder="Password" name="password">
-                <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
-              </div>
-
-              <div class="mb-3">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="remember-me" />
-                  <label class="form-check-label" for="remember-me"> Remember Me </label>
-                </div>
-              </div>
-
-              <div class="mb-3">
-                <input type="submit" value="login" class="btn btn-secondary d-grid w-100"></input>
-              </div>
-
-              <div class="mb-3">
-                <a href="<?php echo base_url('autentifikasi/register') ?>" class="btn btn-secondary d-grid w-100">Register</a>
-              </div>
-
-            </form>
-
-
+          <div class="wrap-input100 validate-input" data-validate="USERNAME TIDAK TERDAFTAR!">
+            <input class="input100" type="text" name="username">
+            <span class="focus-input100" data-placeholder="Username"></span>
           </div>
-        </div>
-        <!-- /Register -->
+
+          <div class="wrap-input100 validate-input" data-validate="Enter password">
+            <span class="btn-show-pass">
+              <i class="zmdi zmdi-eye"></i>
+            </span>
+            <input class="input100" type="password" name="password">
+            <span class="focus-input100" data-placeholder="Password"></span>
+          </div>
+
+          <div class="container-login100-form-btn">
+            <div class="wrap-login100-form-btn">
+              <div class="login100-form-bgbtn"></div>
+              <button class="btn btn-lg btn-block btn-success login100-form-btn" type="submit" name="Submit"
+                alt="sign in">
+                Login
+              </button>
+            </div>
+          </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
+
+
+  <div id="dropDownSelect1"></div>
+
+  <!--===============================================================================================-->
+  <script src="<?php echo base_url(); ?>assets/login_/vendor/jquery/jquery-3.2.1.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="<?php echo base_url(); ?>assets/login_/vendor/animsition/js/animsition.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="<?php echo base_url(); ?>assets/login_/vendor/bootstrap/js/popper.js"></script>
+  <script src="<?php echo base_url(); ?>assets/login_/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="<?php echo base_url(); ?>assets/login_/vendor/select2/select2.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="<?php echo base_url(); ?>assets/login_/vendor/daterangepicker/moment.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/login_/vendor/daterangepicker/daterangepicker.js"></script>
+  <!--===============================================================================================-->
+  <script src="<?php echo base_url(); ?>assets/login_/vendor/countdowntime/countdowntime.js"></script>
+  <!--===============================================================================================-->
+  <script src="<?php echo base_url(); ?>assets/login_/js/main.js"></script>
+
+</body>
+
+</html>

@@ -15,39 +15,31 @@ class Autentifikasi extends CI_Controller
 
     public function login()
     {
-        $email = htmlspecialchars($this->input->post('email', true));
-        $password = $this->input->post('password', true);
-        $user = $this->PenggajianModel->cekData(['email' => $email])->row_array();
+        $this->form_validation->set_rules('username', 'Username', 'trim|required');
+        $this->form_validation->set_rules('password', 'Password', 'trim|required');
 
-        if ($user) {
-            if ($user['is_active'] == 1) {
-                if (password_verify($password, $user['password'])) {
-                    $data = [
-                        'email' => $user['email'],
-                        'hak_akses' => $user['hak_akses']
-                    ];
-                    $this->session->set_userdata($data);
-
-                    // Pemeriksaan hak akses setelah login
-                    if ($user['hak_akses'] == 1) {
-                        redirect('admin/dashboard');
-                    } elseif ($user['hak_akses'] == 2) {
-                        redirect('autentifikasi/blok');
-                    } else {
-                        // Redirect ke halaman lain jika hak akses tidak mencukupi
-                        redirect('error/unauthorized');
-                    }
-                } else {
-                    $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Password salah!!</div>');
-                    redirect('autentifikasi');
-                }
-            } else {
-                $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">User belum diaktifasi!!</div>');
-                redirect('autentifikasi');
-            }
+        if ($this->form_validation->run() == false) {
+            // Form validation failed, show login page again
+            $this->load->view('login'); // Ganti 'login_page' dengan nama view login Anda
         } else {
-            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Email tidak terdaftar!!</div>');
-            redirect('autentifikasi');
+            // Form validation passed, attempt to authenticate user
+            $username = htmlspecialchars($this->input->post('username', TRUE), ENT_QUOTES);
+            $password = md5(htmlspecialchars($this->input->post('password', TRUE), ENT_QUOTES));
+
+            $user = $this->PenggajianModel->login($username, $password); // Ganti 'your_model' dengan nama model Anda
+
+            if ($user) {
+                // Authentication successful, set session data and redirect to homepage
+                $this->session->set_userdata('login', TRUE);
+                $this->session->set_userdata('username', $user['username']);
+                $this->session->set_userdata('nama_petugas', $user['nama_petugas']);
+                $this->session->set_userdata('level', $user['level']);
+                redirect(base_url('admin/dashboard')); // Ganti 'base_url()' sesuai dengan URL homepage Anda
+            } else {
+                // Authentication failed, set flashdata and redirect back to login page
+                $this->session->set_flashdata('gagal', 'Username atau password salah!');
+                redirect(base_url('login')); // Ganti 'base_url('login')' sesuai dengan URL login page Anda
+            }
         }
     }
 
@@ -61,7 +53,7 @@ class Autentifikasi extends CI_Controller
         $this->session->set_flashdata('pesan', 'Akses tidak diizinkan. Silakan login kembali.');
         redirect('autentifikasi');
     }
-    
+
 
     public function gagal()
     {

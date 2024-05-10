@@ -87,4 +87,9 @@ class PenggajianModel extends CI_Model
         $query = $this->db->get_where('data_pegawai', array('nik' => $nik))->row();
         return $query;
     }
+    
+    public function login($data)
+	{
+		return $this->db->get_where('user',$data);
+	}
 }
