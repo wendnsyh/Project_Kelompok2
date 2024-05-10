@@ -1,12 +1,10 @@
 <body id="page-top">
-
     <!-- Page Wrapper -->
     <div id="wrapper">
-
       
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-danger sidebar sidebar-dark accordion" id="accordionSidebar">
-
+        <!-- Sidebar --> 
+        <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: purple;">
+        
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
@@ -29,21 +27,21 @@
             <hr class="sidebar-divider">
             <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('penduduk/tampil') ?>">
-                    <i class="fas faw-fw fa-address-card"></i>
+                    <i class="fas faw-fw fa-users"></i>
                     <span>Data Penduduk</span></a>
             </li>
 
             <hr class="sidebar-divider">
             <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('Kelahiran/tampil') ?>">
-                    <i class="fas faw-fw fa-book"></i>
+                    <i class="fas faw-fw fa-baby"></i>
                     <span>Data Kelahiran</span></a>
             </li>
 
             <hr class="sidebar-divider">
             <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('kematian/tampil') ?>">
-                    <i class="fas faw-fw fa-history"></i>
+                    <i class="fas faw-fw fa-skull-crossbones"></i>
                     <span>Data Kematian</span></a>
             </li>
 

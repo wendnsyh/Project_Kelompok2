@@ -6,7 +6,7 @@
                 <hr>
             </div>
 
-            <div class="box-body">
+            <div class="box-body ml-3">
 
                 <?php
                 if ($this->session->flashdata('sukses')) {
@@ -37,7 +37,7 @@
                         <input type="text" name="nama" value="<?php echo $penduduk->nama; ?>" class="form-control"
                             required />
                     </div>
-                    <div class="form-group">
+                    <div class="form-group ml-2">
                         <label>Tempat Tanggal Lahir</label>
                         <div class="row">
                             <div class="col-xs-3">
@@ -45,16 +45,10 @@
                                     class="form-control" placeholder="Tempat">
                             </div>
                             <div class="col-xs-3">
-                                <div class="input-group date">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </div>
+                                <div class="input-group date ml-2">
                                     <input type="date" name="tanggal_lahir"
                                         value="<?php echo $penduduk->tanggal_lahir; ?>" class="form-control pull-right"
                                         autocomplete="off">
-
-
-
                                 </div>
                             </div>
                         </div>
