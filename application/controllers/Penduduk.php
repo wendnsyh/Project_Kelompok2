@@ -10,9 +10,9 @@ class Penduduk extends CI_Controller
         $this->load->model('m_penduduk'); // Memuat model m_penduduk
     }
 
-    public function tampil()
+    public function index()
     {
-        $data['title'] = "Data Penduduk - Desa Warung Bambu";
+        $data['title'] = "Data Penduduk - Desa Serpong";
         $data['penduduk'] = $this->m_penduduk->tampil();
 
         $this->load->view('template/header', $data);
@@ -24,7 +24,7 @@ class Penduduk extends CI_Controller
 
     public function tampil_penduduk()
     {
-        $data['title'] = "Data Penduduk - Desa Warung Bambu";
+        $data['title'] = "Data Penduduk - Desa Serpong";
         $data['penduduk'] = $this->m_penduduk->tampil();
 
         $this->load->view('template/header', $data);
@@ -36,7 +36,7 @@ class Penduduk extends CI_Controller
 
     public function tambah()
     {
-        $data['title'] = "Tambah Penduduk - Desa Warung Bambu";
+        $data['title'] = "Tambah Penduduk - Desa Serpong";
 
         $this->load->view('template/header', $data);
         $this->load->view('template/sidebar');
@@ -91,7 +91,7 @@ class Penduduk extends CI_Controller
 
     public function edit($nik)
     {
-        $data['title'] = "Edit penduduk - Desa Warung Bambu";
+        $data['title'] = "Edit penduduk - Desa Serpong";
         $data['penduduk'] = $this->m_penduduk->edit($nik);
 
         $this->load->view('template/header', $data);
@@ -157,7 +157,7 @@ class Penduduk extends CI_Controller
     public function detail($nik)
     {
 
-        $data['title'] = "Detail penduduk - Desa Warung Bambu";
+        $data['title'] = "Detail penduduk - Desa Serpong";
         $this->load->model('m_penduduk');
         $detail = $this->m_penduduk->detail($nik);
         $data['detail'] = $detail;

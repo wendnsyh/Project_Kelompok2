@@ -117,7 +117,7 @@
                                     </div>
 
                                     <button type="submit" class="btn btn-success">Simpan</button>
-                                    <a href="<?php echo base_url('kelahiran/tampil'); ?>" class="btn btn-danger">Batal</a>
+                                    <a href="<?php echo base_url('kelahiran'); ?>" class="btn btn-danger">Batal</a>
                                 </div>
                             </div>
                             

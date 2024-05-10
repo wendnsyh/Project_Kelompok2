@@ -26,28 +26,28 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
             <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url('penduduk/tampil') ?>">
+                <a class="nav-link" href="<?php echo base_url('penduduk') ?>">
                     <i class="fas faw-fw fa-users"></i>
                     <span>Data Penduduk</span></a>
             </li>
 
             <hr class="sidebar-divider">
             <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url('Kelahiran/tampil') ?>">
+                <a class="nav-link" href="<?php echo base_url('Kelahiran') ?>">
                     <i class="fas faw-fw fa-baby"></i>
                     <span>Data Kelahiran</span></a>
             </li>
 
             <hr class="sidebar-divider">
             <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url('kematian/tampil') ?>">
+                <a class="nav-link" href="<?php echo base_url('kematian') ?>">
                     <i class="fas faw-fw fa-skull-crossbones"></i>
                     <span>Data Kematian</span></a>
             </li>
 
             <hr class="sidebar-divider">
             <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url('pindah/tampil') ?>">
+                <a class="nav-link" href="<?php echo base_url('pindah') ?>">
                     <i class="fas faw-fw fa-address-card"></i>
                     <span>Data Pindah</span></a>
             </li>

@@ -12,7 +12,7 @@ class Kelahiran extends CI_Controller
 		$this->load->model('m_kelahiran');
 	}
 
-	public function tampil()
+	public function index()
 	{
 		$data['title'] = "Data kelahiran - Desa SERPONG	";
 		$data['kelahiran'] = $this->m_kelahiran->tampil();
