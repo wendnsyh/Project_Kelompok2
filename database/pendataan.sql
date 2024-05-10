@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2024 at 03:45 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- Generation Time: May 10, 2024 at 04:59 PM
+-- Server version: 10.4.10-MariaDB
+-- PHP Version: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -33,7 +34,7 @@ CREATE TABLE `batal_pindah` (
   `nik` varchar(30) NOT NULL,
   `alamat_batal_pindah` varchar(255) NOT NULL,
   `tanggal_batal_pindah` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `batal_pindah`
@@ -55,7 +56,7 @@ CREATE TABLE `belum_menikah` (
   `id_pejabat` int(11) NOT NULL,
   `nik` varchar(30) NOT NULL,
   `tanggal_belum_menikah` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `belum_menikah`
@@ -76,7 +77,7 @@ CREATE TABLE `belum_sekolah` (
   `id_pejabat` int(11) NOT NULL,
   `nik` varchar(30) NOT NULL,
   `tanggal_belum_sekolah` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `belum_sekolah`
@@ -97,7 +98,7 @@ CREATE TABLE `cerai_mati` (
   `id_pejabat` int(11) NOT NULL,
   `nik` varchar(30) NOT NULL,
   `tanggal_cerai_mati` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cerai_mati`
@@ -119,7 +120,7 @@ CREATE TABLE `domisili` (
   `nik` varchar(30) NOT NULL,
   `no_surat_rt` varchar(255) NOT NULL,
   `tanggal_domisili` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `domisili`
@@ -142,7 +143,7 @@ CREATE TABLE `haji` (
   `id_pejabat` int(11) NOT NULL,
   `nik` varchar(30) NOT NULL,
   `tanggal_haji` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `haji`
@@ -167,7 +168,7 @@ CREATE TABLE `izin_keluarga` (
   `nik_anak` varchar(30) NOT NULL,
   `tujuan_izin_keluarga` varchar(100) NOT NULL,
   `tanggal_izin_keluarga` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `izin_keluarga`
@@ -208,16 +209,14 @@ CREATE TABLE `kelahiran` (
   `rt` varchar(120) NOT NULL,
   `rw` varchar(120) NOT NULL,
   `keterangan` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `kelahiran`
 --
 
 INSERT INTO `kelahiran` (`id_kelahiran`, `nama`, `hari`, `tempat_lahir`, `tanggal_lahir`, `pukul`, `jenis_kelahiran`, `anak_ke`, `jenis_kelamin`, `alamat`, `berat_bayi`, `panjang_bayi`, `nik_ayah`, `nama_ayah`, `pekerjaan_ayah`, `alamat_ayah`, `nik_ibu`, `nama_ibu`, `pekerjaan_ibu`, `alamat_ibu`, `rt`, `rw`, `keterangan`) VALUES
-(5, 'Wendy', '1', 'Karawang', '2018-05-06', '07:05:00', 'Laki Laki', 'La', 'Laki Laki', 'jalan  ', '0', '0', '0000000000000000', 'Arga Sofyna', 'Buruh', 'Sukamaju  Rt.010 Rw.003', '0000000000000000', 'Maya Handayani', 'Mengurus Rumah Tangga', 'Sukamaju  Rt.010 Rw.003', '12', 'Perumahan Gading Elok 2', '1212'),
 (6, 'Nailla Zara Aditya', 'Kamis', 'Karawang', '2019-07-11', '09:35:00', 'Laki Laki', 'La', 'Perempuan', 'Suka Mulya Rt.015/004', '0', '0', '0000000000000000', 'Aditya', 'Buruh', 'Suka Mulya Rt.015/004', '0000000000000000', 'Lindawati', 'Mengurus Rumah Tangga', 'Suka Mulya Rt.015/004', '', '', ''),
-(7, 'Abdul Latip', 'Rabu', 'Karawang', '2019-07-12', '19:30:00', 'Laki Laki', 'La', 'Laki Laki', 'Krajan I Rt 002 / 001', '0', '0', '0000000000000000', 'Nanasupriyatna', 'Buruh', 'Krajan I Rt 002 / 001', '0000000000000000', 'Resti', 'Mengurus Rumah Tangga', 'Krajan I Rt 002 / 001', '', '', ''),
 (8, 'Aidil Akbar Sentosa', 'Kamis', 'Karawang', '2019-08-19', '00:00:00', 'Laki Laki', 'La', 'Laki Laki', 'SukaMulya RT.015 / 05', '0', '0', '0000000000000000', 'Firman', 'Buruh', 'SukaMulya RT.015 / 05', '0000000000000000', 'Nuraeni Halim', ' Mengurus Rumah Tangga', 'SukaMulya RT.015 / 05', '', '', ''),
 (9, 'Yonathan Timothy Putra Simatupang', 'Jumat', 'Bekasi', '2019-10-18', '16:34:00', 'Laki Laki', 'La', 'Perempuan', 'Sukamaju RT. 013  / 03', '0', '0', '0000000000000000', 'Agustina Khristine K', 'Buruh', 'Sukamaju RT. 013  / 03', '0000000000000000', 'Ponny Agustin Simatu', 'Mengurus Rumah Tangga', 'Sukamaju RT. 013  / 03', '', '', ''),
 (10, 'Sofia Azzahra', 'Jumat', 'Karawang', '2019-11-01', '00:03:00', 'Laki Laki', 'La', 'Laki Laki', 'Bukaper', '0', '0', '0000000000000000', 'Senjaya', 'Buruh', 'Bukaper', '0000000000000000', 'Intan Rahmawati', 'Mengurus Rumah Tangga', 'Bukaper', '', '', ''),
@@ -234,6 +233,7 @@ INSERT INTO `kelahiran` (`id_kelahiran`, `nama`, `hari`, `tempat_lahir`, `tangga
 --
 
 CREATE TABLE `kematian` (
+  `id_kematian` int(11) NOT NULL,
   `nik` bigint(16) NOT NULL,
   `nama_kepala_keluarga` varchar(100) NOT NULL,
   `no_kk` varchar(32) NOT NULL,
@@ -263,14 +263,16 @@ CREATE TABLE `kematian` (
   `tanggal_lahir_ibu` date NOT NULL,
   `pekerjaan_ibu` varchar(29) NOT NULL,
   `alamat_ibu` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `kematian`
 --
 
-INSERT INTO `kematian` (`nik`, `nama_kepala_keluarga`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `agama`, `pekerjaan`, `alamat`, `rt`, `rw`, `kewarganegaraan`, `hari_wafat`, `tanggal_wafat`, `pukul`, `sebab_wafat`, `tempat_wafat`, `keterangan`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`, `pekerjaan_ayah`, `alamat_ayah`, `nik_ibu`, `nama_ibu`, `tanggal_lahir_ibu`, `pekerjaan_ibu`, `alamat_ibu`) VALUES
-(0, 'Kantor Kepala Desa Warung Bambu', '0000000000000000', 'A Suhani', 'Karawang', '77', 'Laki Laki', 'Islam', '-', 'SukaMulya ', '016', 'Kepala Dusun Sukamulya', 'Indonesia', 'Minggu', '2018-09-01', '08:00:00', '1', 'Rumah Duka', '1', '0000000000000000', '-', '0001-01-01', '-', 'Kepala Dusun Sukamulya', '0000000000000000', '-', '0001-01-01', '-', 'SukaMulya ');
+INSERT INTO `kematian` (`id_kematian`, `nik`, `nama_kepala_keluarga`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `agama`, `pekerjaan`, `alamat`, `rt`, `rw`, `kewarganegaraan`, `hari_wafat`, `tanggal_wafat`, `pukul`, `sebab_wafat`, `tempat_wafat`, `keterangan`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`, `pekerjaan_ayah`, `alamat_ayah`, `nik_ibu`, `nama_ibu`, `tanggal_lahir_ibu`, `pekerjaan_ibu`, `alamat_ibu`) VALUES
+(1, 0, '', '', 'Qwqw', 'tangerang', '20', 'Laki Laki', 'Kristen', '-', '-', '2', 'Perumahan Gading Elok 2', '', 'Senin', '2024-05-10', '23:19:00', '', '', '', '', '', '0000-00-00', '', '', '', '', '0000-00-00', '', ''),
+(2, 0, '', '', 'Orang', 'tangerang', '20', 'Laki Laki', 'Konghucu', '-', '-', '2', 'Kepala Dusun WarnaJaya', '', 'Senin', '2024-05-13', '17:24:00', '', '', '', '', '', '0000-00-00', '', '', '', '', '0000-00-00', '', ''),
+(663, 0, '', '', 'Rrq', 'tangerang', '22', 'Perempuan', 'Konghucu', '-', '2', '2', 'Kepala Dusun Krajan 2', '', 'Senin', '2024-05-10', '17:29:00', '', '', '', '', '', '0000-00-00', '', '', '', '', '0000-00-00', '', '');
 
 -- --------------------------------------------------------
 
@@ -283,7 +285,7 @@ CREATE TABLE `menikah` (
   `id_pejabat` int(11) NOT NULL,
   `nik` varchar(30) NOT NULL,
   `tanggal_menikah` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `menikah`
@@ -305,7 +307,7 @@ CREATE TABLE `pejabat` (
   `nama_pejabat` varchar(255) NOT NULL,
   `nip_pejabat` varchar(255) NOT NULL,
   `jabatan_pejabat` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pejabat`
@@ -332,7 +334,7 @@ CREATE TABLE `pemakaman` (
   `tanggal_dimakamkan` date NOT NULL,
   `jam_dimakamkan` varchar(10) NOT NULL,
   `tanggal_pemakaman` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pemakaman`
@@ -367,7 +369,7 @@ CREATE TABLE `penduduk` (
   `status` varchar(50) NOT NULL,
   `golongan_darah` varchar(20) NOT NULL,
   `kewarganegaraan` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `penduduk`
@@ -401,7 +403,7 @@ CREATE TABLE `penghasilan` (
   `keperluan_penghasilan` text NOT NULL,
   `jumlah_penghasilan` int(11) NOT NULL,
   `tanggal_penghasilan` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `penghasilan`
@@ -435,7 +437,7 @@ CREATE TABLE `pindah` (
   `kode_pos_pindah` int(5) NOT NULL,
   `telepon_pindah` varchar(12) NOT NULL,
   `tanggal_pindah` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pindah`
@@ -465,7 +467,7 @@ CREATE TABLE `pindahdatang` (
   `klasifikasi_pindah` varchar(100) NOT NULL,
   `status_kk_pindah` varchar(100) NOT NULL,
   `status_kk_tdk_pindah` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pindahdatang`
@@ -491,7 +493,7 @@ CREATE TABLE `skck` (
   `id_pejabat` int(11) NOT NULL,
   `nik` varchar(30) NOT NULL,
   `tanggal_skck` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `skck`
@@ -515,7 +517,7 @@ CREATE TABLE `sktm_kesehatan` (
   `nik_anak` varchar(30) NOT NULL,
   `nik_ayah` varchar(16) NOT NULL,
   `tanggal_sktm_kesehatan` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `sktm_kesehatan`
@@ -541,7 +543,7 @@ CREATE TABLE `sktm_pendidikan` (
   `nik_ayah` varchar(30) NOT NULL,
   `nik_anak` varchar(30) NOT NULL,
   `tanggal_sktm_pendidikan` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `sktm_pendidikan`
@@ -572,7 +574,7 @@ CREATE TABLE `surat_kelahiran` (
   `hari_lahir_anak` varchar(20) NOT NULL,
   `hubungan_sebagai` varchar(100) NOT NULL,
   `tanggal_surat_kelahiran` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `surat_kelahiran`
@@ -581,7 +583,8 @@ CREATE TABLE `surat_kelahiran` (
 INSERT INTO `surat_kelahiran` (`id_surat_kelahiran`, `id_pejabat`, `nik_ayah`, `nik_ibu`, `nik_pelapor`, `nama_anak`, `kelamin_anak`, `tempat_lahir_anak`, `tanggal_lahir_anak`, `jam_lahir_anak`, `hari_lahir_anak`, `hubungan_sebagai`, `tanggal_surat_kelahiran`) VALUES
 (2, 1, '123456789', '2147483647', '2147483647', 'syarif', 'Laki-Laki', 'Tegal', '2020-04-17', '11:11', '', 'abah', '2019-11-14'),
 (3, 1, '12346777', '75765757', '12346777', 'khoirul syarif', 'Perempuan', 'Tegal', '0000-00-00', '11:11', '', 'abah', '2019-11-20'),
-(6, 2, '3215260112990001', '3215260112990001', '3215260112990001', 'Muhammad Wendy', 'Laki-Laki', 'Tangerang', '2024-03-26', '15:51', 'Selasa', 'anak', '2024-03-26');
+(6, 2, '3215260112990001', '3215260112990001', '3215260112990001', 'Muhammad Wendy', 'Laki-Laki', 'Tangerang', '2024-03-26', '15:51', 'Selasa', 'anak', '2024-03-26'),
+(7, 2, '123456', '3215260607060001', '3215260607060001', 'Muhammad Wendy', 'Laki-Laki', 'Tangerang', '2024-05-10', '20:07', 'Senin', 'anak', '2024-05-10');
 
 -- --------------------------------------------------------
 
@@ -602,7 +605,7 @@ CREATE TABLE `surat_kematian` (
   `sebab_kematian` varchar(255) NOT NULL,
   `hubungan_sebagai` varchar(100) NOT NULL,
   `tanggal_surat_kematian` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `surat_kematian`
@@ -612,7 +615,8 @@ INSERT INTO `surat_kematian` (`id_surat_kematian`, `id_pejabat`, `nik`, `nik_pel
 (1, 1, '2147483647', '2147483647', 30, 'Tegal', '1990-11-11', '10:30', '', '', 'abah', '2019-11-15'),
 (2, 1, '12346777', '123456789', 2, 'Tegal', '0000-00-00', '11:11', '', '', 'ibu', '2019-11-21'),
 (3, 1, '3215260112990001', '3215260112990001', 12, 'tegall', '1998-09-16', '11:11', '1', '', 'sa', '2019-11-25'),
-(4, 1, '3215261607780001', '3215262701170002', 120, 'sdds', '1998-11-11', '11:01', '', '', 'sodara', '2019-11-25');
+(4, 1, '3215261607780001', '3215262701170002', 120, 'sdds', '1998-11-11', '11:01', '', '', 'sodara', '2019-11-25'),
+(5, 1, '3215260401050001', '123456', 90, 'Tangerang', '2024-05-01', '19:26', 'Senin', '', 'anak', '2024-05-10');
 
 -- --------------------------------------------------------
 
@@ -627,7 +631,7 @@ CREATE TABLE `usaha` (
   `nama_usaha` varchar(255) NOT NULL,
   `sejak_usaha` varchar(4) NOT NULL,
   `tanggal_usaha` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `usaha`
@@ -649,7 +653,7 @@ CREATE TABLE `user` (
   `password` varchar(32) NOT NULL,
   `nama_petugas` varchar(50) NOT NULL,
   `level` enum('admin','sekertaris','kepaladesa') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
@@ -716,7 +720,7 @@ ALTER TABLE `kelahiran`
 -- Indexes for table `kematian`
 --
 ALTER TABLE `kematian`
-  ADD PRIMARY KEY (`nik`);
+  ADD PRIMARY KEY (`id_kematian`);
 
 --
 -- Indexes for table `menikah`
@@ -855,6 +859,12 @@ ALTER TABLE `kelahiran`
   MODIFY `id_kelahiran` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
+-- AUTO_INCREMENT for table `kematian`
+--
+ALTER TABLE `kematian`
+  MODIFY `id_kematian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2147483648;
+
+--
 -- AUTO_INCREMENT for table `menikah`
 --
 ALTER TABLE `menikah`
@@ -900,13 +910,13 @@ ALTER TABLE `sktm_pendidikan`
 -- AUTO_INCREMENT for table `surat_kelahiran`
 --
 ALTER TABLE `surat_kelahiran`
-  MODIFY `id_surat_kelahiran` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_surat_kelahiran` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `surat_kematian`
 --
 ALTER TABLE `surat_kematian`
-  MODIFY `id_surat_kematian` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_surat_kematian` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `usaha`
