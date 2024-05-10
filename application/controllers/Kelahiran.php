@@ -6,42 +6,33 @@ class Kelahiran extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		if ($this->session->userdata('login') == FALSE) {
-			redirect(base_url("login"));
-		}
+		// if ($this->session->userdata('login') == FALSE) {
+		// 	redirect(base_url("login"));
+		// }
 		$this->load->model('m_kelahiran');
 	}
 
 	public function tampil()
 	{
-		$data['title'] = "Data kelahiran - Desa SERPONG";
+		$data['title'] = "Data kelahiran - Desa SERPONG	";
 		$data['kelahiran'] = $this->m_kelahiran->tampil();
 
 		$this->load->view('template/header', $data);
-		$this->load->view('template/topbar');
 		$this->load->view('template/sidebar');
+		$this->load->view('template/topbar');
 		$this->load->view('kelahiran/tampil_kelahiran');
 		$this->load->view('template/footer');
 	}
-	public function tampil_kelahiran()
-	{
-		$data['title'] = "Data kelahiran - Desa Warung Bambu";
-		$data['kelahiran'] = $this->m_kelahiran->tampil();
 
-		$this->load->view('template/header', $data);
-		$this->load->view('template/topbar');
-		$this->load->view('template/sidebar');
-		$this->load->view('kelahiran/tampil_kelahiran2');
-		$this->load->view('template/footer');
-	}
+
 
 	public function tambah()
 	{
 		$data['title'] = "Tambah kelahiran - Desa Warung Bambu";
 
 		$this->load->view('template/header', $data);
-		$this->load->view('template/topbar');
 		$this->load->view('template/sidebar');
+		$this->load->view('template/topbar');
 		$this->load->view('kelahiran/tambah_kelahiran');
 		$this->load->view('template/footer');
 	}
@@ -90,8 +81,8 @@ class Kelahiran extends CI_Controller
 		$data['kelahiran'] = $this->m_kelahiran->edit($this->uri->segment(3));
 
 		$this->load->view('template/header', $data);
-		$this->load->view('template/topbar');
 		$this->load->view('template/sidebar');
+		$this->load->view('template/topbar');
 		$this->load->view('kelahiran/edit_kelahiran');
 		$this->load->view('template/footer');
 	}
@@ -136,8 +127,8 @@ class Kelahiran extends CI_Controller
 		$detail = $this->m_kelahiran->detail($id_kelahiran);
 		$data['detail'] = $detail;
 		$this->load->view('template/header', $data);
-		$this->load->view('template/topbar');
 		$this->load->view('template/sidebar');
+		$this->load->view('template/topbar');
 		$this->load->view('kelahiran/detail_kelahiran', $data);
 		$this->load->view('template/footer');
 	}

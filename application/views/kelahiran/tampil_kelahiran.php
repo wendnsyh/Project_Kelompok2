@@ -19,9 +19,8 @@
         <?php
         }
         ?>
-
         <p>
-          <a href="<?php echo base_url('kelahiran/tambah'); ?>" class="btn btn-success">Tambah Data Kelahiran</a>
+          <a href="<?php echo base_url('kelahiran/tambah'); ?>" class="btn btn-success ml-3">Tambah Data Kelahiran</a>
         </p>
         <table id="data" class="table table-bordered" width="100%" cellspacing="0">
           <thead>
@@ -51,9 +50,9 @@
                 <td><?php echo $kelahiran->nama_ayah; ?></td>
                 <td><?php echo $kelahiran->nama_ibu; ?></td>
                 <td style="text-align:center">
-                  <a href="<?php echo base_url('kelahiran/edit/' . $kelahiran->id_kelahiran); ?>" class="btn btn-success btn-xs"><i class="fa fa-edit"></i> Edit</a>
-                  <a href="<?php echo base_url('kelahiran/hapus/' . $kelahiran->id_kelahiran); ?>" class="btn btn-danger btn-xs" onClick="return confirm('Yakin Akan Menghapus Data?');"><i class="fa fa-trash-o"></i> Hapus</a>
-                  <a href="<?php echo base_url('kelahiran/detail/' . $kelahiran->id_kelahiran); ?>" class="btn btn-info btn-xs"><i class="fa fa-info-circle"></i> Detail</a>
+                  <a href="<?php echo base_url('kelahiran/edit/' . $kelahiran->id_kelahiran); ?>" class="btn btn-success  mb-2"><i class="fa fa-edit"></i> Edit</a>
+                  <a href="<?php echo base_url('kelahiran/hapus/' . $kelahiran->id_kelahiran); ?>" class="btn btn-danger mb-2" onClick="return confirm('Yakin Akan Menghapus Data?');"><i class="fa fa-trash-o"></i> Hapus</a>
+                  <a href="<?php echo base_url('kelahiran/detail/' . $kelahiran->id_kelahiran); ?>" class="btn btn-info mb-2"><i class="fa fa-info-circle"></i> Detail</a>
               </tr>
               </td>
             <?php

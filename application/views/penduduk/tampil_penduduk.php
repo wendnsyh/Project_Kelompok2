@@ -2,7 +2,7 @@
     <section class="content">
         <div class="box box-info">
             <div class="box-header">
-                <h4 style="text-align:center"><b>DATA PENDUDUK DESA 12</b></h4>
+                <h4 style="text-align:center"><b>DATA PENDUDUK DESA SERPONG</b></h4>
                 <hr>
             </div>
 

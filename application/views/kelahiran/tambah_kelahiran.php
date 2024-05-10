@@ -10,16 +10,16 @@
                 <div class="card-body">
 
                     <?php
-if ($this->session->flashdata('sukses')) {
-	?>
-                    <div class="callout callout-success">
-                        <p style="font-size:14px">
-                            <i class="fa fa-check"></i> <?php echo $this->session->flashdata('sukses'); ?>
-                        </p>
-                    </div>
+                    if ($this->session->flashdata('sukses')) {
+                    ?>
+                        <div class="callout callout-success">
+                            <p style="font-size:14px">
+                                <i class="fa fa-check"></i> <?php echo $this->session->flashdata('sukses'); ?>
+                            </p>
+                        </div>
                     <?php
-}
-?>
+                    }
+                    ?>
 
                     <form action="<?php echo base_url('kelahiran/proses_tambah'); ?>" method="post">
                         <!-- kolom ke-1 -->
@@ -34,13 +34,9 @@ if ($this->session->flashdata('sukses')) {
                                 <div class="form-group">
                                     <label>Tempat Tanggal Lahir</label>
 
-                                        <div class="col-xs-5">
-                                            <div class="input-group date">
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-calendar"></i>
-                                                </div>
-                                                <input type="date" name="tanggal_lahir" class="form-control pull-right">
-                                            </div>
+                                    <div class="col-xs-5">
+                                        <div class="input-group date">
+                                            <input type="date" name="tanggal_lahir" class="form-control pull-right">
                                         </div>
                                     </div>
                                 </div>
@@ -49,8 +45,7 @@ if ($this->session->flashdata('sukses')) {
                                     <div class="form-group">
                                         <label>Pukul</label>
                                         <div class="input-group">
-                                            <input type="time" name="pukul" id="pukul" class="form-control timepicker"
-                                                required>
+                                            <input type="time" name="pukul" id="pukul" class="form-control timepicker" required>
                                             <div class="input-group-addon">
                                                 <i class="fa fa-clock-o"></i>
                                             </div>
@@ -85,16 +80,12 @@ if ($this->session->flashdata('sukses')) {
                                     </div>
 
                                 </div>
-                            </div>
 
-
-                            <!-- kolom ke-2 -->
-                            <div class="row">
                                 <div class="col-lg-6">
 
-                                    <div class="form-group">
+                                    <div class="form-group mr-10">
                                         <label>Alamat</label>
-                                        <textarea name="alamat" class="form-control" rows="3" required></textarea>
+                                        <textarea name="alamat" class="form-control" rows="4" required></textarea>
                                     </div>
 
                                     <div class="form-group">
@@ -121,19 +112,15 @@ if ($this->session->flashdata('sukses')) {
                                     </div>
 
                                     <div class="form-group">
-                                        <label>KETERANGAN</label>
-                                        <input type="text" name="keterangan" class="form-control" rows="2" required />
+                                        <label>Keterangan</label>
+                                        <textarea name="Keterangan" class="form-control" rows="4" required></textarea>
                                     </div>
 
+                                    <button type="submit" class="btn btn-success">Simpan</button>
+                                    <a href="<?php echo base_url('kelahiran/tampil'); ?>" class="btn btn-danger">Batal</a>
                                 </div>
                             </div>
-                            <center>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-success">Simpan</button>
-                                    <a href="<?php echo base_url('kelahiran/tampil'); ?>"
-                                        class="btn btn-danger">Batal</a>
-                                </div>
-                            </center>
+                            
                         </div>
                 </div>
                 </form>
