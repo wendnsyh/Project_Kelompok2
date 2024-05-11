@@ -88,8 +88,17 @@ class PenggajianModel extends CI_Model
         return $query;
     }
     
-    public function login($data)
-	{
-		return $this->db->get_where('user',$data);
-	}
+    public function login($username, $password)
+    {
+        $this->db->where('username', $username);
+        $this->db->where('password', $password);
+        $query = $this->db->get('user');
+        
+        // Jika ditemukan satu baris yang sesuai, kembalikan baris tersebut
+        if ($query->num_rows() == 1) {
+            return $query->row_array();
+        } else {
+            return false; // Tidak ada baris yang sesuai
+        }
+    }
 }
