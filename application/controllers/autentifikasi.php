@@ -4,7 +4,7 @@ class Autentifikasi extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('PenggajianModel');
+        $this->load->model('M_login');
         $this->load->library('session');
     }
 
@@ -26,7 +26,7 @@ class Autentifikasi extends CI_Controller
             $username = htmlspecialchars($this->input->post('username', TRUE), ENT_QUOTES);
             $password = md5(htmlspecialchars($this->input->post('password', TRUE), ENT_QUOTES));
 
-            $user = $this->PenggajianModel->login($username, $password); // Ganti 'your_model' dengan nama model Anda
+            $user = $this->M_login->login($username, $password); // Ganti 'your_model' dengan nama model Anda
 
             if ($user) {
                 // Authentication successful, set session data and redirect to homepage

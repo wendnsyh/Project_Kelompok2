@@ -91,7 +91,7 @@
 
             <hr class="sidebar-divider">
             <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url('autentifikasi') ?>">
+                <a class="nav-link" href="<?php echo base_url('autentifikasi/logout') ?>" onclick="return confirm('Yakin logout?')">
                     <i class="fas fa-power-off"></i>
                     <span>Logout</span></a>
             </li>
