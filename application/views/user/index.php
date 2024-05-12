@@ -11,7 +11,7 @@
 
     <div class="row">
         <div class="col-md-5 mb-3">
-                <div class="row-md-5" style="display: flex; justify-content: center; align-items: center; background: #FFF; width: 100%; height: 100%;">
+                <div class="row-md-5" style="display: flex; justify-content: left; align-items: center; ">
                     <a href="<?= base_url('user/edit'); ?>" class="btn btn-success" style="margin-right: 15px;"><i class=" fas fa-edit"></i>Edit Profile</a>
                     <a href="<?= base_url('user/ubahPassword'); ?>" class="btn btn-primary"><i class="fas fa-lock-open"></i>Ubah Password</a>
                 </div>
@@ -32,13 +32,13 @@
                     <div class="form-group row">
                         <label for="name" class="col-sm-10 col-form-label">Nama Petugas</label>
                         <div class="col-sm-12">
-                            <input readonly type="text" class="form-control" id="nama" name="nama" value="<?= $user['nama_petugas']; ?>">
+                            <input readonly type="text" class="form-control" id="nama_petugas" name="nama_petugas" value="<?= $user['nama_petugas']; ?>">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="name" class="col-sm-10 col-form-label">Jabatan</label>
                         <div class="col-sm-12">
-                            <input readonly type="text" class="form-control" id="nama" name="nama" value="<?= $user['level']; ?>">
+                            <input readonly type="text" class="form-control" id="jabatan" name="jabatan" value="<?= $user['level']; ?>">
                         </div>
                     </div>
                 </div>
