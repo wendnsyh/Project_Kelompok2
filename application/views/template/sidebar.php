@@ -59,7 +59,7 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="<?php echo base_url('surat/surat_kelahiran') ?>"><i class="fas fa-envelope"></i> Surat Kelahiran</a>
+                        <a class="collapse-item" href="<?php echo base_url('SuratKelahiran') ?>"><i class="fas fa-envelope"></i> Surat Kelahiran</a>
                         <a class="collapse-item" href="<?php echo base_url('SuratKematian/surat_kematian') ?>"><i class="fas fa-envelope"></i> Surat Kematian</a>
                         <a class="collapse-item" href="<?php echo base_url('surat/domisili') ?>"><i class="fas fa-envelope"></i> SK Domisili</a>
                         <a class="collapse-item" href="<?php echo base_url('surat/surat_kesehatan') ?>"><i class="fas fa-envelope"></i> SKTM Kesehatan</a>
