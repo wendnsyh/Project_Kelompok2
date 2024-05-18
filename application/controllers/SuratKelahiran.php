@@ -12,10 +12,8 @@ class SuratKelahiran extends CI_Controller
 
     public function index()
     {
-
-        $data['title'] = "Data Kelahiran Desa Serpong";
-        $data['surat_kelahiran']=$this->M_surat_kelahiran->daftar_surat_kelahiran();
-        
+        $data['title'] = "Surat Kelahiran - Desa Serpong";
+        $data['surat_kelahiran'] = $this->M_surat_kelahiran->daftar_surat_kelahiran();
 
         $this->load->view('template/header', $data);
         $this->load->view('template/sidebar');
@@ -24,22 +22,14 @@ class SuratKelahiran extends CI_Controller
         $this->load->view('template/footer');
     }
 
-
     public function tambah()
     {
-
-        $data['title'] = " Tambah Data Kelahiran";
+        $data['title'] = "Surat Kelahiran - Desa Serpong";
+        $data['penduduk'] = $this->m_penduduk->tampil();
+        $data['pendudukk'] = $this->m_penduduk->tampil();
         $data['pendudukkk'] = $this->m_penduduk->tampil();
+        $data['pejabat'] = $this->M_surat_kelahiran->pejabat();
 
-        $this->load->view('template/header', $data);
-        $this->load->view("template/sidebar");
-        $this->load->view('template/topbar');
-        $this->load->view('surat/kelahiran/tambah_surat_kelahiran');
-        $this->load->view('template/footer');
-    }
-
-    public function proses_tambah()
-    {
         if ($this->input->post('tambah_surat_kelahiran')) {
             $data = array(
                 'nik_ayah' => $this->input->post('ayah'),
@@ -55,18 +45,27 @@ class SuratKelahiran extends CI_Controller
                 'hubungan_sebagai' => $this->input->post('hubungan'),
                 'tanggal_surat_kelahiran' => date('Y-m-d'),
             );
-
-            $this->M_surat_kelahiran->tambah_surat_kelahiran($data);
-            $data['pendudukkk'] = $this->m_penduduk->tampil();
+            $this->m_surat_kelahiran->tambah_surat_kelahiran($data);
             $this->session->set_flashdata('sukses', 'Data berhasil ditambahkan.');
-            redirect(base_url('SuratKelahiran'));
+            redirect(base_url('SuratKelahiran/'));
         } else {
-            $this->tambah();
+            $this->load->view('template/header', $data);
+            $this->load->view('template/sidebar');
+            $this->load->view('template/topbar');
+            $this->load->view('surat/kelahiran/tambah_surat_kelahiran');
+            $this->load->view('template/footer');
         }
     }
 
-    public function edit()
+    public function edit($id)
     {
+        $data['title'] = "Surat Kelahiran - Desa Serpong";
+        $data['penduduk'] = $this->m_penduduk->tampil();
+        $data['pendudukk'] = $this->m_penduduk->tampil();
+        $data['pendudukkk'] = $this->m_penduduk->tampil();
+        $data['pejabat'] = $this->M_surat_kelahiran->pejabat();
+        $data['surat_kelahiran'] = $this->M_surat_kelahiran->edit_surat_kelahiran($id);
+
         if ($this->input->post('edit_surat_kelahiran')) {
             $data = array(
                 'nik_ayah' => $this->input->post('ayah'),
@@ -84,32 +83,28 @@ class SuratKelahiran extends CI_Controller
             $where = array(
                 'id_surat_kelahiran' => $this->input->post('id'),
             );
-            $this->M_surat_kelahiran->proses_edit_surat_kelahiran($where, $data);
+            $this->m_surat_kelahiran->proses_edit_surat_kelahiran($where, $data);
             $this->session->set_flashdata('sukses', 'Data berhasil diedit.');
             redirect(base_url('surat/surat_kelahiran/'));
         } else {
-            $data['title'] = "Surat Kelahiran - Desa Serpong";
-            $data['penduduk'] = $this->m_penduduk->tampil();
-            $data['pendudukk'] = $this->m_penduduk->tampil();
-            $data['pendudukkk'] = $this->m_penduduk->tampil();
-            $data['pejabat'] = $this->m_surat_kelahiran->pejabat();
-            $data['surat_kelahiran'] = $this->m_surat_kelahiran->edit_surat_kelahiran($this->uri->segment('4'));
-            $this->load->view('header', $data);
-            $this->load->view('surat/edit_surat_kelahiran', $data);
-            $this->load->view('footer');
+            $this->load->view('template/header', $data);
+            $this->load->view('template/sidebar');
+            $this->load->view('template/topbar');
+            $this->load->view('surat/kelahiran/edit_surat_kelahiran');
+            $this->load->view('template/footer');
         }
     }
 
-    public function hapus()
+    public function hapus($id)
     {
-        $this->M_surat_kelahiran->hapus_surat_kelahiran($this->uri->segment('4'));
+        $this->M_surat_kelahiran->hapus_surat_kelahiran($id);
         $this->session->set_flashdata('sukses', 'Data berhasil dihapus.');
-        redirect(base_url('surat/kelahiran/daftar_surat_kelahiran'));
+        redirect(base_url('SuratKelahiran/'));
     }
 
-    public function cetak()
+    public function cetak($id)
     {
-        $data['surat_kelahiran'] = $this->M_surat_kelahiran->cetak_surat_kelahiran($this->uri->segment('4'));
+        $data['surat_kelahiran'] = $this->M_surat_kelahiran->cetak_surat_kelahiran($id);
         $this->load->view('surat/kelahiran/cetak_surat_kelahiran', $data);
     }
 }

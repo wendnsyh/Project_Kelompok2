@@ -5,7 +5,7 @@
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="text-center"><b>TAMBAH SURAT KELAHIRAN</b></h4>
+                            <h4 class="text-center"><b><?= $title ?></b></h4>
                             <hr>
                         </div>
 
@@ -16,15 +16,15 @@
                                 </div>
                             <?php endif; ?>
 
-                            <form action="<?php echo base_url('SuratKelahiran/tambah'); ?>" method="post">
+                            <form action="<?php echo base_url('SuratKelahiran/edit/'); ?>" method="post">
+                                <input type="hidden" name="id" value="<?php echo $surat_kelahiran->id_surat_kelahiran; ?>">
 
                                 <div class="form-group">
                                     <label>NIK Ayah</label>
-                                    <a href="<?php echo base_url(); ?>penduduk/tambah/" class="btn btn-sm btn-primary float-right">Tambah Penduduk</a>
                                     <select name="ayah" class="form-control" required>
-                                        <?php foreach ($penduduk as $penduduk) : ?>
-                                            <option value="<?php echo $penduduk->nik; ?>">
-                                                <?php echo $penduduk->nik; ?> - <?php echo $penduduk->nama; ?>
+                                        <?php foreach ($penduduk as $ayah) : ?>
+                                            <option value="<?php echo $ayah->nik; ?>" <?php echo ($ayah->nik == $surat_kelahiran->nik_ayah) ? 'selected' : ''; ?>>
+                                                <?php echo $ayah->nik; ?> - <?php echo $ayah->nama; ?>
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
@@ -33,9 +33,9 @@
                                 <div class="form-group">
                                     <label>NIK Ibu</label>
                                     <select name="ibu" class="form-control" required>
-                                        <?php foreach ($pendudukk as $pendudukk) : ?>
-                                            <option value="<?php echo $pendudukk->nik; ?>">
-                                                <?php echo $pendudukk->nik; ?> - <?php echo $pendudukk->nama; ?>
+                                        <?php foreach ($pendudukk as $ibu) : ?>
+                                            <option value="<?php echo $ibu->nik; ?>" <?php echo ($ibu->nik == $surat_kelahiran->nik_ibu) ? 'selected' : ''; ?>>
+                                                <?php echo $ibu->nik; ?> - <?php echo $ibu->nama; ?>
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
@@ -44,9 +44,9 @@
                                 <div class="form-group">
                                     <label>NIK Pelapor</label>
                                     <select name="pelapor" class="form-control" required>
-                                        <?php foreach ($pendudukkk as $pendudukkk) : ?>
-                                            <option value="<?php echo $pendudukkk->nik; ?>">
-                                                <?php echo $pendudukkk->nik; ?> - <?php echo $pendudukkk->nama; ?>
+                                        <?php foreach ($pendudukkk as $pelapor) : ?>
+                                            <option value="<?php echo $pelapor->nik; ?>" <?php echo ($pelapor->nik == $surat_kelahiran->nik_pelapor) ? 'selected' : ''; ?>>
+                                                <?php echo $pelapor->nik; ?> - <?php echo $pelapor->nama; ?>
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
@@ -54,14 +54,14 @@
 
                                 <div class="form-group">
                                     <label>Nama Anak</label>
-                                    <input type="text" name="nama" class="form-control" placeholder="Nama Anak" required>
+                                    <input type="text" name="nama" class="form-control" value="<?php echo $surat_kelahiran->nama_anak; ?>" placeholder="Nama Anak" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Jenis Kelamin Anak</label>
                                     <select name="kelamin" class="form-control" required>
-                                        <option value="Laki-Laki">Laki-Laki</option>
-                                        <option value="Perempuan">Perempuan</option>
+                                        <option value="Laki-Laki" <?php echo ($surat_kelahiran->kelamin_anak == 'Laki-Laki') ? 'selected' : ''; ?>>Laki-Laki</option>
+                                        <option value="Perempuan" <?php echo ($surat_kelahiran->kelamin_anak == 'Perempuan') ? 'selected' : ''; ?>>Perempuan</option>
                                     </select>
                                 </div>
 
@@ -69,21 +69,20 @@
                                     <label>Tempat Tanggal Lahir</label>
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <input type="text" name="tempat" class="form-control" placeholder="Tempat">
+                                            <input type="text" name="tempat" class="form-control" value="<?php echo $surat_kelahiran->tempat_lahir_anak; ?>" placeholder="Tempat">
                                         </div>
                                         <div class="col-md-4">
-                                            <input type="date" name="tanggal" class="form-control" required>
+                                            <input type="date" name="tanggal" class="form-control" value="<?php echo $surat_kelahiran->tanggal_lahir_anak; ?>" required>
                                         </div>
                                         <div class="col-md-4">
                                             <select name="hari" class="form-control" required>
-                                                <option value="" selected disabled>- pilih -</option>
-                                                <option value="Senin">Senin</option>
-                                                <option value="Selasa">Selasa</option>
-                                                <option value="Rabu">Rabu</option>
-                                                <option value="Kamis">Kamis</option>
-                                                <option value="Jumat">Jumat</option>
-                                                <option value="Sabtu">Sabtu</option>
-                                                <option value="Minggu">Minggu</option>
+                                                <option value="Senin" <?php echo ($surat_kelahiran->hari_lahir_anak == 'Senin') ? 'selected' : ''; ?>>Senin</option>
+                                                <option value="Selasa" <?php echo ($surat_kelahiran->hari_lahir_anak == 'Selasa') ? 'selected' : ''; ?>>Selasa</option>
+                                                <option value="Rabu" <?php echo ($surat_kelahiran->hari_lahir_anak == 'Rabu') ? 'selected' : ''; ?>>Rabu</option>
+                                                <option value="Kamis" <?php echo ($surat_kelahiran->hari_lahir_anak == 'Kamis') ? 'selected' : ''; ?>>Kamis</option>
+                                                <option value="Jumat" <?php echo ($surat_kelahiran->hari_lahir_anak == 'Jumat') ? 'selected' : ''; ?>>Jumat</option>
+                                                <option value="Sabtu" <?php echo ($surat_kelahiran->hari_lahir_anak == 'Sabtu') ? 'selected' : ''; ?>>Sabtu</option>
+                                                <option value="Minggu" <?php echo ($surat_kelahiran->hari_lahir_anak == 'Minggu') ? 'selected' : ''; ?>>Minggu</option>
                                             </select>
                                         </div>
                                     </div>
@@ -91,27 +90,27 @@
 
                                 <div class="form-group">
                                     <label>Pukul</label>
-                                    <input type="time" name="jam" class="form-control" required>
+                                    <input type="time" name="jam" class="form-control" value="<?php echo $surat_kelahiran->jam_lahir_anak; ?>" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Hubungan Sebagai</label>
-                                    <input type="text" name="hubungan" class="form-control" placeholder="Hubungan Sebagai" required>
+                                    <input type="text" name="hubungan" class="form-control" value="<?php echo $surat_kelahiran->hubungan_sebagai; ?>" placeholder="Hubungan Sebagai" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Tanda Tangan</label>
                                     <select name="pejabat" class="form-control" required>
                                         <?php foreach ($pejabat as $data_pejabat) : ?>
-                                            <option value="<?php echo $data_pejabat->id_pejabat; ?>">
+                                            <option value="<?php echo $data_pejabat->id_pejabat; ?>" <?php echo ($data_pejabat->id_pejabat == $surat_kelahiran->id_pejabat) ? 'selected' : ''; ?>>
                                                 <?php echo $data_pejabat->nama_pejabat; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="submit" name="tambah_surat_kelahiran" class="btn btn-success" value="Simpan">
-                                    <a href="<?php echo base_url('SuratKelahiran'); ?>" class="btn btn-danger">Batal</a>
+                                    <input type="submit" name="edit_surat_kelahiran" class="btn btn-success" value="Simpan">
+                                    <a href="<?php echo base_url('SuratKelahiran/'); ?>" class="btn btn-danger">Batal</a>
                                 </div>
                             </form>
                         </div>

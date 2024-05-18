@@ -51,7 +51,7 @@
                                     <?= date('d F Y', strtotime($surat->tanggal_lahir_anak)); ?></td>
                                 <td><?php echo $surat->hubungan_sebagai; ?></td>
                                 <td style="text-align:center">
-                                    <a href="<?php echo base_url('SuratKelahiran/edit' . $surat->id_surat_kelahiran); ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>
+                                    <a href="<?php echo base_url('SuratKelahiran/edit/' . $surat->id_surat_kelahiran); ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>
                                     <a href="<?php echo base_url('SuratKelahiran/hapus/' . $surat->id_surat_kelahiran); ?>" class="btn btn-danger btn-sm" onClick="return confirm('Yakin Akan Menghapus Data?');"><i class="fa fa-trash-o"></i> Hapus</a>
                                     <a target="blank" href="<?php echo base_url('SuratKelahiran/cetak/' . $surat->id_surat_kelahiran); ?>" class="btn btn-info btn-sm"><i class="fa fa-print"></i> Cetak</a>
                             </tr>
