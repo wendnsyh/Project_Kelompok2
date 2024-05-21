@@ -15,7 +15,7 @@
                     </div>
                 <?php } ?>
 
-                <form action="<?php echo base_url('kelahiran/proses_edit'); ?>" method="post">
+                <form action="<?php echo base_url('Kelahiran/proses_edit'); ?>" method="post">
                     <div class="row ml-3">
                         <div class="col-lg-6">
                             <div class="form-group">
@@ -101,7 +101,7 @@
 
                             <div class="form-group">
                                 <button onClick="window.history.go(-1);" class="btn btn-success">Simpan</button>
-                                <a href="<?php echo base_url('kelahiran/tampil'); ?>" class="btn btn-danger">Batal</a>
+                                <a href="<?php echo base_url('Kelahiran'); ?>" class="btn btn-danger">Batal</a>
                             </div>
                 </form>
             </div>

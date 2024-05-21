@@ -16,7 +16,8 @@
                                 </div>
                             <?php endif; ?>
 
-                            <form action="<?php echo base_url('SuratKelahiran/edit/'); ?>" method="post">
+                            <form action="<?php echo base_url('SuratKelahiran/edit/' . $surat_kelahiran->id_surat_kelahiran); ?>" method="post">
+
                                 <input type="hidden" name="id" value="<?php echo $surat_kelahiran->id_surat_kelahiran; ?>">
 
                                 <div class="form-group">

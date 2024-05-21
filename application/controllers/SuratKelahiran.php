@@ -45,7 +45,7 @@ class SuratKelahiran extends CI_Controller
                 'hubungan_sebagai' => $this->input->post('hubungan'),
                 'tanggal_surat_kelahiran' => date('Y-m-d'),
             );
-            $this->m_surat_kelahiran->tambah_surat_kelahiran($data);
+            $this->M_surat_kelahiran->tambah_surat_kelahiran($data);
             $this->session->set_flashdata('sukses', 'Data berhasil ditambahkan.');
             redirect(base_url('SuratKelahiran/'));
         } else {
@@ -83,9 +83,9 @@ class SuratKelahiran extends CI_Controller
             $where = array(
                 'id_surat_kelahiran' => $this->input->post('id'),
             );
-            $this->m_surat_kelahiran->proses_edit_surat_kelahiran($where, $data);
+            $this->M_surat_kelahiran->proses_edit_surat_kelahiran($where, $data);
             $this->session->set_flashdata('sukses', 'Data berhasil diedit.');
-            redirect(base_url('surat/surat_kelahiran/'));
+            redirect(base_url('SuratKelahiran/'));
         } else {
             $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');
