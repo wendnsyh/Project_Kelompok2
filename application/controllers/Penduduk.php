@@ -15,22 +15,10 @@ class Penduduk extends CI_Controller
         $data['title'] = "Data Penduduk - Desa Serpong";
         $data['penduduk'] = $this->m_penduduk->tampil();
 
-        $this->load->view('template/header', $data);
+        $this->load->view('template/header');
         $this->load->view('template/sidebar');
         $this->load->view('template/topbar');
-        $this->load->view('penduduk/tampil_penduduk');
-        $this->load->view('template/footer');
-    }
-
-    public function tampil_penduduk()
-    {
-        $data['title'] = "Data Penduduk - Desa Serpong";
-        $data['penduduk'] = $this->m_penduduk->tampil();
-
-        $this->load->view('template/header', $data);
-        $this->load->view('template/sidebar');
-        $this->load->view('template/topbar');
-        $this->load->view('penduduk/tampil_penduduk2');
+        $this->load->view('penduduk/tampil_penduduk',$data);
         $this->load->view('template/footer');
     }
 
@@ -38,10 +26,10 @@ class Penduduk extends CI_Controller
     {
         $data['title'] = "Tambah Penduduk - Desa Serpong";
 
-        $this->load->view('template/header', $data);
+        $this->load->view('template/header');
         $this->load->view('template/sidebar');
         $this->load->view('template/topbar');
-        $this->load->view('penduduk/tambah_penduduk');
+        $this->load->view('penduduk/tambah_penduduk',$data);
         $this->load->view('template/footer');
     }
 
@@ -86,7 +74,7 @@ class Penduduk extends CI_Controller
         $this->m_penduduk->tambah($data);
 
         $this->session->set_flashdata('sukses', 'Data Dengan NIK ' . $nik . ' berhasil ditambahkan.');
-        redirect(base_url('penduduk/tampil'));
+        redirect(base_url('Penduduk/'));
     }
 
     public function edit($nik)
@@ -94,10 +82,10 @@ class Penduduk extends CI_Controller
         $data['title'] = "Edit penduduk - Desa Serpong";
         $data['penduduk'] = $this->m_penduduk->edit($nik);
 
-        $this->load->view('template/header', $data);
+        $this->load->view('template/header');
         $this->load->view('template/sidebar');
         $this->load->view('template/topbar');
-        $this->load->view('penduduk/edit_penduduk');
+        $this->load->view('penduduk/edit_penduduk',$data);
         $this->load->view('template/footer');
     }
 
@@ -144,25 +132,24 @@ class Penduduk extends CI_Controller
         $this->m_penduduk->proses_edit($where, $data);
 
         $this->session->set_flashdata('sukses', 'Data Dengan NIK ' . $nik . ' berhasil diedit.');
-        redirect(base_url('penduduk/tampil/' . $nik));
+        redirect(base_url('Penduduk/' . $nik));
     }
 
     public function hapus($nik)
     {
         $this->m_penduduk->hapus($nik);
         $this->session->set_flashdata('sukses', 'Data Dengan NIK ' . $nik . ' berhasil dihapus.');
-        redirect(base_url('penduduk/tampil'));
+        redirect(base_url('Penduduk/'));
     }
 
     public function detail($nik)
     {
 
         $data['title'] = "Detail penduduk - Desa Serpong";
-        $this->load->model('m_penduduk');
         $detail = $this->m_penduduk->detail($nik);
         $data['detail'] = $detail;
 
-        $this->load->view('template/header', $data);
+        $this->load->view('template/header');
         $this->load->view('template/sidebar');
         $this->load->view('template/topbar');
         $this->load->view('penduduk/detail_penduduk', $data);
