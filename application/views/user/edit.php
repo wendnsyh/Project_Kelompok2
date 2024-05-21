@@ -9,7 +9,7 @@
             <div class="form-group row">
                 <label for="name" class="col-sm-3 col-form-label">Nama</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="nama" name="nama" value="<?= $user['username']; ?>">
+                    <input type="text" class="form-control" id="nama" name="nama" value="<?= $user['username']; ?>" readonly>
                 </div>
             </div>
 
