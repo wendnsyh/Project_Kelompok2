@@ -58,12 +58,11 @@
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
+                        <h6 class="collapse-header">Surat:</h6>
                         <a class="collapse-item" href="<?php echo base_url('SuratKelahiran') ?>"><i class="fas fa-envelope"></i> Surat Kelahiran</a>
                         <a class="collapse-item" href="<?php echo base_url('SuratKematian/surat_kematian') ?>"><i class="fas fa-envelope"></i> Surat Kematian</a>
                         <a class="collapse-item" href="<?php echo base_url('SuratDomisili') ?>"><i class="fas fa-envelope"></i> SK Domisili</a>
-                        <a class="collapse-item" href="<?php echo base_url('surat/surat_kesehatan') ?>"><i class="fas fa-envelope"></i> SKTM Kesehatan</a>
-                        <a class="collapse-item" href="<?php echo base_url('surat/surat_pendidikan') ?>"><i class="fas fa-envelope"></i> SKTM Pendidikan</a>
+                        <a class="collapse-item" href="<?php echo base_url('Sktm') ?>"><i class="fas fa-envelope"></i> SKTM </a>
                         <a class="collapse-item" href="<?php echo base_url('surat/surat_izin_keluarga') ?>"><i class="fas fa-envelope"></i> Surat Izin Keluarga</a>
                         <a class="collapse-item" href="<?php echo base_url('surat/surat_skck') ?>"><i class="fas fa-envelope"></i> SKCK</a>
                         <a class="collapse-item" href="<?php echo base_url('surat/surat_menikah') ?>"><i class="fas fa-envelope"></i> SK Menikah</a>
