@@ -67,7 +67,7 @@
                         <a class="collapse-item" href="<?php echo base_url('SkMenikah') ?>"><i class="fas fa-envelope"></i> SK Menikah</a>
                         <a class="collapse-item" href="<?php echo base_url('surat/surat_belum_menikah') ?>"><i class="fas fa-envelope"></i> SK Belum Menikah</a>
                         <a class="collapse-item" href="<?php echo base_url('surat/surat_belum_sekolah') ?>"><i class="fas fa-envelope"></i> SK Belum Sekolah</a>
-                        <a class="collapse-item" href="<?php echo base_url('surat/surat_usaha') ?>"><i class="fas fa-envelope"></i> SK Usaha</a>
+                        <a class="collapse-item" href="<?php echo base_url('SkUsaha') ?>"><i class="fas fa-envelope"></i> SK Usaha</a>
                         <a class="collapse-item" href="<?php echo base_url('surat/surat_cerai_mati') ?>"><i class="fas fa-envelope"></i> SK Cerai Mati</a>
                         <a class="collapse-item" href="<?php echo base_url('surat/surat_pindah') ?>"><i class="fas fa-envelope"></i> Surat Pindah</a>
                         <a class="collapse-item" href="<?php echo base_url('surat/surat_batal_pindah') ?>"><i class="fas fa-envelope"></i> SK Batal Pindah</a>
