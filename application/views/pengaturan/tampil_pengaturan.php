@@ -12,15 +12,18 @@
 
                 <?php
                 if ($this->session->flashdata('sukses')) {
-                    ?>
+                ?>
                     <div class="callout callout-success">
                         <p style="font-size:14px">
                             <i class="fa fa-check"></i> <?php echo $this->session->flashdata('sukses'); ?>
                         </p>
                     </div>
-                    <?php
+                <?php
                 }
                 ?>
+                <p>
+                    <a href="<?= base_url('penduduk/tambah'); ?>" class="ml-2 btn btn-sm btn-success">Tambah Data Staff</a>
+                </p>
                 <table id="data" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                         <tr class="active">
@@ -36,7 +39,7 @@
                         <?php
                         $no = 1;
                         foreach ($pengaturan as $pengaturan) {
-                            ?>
+                        ?>
                             <tr>
                                 <td style="text-align:center"><?php echo $no; ?></td>
                                 <td><?php echo $pengaturan->nama_pejabat; ?></td>
@@ -46,7 +49,7 @@
                                     <a href="<?php echo base_url('pengaturan/edit/' . $pengaturan->id_pejabat); ?>" class="btn btn-success btn-xs"><i class="fa fa-edit"></i> Edit</a>
                                 </td>
                             </tr>
-                            <?php
+                        <?php
                             $no++;
                         }
                         ?>

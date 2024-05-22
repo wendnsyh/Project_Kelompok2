@@ -63,7 +63,7 @@
                         <a class="collapse-item" href="<?php echo base_url('SuratKematian/surat_kematian') ?>"><i class="fas fa-envelope"></i> Surat Kematian</a>
                         <a class="collapse-item" href="<?php echo base_url('SuratDomisili') ?>"><i class="fas fa-envelope"></i> SK Domisili</a>
                         <a class="collapse-item" href="<?php echo base_url('Sktm') ?>"><i class="fas fa-envelope"></i> SKTM </a>
-                        <a class="collapse-item" href="<?php echo base_url('surat/surat_izin_keluarga') ?>"><i class="fas fa-envelope"></i> Surat Izin Keluarga</a>
+                        <a class="collapse-item" href="<?php echo base_url('Surat_izin_keluarga') ?>"><i class="fas fa-envelope"></i> Surat Izin Pekerja</a>
                         <a class="collapse-item" href="<?php echo base_url('surat/surat_skck') ?>"><i class="fas fa-envelope"></i> SKCK</a>
                         <a class="collapse-item" href="<?php echo base_url('surat/surat_menikah') ?>"><i class="fas fa-envelope"></i> SK Menikah</a>
                         <a class="collapse-item" href="<?php echo base_url('surat/surat_belum_menikah') ?>"><i class="fas fa-envelope"></i> SK Belum Menikah</a>
@@ -85,7 +85,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('pengaturan') ?>">
                     <i class="fas fa-cog"></i>
-                    <span>Pengaturan</span></a>
+                    <span>Data Staff</span></a>
             </li>
 
             <hr class="sidebar-divider">
