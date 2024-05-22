@@ -64,7 +64,7 @@
                         <a class="collapse-item" href="<?php echo base_url('SuratDomisili') ?>"><i class="fas fa-envelope"></i> SK Domisili</a>
                         <a class="collapse-item" href="<?php echo base_url('Sktm') ?>"><i class="fas fa-envelope"></i> SKTM </a>
                         <a class="collapse-item" href="<?php echo base_url('Surat_izin_keluarga') ?>"><i class="fas fa-envelope"></i> Surat Izin Pekerja</a>
-                        <a class="collapse-item" href="<?php echo base_url('surat/surat_menikah') ?>"><i class="fas fa-envelope"></i> SK Menikah</a>
+                        <a class="collapse-item" href="<?php echo base_url('SkMenikah') ?>"><i class="fas fa-envelope"></i> SK Menikah</a>
                         <a class="collapse-item" href="<?php echo base_url('surat/surat_belum_menikah') ?>"><i class="fas fa-envelope"></i> SK Belum Menikah</a>
                         <a class="collapse-item" href="<?php echo base_url('surat/surat_belum_sekolah') ?>"><i class="fas fa-envelope"></i> SK Belum Sekolah</a>
                         <a class="collapse-item" href="<?php echo base_url('surat/surat_usaha') ?>"><i class="fas fa-envelope"></i> SK Usaha</a>
