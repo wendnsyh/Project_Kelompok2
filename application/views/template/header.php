@@ -9,8 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Levana</title>
-    <link rel="icon" href="<?= base_url('assets/img/logo/logowebsite.jpg'); ?>" type="image/x-icon">
+    <title>PENDATAAN PENDUDUK</title>
+    <link rel="icon" href="<?= base_url('assets/img/logo/logo_web.png'); ?>" type="image/x-icon">
 
     <!-- Custom fonts for this template-->
     <link href="<?php echo base_url() ?>/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

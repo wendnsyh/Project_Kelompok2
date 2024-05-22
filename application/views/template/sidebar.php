@@ -7,7 +7,7 @@
         
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('admin/dashboard') ?>">
-                <div class="sidebar-brand-text mx-3">PENDATAAN WARGA</div>
+                <div class="sidebar-brand-text mx-3">PENDATAAN PENDUDUK</div>
             </a>
 
             <!-- Divider -->
@@ -64,7 +64,6 @@
                         <a class="collapse-item" href="<?php echo base_url('SuratDomisili') ?>"><i class="fas fa-envelope"></i> SK Domisili</a>
                         <a class="collapse-item" href="<?php echo base_url('Sktm') ?>"><i class="fas fa-envelope"></i> SKTM </a>
                         <a class="collapse-item" href="<?php echo base_url('Surat_izin_keluarga') ?>"><i class="fas fa-envelope"></i> Surat Izin Pekerja</a>
-                        <a class="collapse-item" href="<?php echo base_url('surat/surat_skck') ?>"><i class="fas fa-envelope"></i> SKCK</a>
                         <a class="collapse-item" href="<?php echo base_url('surat/surat_menikah') ?>"><i class="fas fa-envelope"></i> SK Menikah</a>
                         <a class="collapse-item" href="<?php echo base_url('surat/surat_belum_menikah') ?>"><i class="fas fa-envelope"></i> SK Belum Menikah</a>
                         <a class="collapse-item" href="<?php echo base_url('surat/surat_belum_sekolah') ?>"><i class="fas fa-envelope"></i> SK Belum Sekolah</a>

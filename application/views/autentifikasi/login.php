@@ -48,7 +48,7 @@
           </span>
 
           <span class="login100-form-title p-b-48">
-            <img src="<?php echo base_url(); ?>/assets/img/logo/logowebsite.jpg" width="200" height="200">
+            <img src="<?php echo base_url(); ?>/assets/img/logo/logo_web.png" width="200" height="200">
           </span>
           <?php
           if ($this->session->flashdata('gagal')) {
