@@ -28,6 +28,7 @@
 <script src="<?php echo base_url(); ?>assets/datepicker/js/bootstrap-datepicker.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
     $(document).ready(function() {
@@ -43,6 +44,7 @@
         });
     });
 </script>
+
 
 
 <script type="text/javascript">
@@ -78,6 +80,41 @@
         });
     });
 </script>
+
+<script type="text/javascript">
+    // Bar Chart Example
+    var ctx = document.getElementById("myBarChart");
+    var myBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ["Laki laki", "Perempuan"],
+            datasets: [{
+                label: "Berdasarkan Jenis Kelamin",
+                backgroundColor: ['orange', 'green'], // Warna untuk Laki-laki dan Perempuan
+                borderColor: ['orange', 'green'],
+                hoverBackgroundColor: ['lightcoral', 'darkorange', 'lightgreen'], // Warna hover untuk "Berdasarkan Jenis Kelamin", Laki-laki, dan Perempuan
+                hoverBorderColor: ['black', 'black', 'black'],
+                data: [
+                    <?php echo $this->db->query("select jenis_kelamin from penduduk where jenis_kelamin='Laki laki'")->num_rows(); ?>,
+                    <?php echo $this->db->query("select jenis_kelamin from penduduk where jenis_kelamin='Perempuan'")->num_rows(); ?>,
+                ],
+            }],
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            },
+
+        }
+    });
+</script>
+
 
 
 </body>

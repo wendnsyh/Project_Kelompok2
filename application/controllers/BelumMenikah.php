@@ -1,7 +1,5 @@
 <?php
 
-use PSpell\Config;
-
 class BelumMenikah extends CI_Controller
 {
 
