@@ -41,10 +41,10 @@
     <div class="container-login100">
       <div>
 
-        <form class="login100-form validate-form" action="<?php echo base_url('autentifikasi/login'); ?>" method="post" class=""
-          role="form">
+        <form class="login100-form validate-form" action="<?php echo base_url('autentifikasi'); ?>" method="post"
+          class="" role="form">
           <span class="login100-form-title p-b-26">
-            SISTEM PENGELOLAAN DATA PENDUDUK <BR>DESA SERPONG RW 001
+            SISTEM PENGELOLAAN DATA PENDUDUK <BR> KELURAHAN SERPONG
           </span>
 
           <span class="login100-form-title p-b-48">
@@ -62,9 +62,9 @@
           }
           ?>
 
-          <div class="wrap-input100 validate-input" data-validate="USERNAME TIDAK TERDAFTAR!">
-            <input class="input100" type="text" name="username">
-            <span class="focus-input100" data-placeholder="Username"></span>
+          <div class="wrap-input100 validate-input" data-validate="EMAIL HARUS DIISI!">
+            <input class="input100" type="text" name="email">
+            <span class="focus-input100" data-placeholder="Email"></span>
           </div>
 
           <div class="wrap-input100 validate-input" data-validate="Enter password">
@@ -84,10 +84,20 @@
               </button>
             </div>
           </div>
+
+          <div class="container-login100-form-btn mt-3">
+            <div class="wrap-login100-form-btn">
+              <div class="login100-form-bgbtn"></div>
+              <button class="btn btn-lg btn-block btn-primary login100-form-btn" type="button"
+                onclick="location.href='<?php echo base_url('autentifikasi/register'); ?>'">
+                Register
+              </button>
+            </div>
           </div>
-        </form>
       </div>
+      </form>
     </div>
+  </div>
   </div>
 
 

@@ -7,27 +7,47 @@
         <div class="col-lg-8">
             <?= form_open_multipart('user/edit'); ?>
             <div class="form-group row">
-                <label for="name" class="col-sm-3 col-form-label">Nama</label>
+                <label for="nama" class="col-sm-3 col-form-label">Nama</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="nama" name="nama" value="<?= $user['username']; ?>" readonly>
+                    <input type="text" class="form-control" id="nama" name="nama" value="<?= $user['nama']; ?>">
+                    <?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
 
             <div class="form-group row">
-                <label for="name" class="col-sm-3 col-form-label">Nama Petugas</label>
+                <div class="col-sm-3">Foto profil</div>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="nama_petugas" name="nama_petugas"
-                        value="<?= $user['nama_petugas']; ?>">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <img style="border-radius: 10%;"
+                                src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="img-thumbnail">
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="image" id="image">
+                                <label class="custom-file-label" for="image">Pilih gambar</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="form-group row">
-                <label for="jabatan" class="col-sm-3 col-form-label">Jabatan</label>
+                <label for="email" class="col-sm-3 col-form-label">Email</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="jabatan" name="jabatan" value="<?= $user['level']; ?>" readonly>
+                    <input type="text" class="form-control" id="email" name="email" value="<?= $user['email']; ?>"
+                        readonly>
+                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
             </div>
 
+            <div class="form-group row">
+                <label for="level" class="col-sm-3 col-form-label">Level</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="level" name="level" value="<?= $user['level']; ?>"
+                        readonly>
+                </div>
+            </div>
 
             <div class="form-group row justify-content-end">
                 <div class="col-sm-9">

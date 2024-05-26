@@ -11,34 +11,51 @@
 
     <div class="row">
         <div class="col-md-5 mb-3">
-                <div class="row-md-5" style="display: flex; justify-content: left; align-items: center; ">
-                    <a href="<?= base_url('user/edit'); ?>" class="btn btn-success" style="margin-right: 15px;"><i class=" fas fa-edit"></i>Edit Profile</a>
-                    <a href="<?= base_url('user/ubahPassword'); ?>" class="btn btn-primary"><i class="fas fa-lock-open"></i>Ubah Password</a>
+            <div class="card mb-3 border border-info"
+                style="display: flex; justify-content: center; align-items: center; background: #FFF; width: 100%; height: 100%; box-shadow: -5px 5px 5px 0px rgba(143,143,143,0.73);">
+                <img class="mt-5 border border-info" style="border-radius: 5%; width: 50%;"
+                    src="<?= base_url('assets/img/profile/') . $user['image'] ?>" class="img-fluid"
+                    alt="<?= $user['nama'] ?>">
+                <div class="card-body" style="display: flex; align-items: center; flex-direction: column;">
+                    <h5 style="text-align: center;" class="card-title mt-4">
+                        <?= $user['nama'] ?>
+                    </h5>
+                </div>
+                <div class="row-md-5"
+                    style="display: flex; justify-content: center; align-items: center; background: #FFF; width: 100%; height: 100%;">
+                    <a href="<?= base_url('user/edit'); ?>" class="btn btn-success" style="margin-right: 15px;"><i
+                            class=" fas fa-edit"></i>Edit Profile</a>
+                    <a href="<?= base_url('user/ubahPassword'); ?>" class="btn btn-primary"><i
+                            class="fas fa-lock-open"></i>Ubah Password</a>
                 </div>
             </div>
         </div>
 
         <div class="col-md-7 mb-3">
-            <div class="card border border-info" style="display: flex; background: #FFF; width: 100%; height: 100%; box-shadow: -5px 5px 5px 0px rgba(143,143,143,0.73);">
+            <div class="card border border-info"
+                style="display: flex; background: #FFF; width: 100%; height: 100%; box-shadow: -5px 5px 5px 0px rgba(143,143,143,0.73);">
                 <div class="card-body">
-                    <h5 style="text-align: center;" class="card-title mt-1">Informasi Admin</h5>
+                    <h5 style="text-align: center;" class="card-title mt-1">Informasi Akun</h5>
                     <hr>
                     <div class="form-group row">
                         <label for="name" class="col-sm-10 col-form-label">Nama</label>
                         <div class="col-sm-12">
-                            <input readonly type="text" class="form-control" id="nama" name="nama" value="<?= $user['username']; ?>">
+                            <input readonly type="text" class="form-control" id="nama" name="nama"
+                                value="<?= $user['nama']; ?>">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="name" class="col-sm-10 col-form-label">Nama Petugas</label>
+                        <label for="name" class="col-sm-10 col-form-label">Email</label>
                         <div class="col-sm-12">
-                            <input readonly type="text" class="form-control" id="nama_petugas" name="nama_petugas" value="<?= $user['nama_petugas']; ?>">
+                            <input readonly type="text" class="form-control" id="nama" name="nama"
+                                value="<?= $user['email']; ?>">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="name" class="col-sm-10 col-form-label">Jabatan</label>
+                        <label for="name" class="col-sm-10 col-form-label">Level</label>
                         <div class="col-sm-12">
-                            <input readonly type="text" class="form-control" id="jabatan" name="jabatan" value="<?= $user['level']; ?>">
+                            <input readonly type="text" class="form-control" id="level" name="level"
+                                value="<?= $user['level']; ?>">
                         </div>
                     </div>
                 </div>
@@ -48,8 +65,8 @@
 </div>
 
 <script type="text/javascript">
-    window.setTimeout(function() {
-        $(".col-lg-12").fadeTo(500, 0).slideUp(500, function() {
+    window.setTimeout(function () {
+        $(".col-lg-12").fadeTo(500, 0).slideUp(500, function () {
             $(this).remove();
         });
     }, 2000);

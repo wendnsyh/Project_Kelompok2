@@ -22,7 +22,8 @@
                 <div class="form-group">
                     <label for="current_password">Password Saat Ini</label>
                     <div class="input-group">
-                        <input type="password" class="form-control" id="current_password" name="current_password" autocomplete="off">
+                        <input type="password" class="form-control" id="current_password" name="current_password"
+                            autocomplete="off">
                         <div class="input-group-append">
                             <span class="input-group-text">
                                 <i class="fas fa-eye-slash" id="toggleCurrentPassword"></i>
@@ -35,7 +36,8 @@
                 <div class="form-group">
                     <label for="new_password1">Password Baru</label>
                     <div class="input-group">
-                        <input type="password" class="form-control" id="new_password1" name="new_password1" autocomplete="off">
+                        <input type="password" class="form-control" id="new_password1" name="new_password1"
+                            autocomplete="off">
                         <div class="input-group-append">
                             <span class="input-group-text">
                                 <i class="fas fa-eye-slash" id="toggleNewPassword"></i>
@@ -48,7 +50,8 @@
                 <div class="form-group">
                     <label for="new_password2">Konfirmasi Password Baru</label>
                     <div class="input-group">
-                        <input type="password" class="form-control" id="new_password2" name="new_password2" autocomplete="off">
+                        <input type="password" class="form-control" id="new_password2" name="new_password2"
+                            autocomplete="off">
                         <div class="input-group-append">
                             <span class="input-group-text">
                                 <i class="fas fa-eye-slash" id="toggleConfirmPassword"></i>
@@ -84,15 +87,15 @@
         }
     }
 
-    document.getElementById('toggleCurrentPassword').addEventListener('click', function() {
+    document.getElementById('toggleCurrentPassword').addEventListener('click', function () {
         togglePassword('current_password', 'toggleCurrentPassword');
     });
 
-    document.getElementById('toggleNewPassword').addEventListener('click', function() {
+    document.getElementById('toggleNewPassword').addEventListener('click', function () {
         togglePassword('new_password1', 'toggleNewPassword');
     });
 
-    document.getElementById('toggleConfirmPassword').addEventListener('click', function() {
+    document.getElementById('toggleConfirmPassword').addEventListener('click', function () {
         togglePassword('new_password2', 'toggleConfirmPassword');
     });
 </script>
