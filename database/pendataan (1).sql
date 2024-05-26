@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2024 at 08:15 AM
--- Server version: 10.4.10-MariaDB
--- PHP Version: 7.1.33
+-- Generation Time: May 26, 2024 at 05:52 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -33,6 +32,7 @@ CREATE TABLE `batal_pindah` (
   `id_pejabat` int(11) NOT NULL,
   `nik` varchar(30) NOT NULL,
   `alamat_batal_pindah` varchar(255) NOT NULL,
+  `foto` varchar(255) NOT NULL,
   `tanggal_batal_pindah` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -40,10 +40,11 @@ CREATE TABLE `batal_pindah` (
 -- Dumping data for table `batal_pindah`
 --
 
-INSERT INTO `batal_pindah` (`id_batal_pindah`, `id_pejabat`, `nik`, `alamat_batal_pindah`, `tanggal_batal_pindah`) VALUES
-(1, 1, '2147483647', 'bhbhjbjhb', '2019-11-15'),
-(2, 1, '42432', '6', '2019-11-15'),
-(3, 1, '3215260112990001', 'dfdfdsfsd', '2019-11-25');
+INSERT INTO `batal_pindah` (`id_batal_pindah`, `id_pejabat`, `nik`, `alamat_batal_pindah`, `foto`, `tanggal_batal_pindah`) VALUES
+(1, 1, '2147483647', 'bhbhjbjhb', '', '2019-11-15'),
+(2, 1, '42432', '6', '', '2019-11-15'),
+(3, 1, '3215260112990001', 'dfdfdsfsd', '', '2019-11-25'),
+(4, 2, '12345622222', 'JL Raya puspitek serpong, gang salem 3fgf', '', '2024-05-25');
 
 -- --------------------------------------------------------
 
@@ -55,6 +56,7 @@ CREATE TABLE `belum_menikah` (
   `id_belum_menikah` int(50) NOT NULL,
   `id_pejabat` int(11) NOT NULL,
   `nik` varchar(30) NOT NULL,
+  `surat_pengantar` varchar(255) NOT NULL,
   `tanggal_belum_menikah` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -62,9 +64,22 @@ CREATE TABLE `belum_menikah` (
 -- Dumping data for table `belum_menikah`
 --
 
-INSERT INTO `belum_menikah` (`id_belum_menikah`, `id_pejabat`, `nik`, `tanggal_belum_menikah`) VALUES
-(1, 1, '123456789', '2019-11-15'),
-(2, 1, '3215260112990001', '2019-11-25');
+INSERT INTO `belum_menikah` (`id_belum_menikah`, `id_pejabat`, `nik`, `surat_pengantar`, `tanggal_belum_menikah`) VALUES
+(1, 1, '123456789', '', '2019-11-15'),
+(2, 1, '3215260112990001', '', '2019-11-25'),
+(3, 0, '36756465', '', '2024-05-01'),
+(4, 0, '36756465', '', '2024-05-01'),
+(5, 0, '', '', '2024-05-24'),
+(6, 0, '', '', '2024-05-24'),
+(7, 0, '', '', '2024-05-24'),
+(8, 0, '', '', '2024-05-24'),
+(9, 0, '', '', '2024-05-24'),
+(10, 0, '', '', '2024-05-24'),
+(11, 0, '', '', '2024-05-24'),
+(12, 0, '', '', '2024-05-24'),
+(13, 0, '', '', '2024-05-24'),
+(14, 0, '', '', '2024-05-24'),
+(16, 2, '3215260401050001', '', '2024-05-24');
 
 -- --------------------------------------------------------
 
@@ -85,7 +100,8 @@ CREATE TABLE `belum_sekolah` (
 
 INSERT INTO `belum_sekolah` (`id_belum_sekolah`, `id_pejabat`, `nik`, `tanggal_belum_sekolah`) VALUES
 (1, 1, '42432', '2019-11-15'),
-(2, 1, '3215260112990001', '2019-11-25');
+(2, 1, '3215260112990001', '2019-11-25'),
+(3, 1, '12345622222', '2024-05-24');
 
 -- --------------------------------------------------------
 
@@ -97,6 +113,7 @@ CREATE TABLE `cerai_mati` (
   `id_cerai_mati` int(50) NOT NULL,
   `id_pejabat` int(11) NOT NULL,
   `nik` varchar(30) NOT NULL,
+  `foto` varchar(255) NOT NULL,
   `tanggal_cerai_mati` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -104,9 +121,11 @@ CREATE TABLE `cerai_mati` (
 -- Dumping data for table `cerai_mati`
 --
 
-INSERT INTO `cerai_mati` (`id_cerai_mati`, `id_pejabat`, `nik`, `tanggal_cerai_mati`) VALUES
-(1, 1, '123456789', '2019-11-14'),
-(2, 1, '3215260112990001', '2019-11-25');
+INSERT INTO `cerai_mati` (`id_cerai_mati`, `id_pejabat`, `nik`, `foto`, `tanggal_cerai_mati`) VALUES
+(1, 1, '123456789', '', '2019-11-14'),
+(2, 1, '3215260112990001', '', '2019-11-25'),
+(3, 2, '12345622222', '', '2024-05-25'),
+(4, 1, '12345622222', '', '2024-05-25');
 
 -- --------------------------------------------------------
 
@@ -132,7 +151,8 @@ INSERT INTO `domisili` (`id_domisili`, `id_pejabat`, `nik`, `no_surat_rt`, `tang
 (4, 1, '321560400820003', '123', '2019-11-23'),
 (5, 2, '3215260112990001', 'svsd', '2024-05-21'),
 (6, 1, '123456', 'oo000', '2024-05-19'),
-(7, 2, '123456', '00', '2024-05-21');
+(7, 2, '123456', '00', '2024-05-21'),
+(8, 1, '12345622222', '890090', '2024-05-22');
 
 -- --------------------------------------------------------
 
@@ -144,18 +164,22 @@ CREATE TABLE `haji` (
   `id_haji` int(50) NOT NULL,
   `id_pejabat` int(11) NOT NULL,
   `nik` varchar(30) NOT NULL,
-  `tanggal_haji` date NOT NULL
+  `foto` varchar(255) NOT NULL,
+  `tanggal_haji` date NOT NULL,
+  `tanggal_berangkat` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `haji`
 --
 
-INSERT INTO `haji` (`id_haji`, `id_pejabat`, `nik`, `tanggal_haji`) VALUES
-(3, 1, '232323423', '2019-11-15'),
-(4, 1, '12346777', '2019-11-15'),
-(5, 1, '123456789', '2019-11-15'),
-(6, 1, '3215260607060001', '2019-11-25');
+INSERT INTO `haji` (`id_haji`, `id_pejabat`, `nik`, `foto`, `tanggal_haji`, `tanggal_berangkat`) VALUES
+(3, 1, '232323423', '', '2019-11-15', '0000-00-00'),
+(4, 1, '12346777', '', '2019-11-15', '0000-00-00'),
+(5, 1, '123456789', '', '2019-11-15', '0000-00-00'),
+(6, 1, '3215260607060001', '', '2019-11-25', '0000-00-00'),
+(7, 2, '12345622222', '', '2024-05-26', '2024-06-08'),
+(8, 1, '12345622222', '', '2024-05-26', '2024-05-12');
 
 -- --------------------------------------------------------
 
@@ -179,7 +203,8 @@ CREATE TABLE `izin_keluarga` (
 INSERT INTO `izin_keluarga` (`id_izin_keluarga`, `id_pejabat`, `nik_ayah`, `nik_anak`, `tujuan_izin_keluarga`, `tanggal_izin_keluarga`) VALUES
 (2, 1, '2147483647', '75765757', 'Tegal', '2019-11-15'),
 (3, 1, '75765757', '123456789', 'Tegal', '2019-11-15'),
-(4, 1, '3215260112990001', '3215260112990001', 'sddvdf', '2019-11-25');
+(4, 1, '3215260112990001', '3215260112990001', 'sddvdf', '2019-11-25'),
+(6, 2, '12345622222', '12345622222', 'Belanda', '2024-05-22');
 
 -- --------------------------------------------------------
 
@@ -291,7 +316,8 @@ CREATE TABLE `menikah` (
 INSERT INTO `menikah` (`id_menikah`, `id_pejabat`, `nik`, `tanggal_menikah`) VALUES
 (1, 1, '42432', '2019-11-15'),
 (2, 1, '2147483647', '2019-11-16'),
-(3, 1, '3215260401050001', '2019-11-25');
+(8, 1, '12345622222', '2024-05-22'),
+(9, 1, '3215265010760002', '2024-05-24');
 
 -- --------------------------------------------------------
 
@@ -330,6 +356,7 @@ CREATE TABLE `pemakaman` (
   `hari_pemakaman` varchar(30) NOT NULL,
   `tanggal_dimakamkan` date NOT NULL,
   `jam_dimakamkan` varchar(10) NOT NULL,
+  `foto` varchar(255) NOT NULL,
   `tanggal_pemakaman` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -337,11 +364,12 @@ CREATE TABLE `pemakaman` (
 -- Dumping data for table `pemakaman`
 --
 
-INSERT INTO `pemakaman` (`id_pemakaman`, `id_pejabat`, `nik`, `tanggal_lahir`, `tempat_pemakaman`, `hari_pemakaman`, `tanggal_dimakamkan`, `jam_dimakamkan`, `tanggal_pemakaman`) VALUES
-(1, 1, '2147483647', '0000-00-00', 'Tegal', '4', '0000-00-00', '10:30', '2019-11-15'),
-(2, 1, '42432', '0000-00-00', 'Tegal', '', '0000-00-00', '11:11', '2019-11-20'),
-(3, 1, '3215260112990001', '0000-00-00', 'vssd', '', '0000-00-00', '22:02', '2019-11-25'),
-(4, 1, '3215260400820003', '0000-00-00', 'assaa', '', '0000-00-00', '11:01', '2019-11-25');
+INSERT INTO `pemakaman` (`id_pemakaman`, `id_pejabat`, `nik`, `tanggal_lahir`, `tempat_pemakaman`, `hari_pemakaman`, `tanggal_dimakamkan`, `jam_dimakamkan`, `foto`, `tanggal_pemakaman`) VALUES
+(1, 1, '2147483647', '0000-00-00', 'Tegal', '4', '0000-00-00', '10:30', '', '2019-11-15'),
+(2, 1, '42432', '0000-00-00', 'Tegal', '', '0000-00-00', '11:11', '', '2019-11-20'),
+(3, 1, '3215260112990001', '0000-00-00', 'vssd', '', '0000-00-00', '22:02', '', '2019-11-25'),
+(4, 1, '3215260400820003', '0000-00-00', 'assaa', '', '0000-00-00', '11:01', '', '2019-11-25'),
+(5, 2, '3215260401050001', '0000-00-00', 'Tangerang', 'Minggu', '2024-05-26', '16:19', '', '2024-05-26');
 
 -- --------------------------------------------------------
 
@@ -373,19 +401,10 @@ CREATE TABLE `penduduk` (
 --
 
 INSERT INTO `penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `status`, `golongan_darah`, `kewarganegaraan`) VALUES
-(123456, 12, 'Muhammad Wendy Martadiansyah', 'Tanhgerang', '2024-03-28', 'Laki Laki', 'JL Raya Puspitek Serpong, Gang Salem 3', '12', 'Perumahan Bumi Karawang Permai', 'Islam', 'Belum Menikah', 'SMA', '-', 'Tetap', '0', 'Indonesia'),
-(123457, 12, 'Muhammad Wendy Martadiansyah', 'Tanhgerang', '0000-00-00', 'Laki Laki', 'Qs', '12', 'Kepala Dusun Krajan 1', 'Islam', 'Menikah', 'SMA', '-', 'Tetap', '0', 'Indonesia'),
-(3215260112990001, 3215262108070011, 'Muhamad Husein', 'Karawang', '1999-12-04', 'Laki Laki', 'Sukamaju ,Desa Warung Bambu , Kecamatan Karawang Timur Kota Karawan. 41371     ', '010', 'Kepala Dusun Sukamaju', 'Islam', 'Belum Menikah', 'SMA', 'Belum Bkerja', 'Tetap', '-', 'Indonesia'),
-(3215260400820003, 3215261009140482, 'Agus Saefudin', 'Karawang', '1992-08-04', 'Laki Laki', 'Krajan 1 Desa Warung Bambu , Kecamatan Karawang Timur Kota Karawan. 41371 ', '003', 'Kepala Dusun Krajan 1', 'Islam', 'Menikah', 'SMA', 'Mahasiswa', 'Tetap', '-', 'Indonesia'),
-(3215260401050001, 3215262108070011, 'Tedi Rahman', 'Karawang', '2005-01-04', 'Laki Laki', 'Sukamaju ,Desa Warung Bambu , Kecamatan Karawang Timur Kota Karawan. 41371 ', '010', 'Kepala Dusun Sukamaju', 'Islam', 'Belum Menikah', 'SMP', 'Belum Bekerja', 'Tetap', '-', 'Indonesia'),
-(3215260607060001, 3215262108070011, 'Sugiri', 'Karwang', '2006-07-06', 'Laki Laki', 'Sukamaju ,Desa Warung Bambu , Kecamatan Karawang Timur Kota Karawan. 41371 ', '010', 'Kepala Dusun Sukamaju', 'Islam', 'Belum Menikah', 'SMP', 'Belum Bekerja', 'Tetap', '-', 'Indonesia'),
-(3215261607780001, 3215267007900001, 'Suhendar', 'Karawang', '1987-07-16', 'Laki Laki', 'Sukamaju ,Desa Warung Bambu , Kecamatan Karawang Timur Kota Karawan. 41371  ', '001', 'Kepala Dusun Sukamaju', 'Islam', 'Menikah', 'SMP', 'Buruh', 'Tetap', '-', 'Indonesia'),
-(3215262207990004, 3215261009140482, 'Angga Nugraha', 'Karawang', '1999-07-22', 'Laki Laki', 'Krajan 1 Desa Warung Bambu , Kecamatan Karawang Timur Kota Karawan. 41371 ', '003', 'Kepala Dusun Krajan 1', 'Islam', 'Belum Menikah', 'SMA', 'Pelajar', 'Tetap', '-', 'Indonesia'),
-(3215262701170002, 3215262108070011, 'David Syahputra', 'Karawang', '2017-01-21', 'Laki Laki', 'Sukamaju ,Desa Warung Bambu , Kecamatan Karawang Timur Kota Karawan. 41371 ', '010', 'Kepala Dusun Sukamaju', 'Islam', 'Belum Menikah', 'Tidak Sekolah', 'Belum Bekerja', 'Tetap', '-', 'Indonesia'),
-(3215264206720008, 3215262108070011, 'Sarni', 'Karawang', '1972-08-02', 'Perempuan', 'Krajan 1 Desa Warung Bambu , Kecamatan Karawang Timur Kota Karawan. 41371       ', '003', 'Kepala Dusun Krajan 1', 'Islam', 'Belum Menikah', 'Tidak Tamat SD', 'Mengurus Rumah Tangg', 'Tetap', '-', 'Indonesia'),
+(12345622222, 1233, 'Wendy', 'Tangerang', '2024-05-21', 'Laki Laki', 'Itc Roxy Mas, Jalan ', '12', 'Kepala Dusun Sukamulya', 'Islam', 'Belum Menikah', 'S3', '-', 'Tetap', '0', 'Warga Negara Asing'),
+(3215260401050001, 3215262108070011, 'Tedi Rahman', 'Karawang', '2005-01-04', 'Laki Laki', 'Sukamaju ,Desa Warung Bambu , Kecamatan Karawang Timur Kota Karawan. 41371    ', '010', 'Kepala Dusun Sukamaju', 'Islam', 'Belum Menikah', 'S3', 'Belum Bekerja', 'Tetap', '-', 'Indonesia'),
 (3215265010760002, 3215260807190011, 'Entin Sutini', 'Karawang', '1976-10-10', 'Perempuan', 'Krajan 1', '002', 'Kepala Dusun Krajan 1', 'Islam', 'Belum Menikah', 'SMA', 'Mengurus Rumah Tangg', 'Tetap', '-', 'Indonesia'),
-(3215266909080001, 3215262108070011, 'Rita Khodijah', 'Karawang', '2008-09-29', 'Perempuan', 'Sukamaju ,Desa Warung Bambu , Kecamatan Karawang Timur Kota Karawan. 41371 ', '010', 'Kepala Dusun Sukamaju', 'Islam', 'Belum Menikah', 'SD', 'Belum Bekerja', 'Tetap', '-', 'Indonesia'),
-(3215267007900001, 3215262108070011, 'Ijah', 'Karawang', '1990-07-30', 'Perempuan', 'Sukamaju ,Desa Warung Bambu , Kecamatan Karawang Timur Kota Karawan. 41371    ', '010', 'Kepala Dusun Sukamaju', 'Islam', 'Menikah', 'SMA', 'Megurus Rumah Tangga', 'Tetap', '-', 'Indonesia');
+(9223372036854775807, 9223372036854775807, 'Muhammad Wen', 'Tanhgerang', '2024-05-27', 'Laki Laki', 'Alsut     ', '12', 'Perumahan Bumi Karawang Permai', 'Islam', 'Menikah', 'S3', 'Pekerja Keras', 'Tetap', 'B', 'Indonesia');
 
 -- --------------------------------------------------------
 
@@ -399,6 +418,7 @@ CREATE TABLE `penghasilan` (
   `nik` varchar(30) NOT NULL,
   `keperluan_penghasilan` text NOT NULL,
   `jumlah_penghasilan` int(11) NOT NULL,
+  `foto` varchar(255) NOT NULL,
   `tanggal_penghasilan` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -406,10 +426,11 @@ CREATE TABLE `penghasilan` (
 -- Dumping data for table `penghasilan`
 --
 
-INSERT INTO `penghasilan` (`id_penghasilan`, `id_pejabat`, `nik`, `keperluan_penghasilan`, `jumlah_penghasilan`, `tanggal_penghasilan`) VALUES
-(1, 1, '2147483647', 'dsss', 24324324, '2019-11-14'),
-(2, 1, '3215260112990001', 'fdsg', 2125, '2019-11-25'),
-(3, 2, '3215260112990001', 'qw', 10000, '2024-03-27');
+INSERT INTO `penghasilan` (`id_penghasilan`, `id_pejabat`, `nik`, `keperluan_penghasilan`, `jumlah_penghasilan`, `foto`, `tanggal_penghasilan`) VALUES
+(1, 1, '2147483647', 'dsss', 24324324, '', '2019-11-14'),
+(2, 1, '3215260112990001', 'fdsg', 2125, '', '2019-11-25'),
+(3, 2, '3215260112990001', 'qw', 10000, '', '2024-03-27'),
+(4, 1, '12345622222', 'qw', 10000, '', '2024-05-25');
 
 -- --------------------------------------------------------
 
@@ -442,7 +463,8 @@ CREATE TABLE `pindah` (
 
 INSERT INTO `pindah` (`id_pindah`, `id_pejabat`, `nik_kepala_keluarga`, `nik_pemohon`, `alasan_pindah`, `alamat_pindah`, `dusun_pindah`, `rt_pindah`, `rw_pindah`, `desa_pindah`, `kecamatan_pindah`, `kabupaten_pindah`, `provinsi_pindah`, `kode_pos_pindah`, `telepon_pindah`, `tanggal_pindah`) VALUES
 (1, 1, '75765757', '111111111', 'Keamanan', 'Kp cikedokan desa sukadanau Rt 01/01 dusun 1 no 142, cikarang barat', 'adsd', '7', '77676', 'kkuhuhb', '17845', 'Tegal', 'JAWA BARAT', 17845, '087730384035', '2019-11-19'),
-(2, 1, '3215260112990001', '3215261607780001', 'Kesehatan', 'cikarang', 'mojo', '12', '1', 'benge', 'asu', 'krwg', 'jwbarat', 535261, '094898349849', '2019-11-25');
+(2, 1, '3215260112990001', '3215261607780001', 'Kesehatan', 'cikarang', 'mojo', '12', '1', 'benge', 'asu', 'krwg', 'jwbarat', 535261, '094898349849', '2019-11-25'),
+(3, 1, '12345622222', '12345622222', 'Keamanan', 'Lengkong', 'a', 'q', 'a', 'a', 'a', 'a', 'a', 0, '12121', '2024-05-25');
 
 -- --------------------------------------------------------
 
@@ -521,12 +543,8 @@ CREATE TABLE `sktm` (
 --
 
 INSERT INTO `sktm` (`id_sktm`, `id_pejabat`, `nik_anak`, `nik_ayah`, `tanggal_sktm`) VALUES
-(2, 1, '', '', '2019-11-15'),
-(3, 1, '', '', '2019-11-15'),
-(4, 1, '', '', '2019-11-15'),
-(5, 1, '111', '12346777', '2019-11-16'),
-(6, 1, '42432', '123456789', '2019-11-20'),
-(7, 1, '3215260112990001', '3215260112990001', '2019-11-25');
+(11, 3, '123456', '123456', '2024-05-21'),
+(12, 1, '12345622222', '12345622222', '2024-05-22');
 
 -- --------------------------------------------------------
 
@@ -547,18 +565,20 @@ CREATE TABLE `surat_kelahiran` (
   `jam_lahir_anak` varchar(10) NOT NULL,
   `hari_lahir_anak` varchar(20) NOT NULL,
   `hubungan_sebagai` varchar(100) NOT NULL,
-  `tanggal_surat_kelahiran` date NOT NULL
+  `tanggal_surat_kelahiran` date NOT NULL,
+  `foto` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `surat_kelahiran`
 --
 
-INSERT INTO `surat_kelahiran` (`id_surat_kelahiran`, `id_pejabat`, `nik_ayah`, `nik_ibu`, `nik_pelapor`, `nama_anak`, `kelamin_anak`, `tempat_lahir_anak`, `tanggal_lahir_anak`, `jam_lahir_anak`, `hari_lahir_anak`, `hubungan_sebagai`, `tanggal_surat_kelahiran`) VALUES
-(2, 1, '123456789', '2147483647', '2147483647', 'syarif', 'Laki-Laki', 'Tegal', '2020-04-17', '11:11', '', 'abah', '2019-11-14'),
-(3, 1, '12346777', '75765757', '12346777', 'khoirul syarif', 'Perempuan', 'Tegal', '0000-00-00', '11:11', '', 'abah', '2019-11-20'),
-(7, 2, '123456', '3215260607060001', '3215260607060001', 'gatau', 'Laki-Laki', 'Tangerang', '2024-05-10', '20:07', 'Senin', 'anak', '2024-05-10'),
-(8, 2, '123456', '123456', '123456', 'www', 'Laki-Laki', 'Tangerang', '2024-05-19', '03:13', 'Senin', 'anak', '2024-05-19');
+INSERT INTO `surat_kelahiran` (`id_surat_kelahiran`, `id_pejabat`, `nik_ayah`, `nik_ibu`, `nik_pelapor`, `nama_anak`, `kelamin_anak`, `tempat_lahir_anak`, `tanggal_lahir_anak`, `jam_lahir_anak`, `hari_lahir_anak`, `hubungan_sebagai`, `tanggal_surat_kelahiran`, `foto`) VALUES
+(2, 1, '123456789', '2147483647', '2147483647', 'syarif', 'Laki-Laki', 'Tegal', '2020-04-17', '11:11', '', 'abah', '2019-11-14', ''),
+(3, 1, '12346777', '75765757', '12346777', 'khoirul syarif', 'Perempuan', 'Tegal', '0000-00-00', '11:11', '', 'abah', '2019-11-20', ''),
+(7, 2, '123456', '3215260607060001', '3215260607060001', 'gatau', 'Laki-Laki', 'Tangerang', '2024-05-10', '20:07', 'Senin', 'anak', '2024-05-10', ''),
+(8, 2, '123456', '123456', '123456', 'www', 'Laki-Laki', 'Tangerang', '2024-05-19', '03:13', 'Senin', 'anak', '2024-05-19', ''),
+(15, 1, '12345622222', '12345622222', '12345622222', 'Pria', 'Laki-Laki', 'Tangerang', '2024-05-24', '02:01', 'Selasa', 'anak', '2024-05-23', '1.jpg');
 
 -- --------------------------------------------------------
 
@@ -588,7 +608,8 @@ CREATE TABLE `surat_kematian` (
 INSERT INTO `surat_kematian` (`id_surat_kematian`, `id_pejabat`, `nik`, `nik_pelapor`, `umur_pelapor`, `tempat_kematian`, `tanggal_kematian`, `jam_kematian`, `hari_kematian`, `sebab_kematian`, `hubungan_sebagai`, `tanggal_surat_kematian`) VALUES
 (1, 1, '2147483647', '2147483647', 30, 'Tegal', '1990-11-11', '10:30', '', '', 'abah', '2019-11-15'),
 (2, 1, '12346777', '123456789', 2, 'Tegal', '0000-00-00', '11:11', '', '', 'ibu', '2019-11-21'),
-(7, 2, '3215260607060001', '3215260400820003', 21, 'Tangerang', '2024-04-30', '00:14', 'Senin', '', 'anak', '2024-05-13');
+(7, 2, '3215260607060001', '3215260400820003', 21, 'Tangerang', '2024-04-30', '00:14', 'Senin', '', 'anak', '2024-05-13'),
+(9, 2, '3215260401050001', '12345622222', 21, 'Tangerang', '2024-05-22', '15:32', 'Jumat', '', 'anak', '2024-05-22');
 
 -- --------------------------------------------------------
 
@@ -602,17 +623,11 @@ CREATE TABLE `usaha` (
   `nik` varchar(30) NOT NULL,
   `nama_usaha` varchar(255) NOT NULL,
   `sejak_usaha` varchar(4) NOT NULL,
-  `tanggal_usaha` date NOT NULL
+  `alamat_usaha` varchar(255) NOT NULL,
+  `tanggal_usaha` date NOT NULL,
+  `bukti_usaha` varchar(255) NOT NULL,
+  `surat_pengantar` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `usaha`
---
-
-INSERT INTO `usaha` (`id_usaha`, `id_pejabat`, `nik`, `nama_usaha`, `sejak_usaha`, `tanggal_usaha`) VALUES
-(1, 1, '2147483647', 'khoirul syarif', '1886', '2019-11-15'),
-(2, 1, '42432', 'khoirul syarif', '4', '2019-11-15'),
-(3, 1, '3215260112990001', 'dfdsdf', '1998', '2019-11-25');
 
 -- --------------------------------------------------------
 
@@ -780,43 +795,43 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `batal_pindah`
 --
 ALTER TABLE `batal_pindah`
-  MODIFY `id_batal_pindah` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_batal_pindah` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `belum_menikah`
 --
 ALTER TABLE `belum_menikah`
-  MODIFY `id_belum_menikah` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_belum_menikah` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `belum_sekolah`
 --
 ALTER TABLE `belum_sekolah`
-  MODIFY `id_belum_sekolah` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_belum_sekolah` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `cerai_mati`
 --
 ALTER TABLE `cerai_mati`
-  MODIFY `id_cerai_mati` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_cerai_mati` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `domisili`
 --
 ALTER TABLE `domisili`
-  MODIFY `id_domisili` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_domisili` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `haji`
 --
 ALTER TABLE `haji`
-  MODIFY `id_haji` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_haji` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `izin_keluarga`
 --
 ALTER TABLE `izin_keluarga`
-  MODIFY `id_izin_keluarga` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_izin_keluarga` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `kelahiran`
@@ -834,25 +849,25 @@ ALTER TABLE `kematian`
 -- AUTO_INCREMENT for table `menikah`
 --
 ALTER TABLE `menikah`
-  MODIFY `id_menikah` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_menikah` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `pemakaman`
 --
 ALTER TABLE `pemakaman`
-  MODIFY `id_pemakaman` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_pemakaman` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `penghasilan`
 --
 ALTER TABLE `penghasilan`
-  MODIFY `id_penghasilan` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_penghasilan` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `pindah`
 --
 ALTER TABLE `pindah`
-  MODIFY `id_pindah` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pindah` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `skck`
@@ -864,25 +879,25 @@ ALTER TABLE `skck`
 -- AUTO_INCREMENT for table `sktm`
 --
 ALTER TABLE `sktm`
-  MODIFY `id_sktm` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_sktm` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `surat_kelahiran`
 --
 ALTER TABLE `surat_kelahiran`
-  MODIFY `id_surat_kelahiran` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_surat_kelahiran` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `surat_kematian`
 --
 ALTER TABLE `surat_kematian`
-  MODIFY `id_surat_kematian` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_surat_kematian` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `usaha`
 --
 ALTER TABLE `usaha`
-  MODIFY `id_usaha` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_usaha` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
