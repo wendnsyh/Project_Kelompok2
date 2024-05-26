@@ -69,11 +69,11 @@
                         <a class="collapse-item" href="<?php echo base_url('BelumSekolah') ?>"><i class="fas fa-envelope"></i> SK Belum Sekolah</a>
                         <a class="collapse-item" href="<?php echo base_url('SkUsaha') ?>"><i class="fas fa-envelope"></i> SK Usaha</a>
                         <a class="collapse-item" href="<?php echo base_url('SkCerai_mati') ?>"><i class="fas fa-envelope"></i> SK Cerai Mati</a>
-                        <a class="collapse-item" href="<?php echo base_url('surat/surat_pindah') ?>"><i class="fas fa-envelope"></i> Surat Pindah</a>
-                        <a class="collapse-item" href="<?php echo base_url('surat/surat_batal_pindah') ?>"><i class="fas fa-envelope"></i> SK Batal Pindah</a>
+                        <a class="collapse-item" href="<?php echo base_url('SkPindah') ?>"><i class="fas fa-envelope"></i> Surat Pindah</a>
+                        <a class="collapse-item" href="<?php echo base_url('BatalPindah') ?>"><i class="fas fa-envelope"></i> SK Batal Pindah</a>
                         <a class="collapse-item" href="<?php echo base_url('Penghasilan') ?>"><i class="fas fa-envelope"></i> SK Penghasilan</a>
-                        <a class="collapse-item" href="<?php echo base_url('surat/surat_haji') ?>"><i class="fas fa-envelope"></i> SK Berangkat Haji</a>
-                        <a class="collapse-item" href="<?php echo base_url('surat/surat_pemakaman') ?>"><i class="fas fa-envelope"></i> Surat Pemakaman</a>
+                        <a class="collapse-item" href="<?php echo base_url('Haji') ?>"><i class="fas fa-envelope"></i> SK Berangkat Haji</a>
+                        <a class="collapse-item" href="<?php echo base_url('Pemakaman') ?>"><i class="fas fa-envelope"></i> Surat Pemakaman</a>
 
 
                     </div>
