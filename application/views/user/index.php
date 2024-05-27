@@ -18,7 +18,6 @@
                     alt="<?= $user['nama'] ?>">
                 <div class="card-body" style="display: flex; align-items: center; flex-direction: column;">
                     <h5 style="text-align: center;" class="card-title mt-4">
-                        <?= $user['nama'] ?>
                     </h5>
                 </div>
                 <div class="row-md-5"

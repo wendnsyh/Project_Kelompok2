@@ -4,7 +4,8 @@ class Autentifikasi extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('M_login'); // Pastikan model M_login dimuat di sini
+        $this->load->model('M_login'); 
+        $this->load->library('session');
     }
     public function index()
     {

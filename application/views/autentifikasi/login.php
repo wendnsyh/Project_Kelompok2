@@ -88,7 +88,7 @@
           <div class="container-login100-form-btn mt-3">
             <div class="wrap-login100-form-btn">
               <div class="login100-form-bgbtn"></div>
-              <button class="btn btn-lg btn-block btn-primary login100-form-btn" type="button"
+              <button class="btn btn-lg btn-block btn-success login100-form-btn" type="button"
                 onclick="location.href='<?php echo base_url('autentifikasi/register'); ?>'">
                 Register
               </button>
