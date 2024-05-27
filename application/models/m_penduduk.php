@@ -12,12 +12,9 @@ class M_penduduk extends CI_Model
     {
         $this->db->where('nik', $nik);
         $query = $this->db->get('penduduk');
-        if ($query->num_rows() > 0) {
-            return false;
-        } else {
-            return true;
-        }
+        return $query->num_rows() == 0;
     }
+
 
     public function tambah($data)
     {
