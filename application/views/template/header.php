@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?= $title?></title>
+    <title>Pendataan Warga</title>
     <link rel="icon" href="<?= base_url('assets/img/logo/logo_web.png'); ?>" type="image/x-icon">
 
     <!-- Custom fonts for this template-->

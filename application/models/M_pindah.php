@@ -23,4 +23,27 @@ class M_pindah extends CI_Model
     {
         return $this->db->insert('pindahdatang', $data);
     }
+
+    public function edit($nik)
+    {
+        $this->db->where('nik', $nik);
+        return $this->db->get('pindahdatang')->row();
+    }
+
+    public function proses_edit($where, $data)
+    {
+        $this->db->where($where);
+        return $this->db->update('pindahdatang', $data);
+    }
+
+    public function hapus($nik)
+    {
+        $this->db->where('nik', $nik);
+        return $this->db->delete('pindahdatang');
+    }
+    public function detail($nik = null)
+    {
+        $query = $this->db->get_where('pindahdatang', array('nik' => $nik))->row();
+        return $query;
+    }
 }

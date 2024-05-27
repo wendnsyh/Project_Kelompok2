@@ -4,7 +4,7 @@
             <div class="box-header">
 
 
-                <h4 style="text-align:center"><b>DATA PINDAH DESA</b></h4>
+                <h4 style="text-align:center"><b><?+ $title?></b></h4>
                 <hr>
             </div>
 
@@ -23,7 +23,7 @@
                 ?>
 
                 <p>
-                    <a href="<?php echo base_url('pindah/tambah'); ?>" class="btn btn-success">Tambah Data Pindah</a>
+                    <a href="<?php echo base_url('pindah/tambah'); ?>" class="btn btn-success ml-2">Tambah Data Pindah</a>
                     <a href="<?php echo base_url('#'); ?>" target="_blank">
                     </a>
                 </p>
@@ -51,9 +51,9 @@
                                 <td><?php echo $pindah->alamat; ?></td>
                                 <td><?php echo $pindah->alamat_tujuan; ?></td>
                                 <td style="text-align:center">
-                                    <a href="<?php echo base_url('pindah/edit/' . $pindah->nik); ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>
-                                    <a href="<?php echo base_url('pindah/hapus/' . $pindah->nik); ?>" class="btn btn-danger btn-sm ml-2" onClick="return confirm('Yakin Akan Menghapus Data?');"><i class="fa fa-trash-o"></i> Hapus</a>
-                                    <a href="<?php echo base_url('pindah/detail/' . $pindah->nik); ?>" class="btn btn-info btn-sm mt-2"><i class="fa fa-info-circle"></i> Detail</a>
+                                    <a href="<?php echo base_url('Pindah/edit/' . $pindah->nik); ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>
+                                    <a href="<?php echo base_url('Pindah/hapus/' . $pindah->nik); ?>" class="btn btn-danger btn-sm" onClick="return confirm('Yakin Akan Menghapus Data?');"><i class="fa fa-trash-o"></i> Hapus</a>
+                                    <a href="<?php echo base_url('Pindah/detail/' . $pindah->nik); ?>" class="btn btn-info btn-sm "><i class="fa fa-info-circle"></i> Detail</a>
                             </tr>
                             </td>
                         <?php
