@@ -52,6 +52,8 @@ class Penduduk extends CI_Controller
         $this->form_validation->set_rules('status', 'Status', 'required');
         $this->form_validation->set_rules('golongan_darah', 'Golongan Darah', 'required');
         $this->form_validation->set_rules('kewarganegaraan', 'Kewarganegaraan', 'required');
+        $this->form_validation->set_rules('keterarangan', 'Ketarangan', 'required');
+
 
         if ($this->form_validation->run() == FALSE) {
             // Jika validasi gagal, tampilkan form lagi dengan pesan kesalahan
@@ -70,7 +72,7 @@ class Penduduk extends CI_Controller
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>');
-                redirect('Penduduk/tambah');
+                redirect('penduduk/tambah');
                 return;
             }
 
@@ -94,6 +96,7 @@ class Penduduk extends CI_Controller
                 'status_perkawinan' => $this->input->post('status_perkawinan'),
                 'status' => $this->input->post('status'),
                 'golongan_darah' => ucwords($this->input->post('golongan_darah')),
+                'kewarganegaraan' => $this->input->post('kewarganegaraan'),
                 'kewarganegaraan' => $this->input->post('kewarganegaraan'),
                 'foto' => $foto, // Simpan nama foto ke dalam database
             );

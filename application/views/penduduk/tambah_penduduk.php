@@ -10,8 +10,8 @@
                             <?php echo $this->session->flashdata('pesan'); ?>
 
 
-                            <?= form_open('penduduk/proses_tambah'); ?>
-                            <div class="form-group">
+                            <form action="<?= base_url('penduduk/tambah'); ?>" method="post" enctype=multipart/form-data>
+                            <div class="form-group" >
                                 <label>NIK</label>
                                 <input type="text" name="nik" class="form-control" value="<?= set_value('nik'); ?>" required />
                                 <?= form_error('nik', '<div class="text-danger">', '</div>'); ?>

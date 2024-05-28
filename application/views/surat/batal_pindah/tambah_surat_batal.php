@@ -20,7 +20,7 @@
                                 </div>
                             <?php endif; ?>
 
-                            <form action="<?= base_url('BatalPindah/tambah'); ?>" method="post">
+                            <form action="<?= base_url('BatalPindah/tambah'); ?>" method="post ">
 
                                 <div class="form-group">
                                     <label>NIK</label>

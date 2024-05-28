@@ -127,7 +127,7 @@ class Autentifikasi extends CI_Controller
             $data = [
                 'nama' => htmlspecialchars($this->input->post('nama', true)),
                 'email' => htmlspecialchars($this->input->post('email', true)),
-                'image' => 'default.jpg',
+                'image' => '',
                 'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                 'role_id' => 1,
                 'is_active' => 1,

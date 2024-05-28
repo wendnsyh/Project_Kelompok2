@@ -25,8 +25,8 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <?php if (!$this->session->userdata('login')): ?>
-                        <li><a href="<?php echo base_url(); ?>users/register">Register</a></li>
-                        <li><a href="<?php echo base_url(); ?>users/login">Login</a></li>
+                        <li><a href="<?php echo base_url(''); ?>autentifikasi/register">Register</a></li>
+                        <li><a href="<?php echo base_url(); ?>autentifikasi">Login</a></li>
                     <?php endif; ?>
                     <?php if ($this->session->userdata('login')): ?>
                         <li><a
