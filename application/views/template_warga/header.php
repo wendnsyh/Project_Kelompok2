@@ -5,6 +5,7 @@
     <link rel="icon" href="<?= base_url('assets/img/logo/logo_web.png'); ?>" type="image/x-icon">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/assets-warga/css/style.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/assets-warga/css/custom.css">
     <link href="<?php echo base_url() ?>/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <script src="http://cdn.ckeditor.com/4.7.1/full/ckeditor.js"></script>
@@ -14,13 +15,13 @@
     <nav class="navbar navbar-inverse" style="position: webkit-sticky; position: sticky; top: 0; z-index: 1000;">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand">Pendataan Penduduk</a>
+                <a class="navbar-brand">Dashboard</a>
             </div>
             <div id="navbar">
                 <ul class="nav navbar-nav">
                     <li><a href="<?php echo base_url(); ?>">Beranda</a></li>
                     <li><a href="<?php echo base_url(); ?>about">Tentang</a></li>
-                    <li><a href="<?php echo base_url(); ?>posts">Layanan</a></li>
+                    <li><a href="<?php echo base_url(); ?>pages/posts">Layanan</a></li>
                     <li><a href="<?php echo base_url(); ?>categories">Kontak</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

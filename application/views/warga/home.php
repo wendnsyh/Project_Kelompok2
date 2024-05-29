@@ -3,7 +3,7 @@
     <div class="box-header text-center mb-4"
         style="background-color: #f8f9fa; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-bottom: 40px; ">
         <h4 style="font-family: 'Arial', sans-serif; color: #1E5B82; margin: 0; padding: 0;"><b>SELAMAT DATANG DI
-                PENGELOLAAN DATA PENDUDUK<br>KELURAHAN SERPONG</b></h4>
+                WEBSITE<br>KELURAHAN SERPONG</b></h4>
         <hr style="border-top: 2px solid #007bff; width: 50%; margin: 20px auto;">
     </div>
 

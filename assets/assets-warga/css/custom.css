@@ -1,0 +1,45 @@
+body {
+	font-family: 'Nunito', sans-serif;
+	font-size: 16px;
+}
+
+.section-title {
+	margin-bottom: 50px;
+}
+
+.section-title h2 {
+	font-size: 2em;
+	font-weight: 700;
+	margin-bottom: 10px;
+}
+
+.section-title p {
+	font-size: 1.2em;
+	color: #666;
+}
+
+.service-box {
+	background: #fff;
+	border: 1px solid #e6e6e6;
+	padding: 20px;
+	text-align: center;
+	margin-bottom: 30px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.service-box i {
+	color: #007bff;
+	margin-bottom: 15px;
+}
+
+.service-box h3 {
+	font-size: 1.5em;
+	font-weight: 600;
+	margin-bottom: 15px;
+}
+
+.service-box p {
+	font-size: 1em;
+	color: #555;
+}
