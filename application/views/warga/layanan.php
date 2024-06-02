@@ -1,6 +1,6 @@
 <div class="container mt-5">
     <div class="section-title text-center">
-        <h2>Layanan Kami</h2>
+        <h2>LAYANAN KAMI</h2>
         <p>Berikut adalah layanan yang kami tawarkan untuk masyarakat.</p>
     </div>
 
