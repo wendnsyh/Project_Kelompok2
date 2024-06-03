@@ -22,7 +22,7 @@
                 }
                 ?>
                 <p>
-                    <a href="<?php echo base_url('SkCerai_mati/tambah'); ?>" class="btn btn-success ml-2">Tambah Surat
+                    <a href="<?php echo base_url('CeraiMati/tambah'); ?>" class="btn btn-success ml-2">Tambah Surat
                         Keterangan Cerai Mati</a>
                 </p>
                 <table id="data" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -31,6 +31,7 @@
                             <th style="text-align:center">No</th>
                             <th style="text-align:center">NIK</th>
                             <th style="text-align:center">Nama</th>
+                            <th style="text-align:center">Foto</th>
                             <th style="text-align:center">Tanda Tangan</th>
                             <th style="text-align:center">Aksi</th>
                         </tr>
@@ -45,11 +46,12 @@
                                 <td style="text-align:center"><?php echo $no; ?></td>
                                 <td><?php echo $surat->nik; ?></td>
                                 <td><?php echo $surat->nama; ?></td>
+                                <td style="text-align:center"><?= $surat->surat_pengantar ? 'Yes' : 'No'; ?></td>
                                 <td><?php echo $surat->nama_pejabat; ?></td>
                                 <td style="text-align:center">
-                                    <a href="<?php echo base_url('SkCerai_mati/edit/' . $surat->id_cerai_mati); ?>" class="btn btn-success btn-xs"><i class="fa fa-edit"></i> Edit</a>
-                                    <a href="<?php echo base_url('SkCerai_mati/hapus/' . $surat->id_cerai_mati); ?>" class="btn btn-danger btn-xs" onClick="return confirm('Yakin Akan Menghapus Data?');"><i class="fa fa-trash-o"></i> Hapus</a>
-                                    <a target="blank" href="<?php echo base_url('SkCerai_mati/cetak/' . $surat->id_cerai_mati); ?>" class="btn btn-info btn-xs"><i class="fa fa-print"></i> Cetak</a>
+                                    <a href="<?php echo base_url('CeraiMati/edit/' . $surat->id_cerai_mati); ?>" class="btn btn-success btn-xs"><i class="fa fa-edit"></i> Edit</a>
+                                    <a href="<?php echo base_url('CeraiMati/hapus/' . $surat->id_cerai_mati); ?>" class="btn btn-danger btn-xs" onClick="return confirm('Yakin Akan Menghapus Data?');"><i class="fa fa-trash-o"></i> Hapus</a>
+                                    <a target="blank" href="<?php echo base_url('CeraiMati/cetak/' . $surat->id_cerai_mati); ?>" class="btn btn-info btn-xs"><i class="fa fa-print"></i> Cetak</a>
                             </tr>
                             </td>
                         <?php

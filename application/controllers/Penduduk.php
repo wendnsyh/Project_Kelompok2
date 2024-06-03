@@ -6,7 +6,9 @@ class Penduduk extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('m_penduduk'); // Memuat model m_penduduk
+        $this->load->model('m_penduduk');
+        
+        
         $this->load->library('form_validation'); // Memuat library form_validation
     }
 
@@ -14,6 +16,7 @@ class Penduduk extends CI_Controller
     {
         $data['title'] = "Data Penduduk - Desa Serpong";
         $data['penduduk'] = $this->m_penduduk->tampil();
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->load->view('template/header');
         $this->load->view('template/sidebar');
@@ -25,6 +28,7 @@ class Penduduk extends CI_Controller
     public function tambah()
     {
         $data['title'] = "Tambah Penduduk - Desa Serpong";
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->load->view('template/header');
         $this->load->view('template/sidebar');
@@ -32,85 +36,61 @@ class Penduduk extends CI_Controller
         $this->load->view('penduduk/tambah_penduduk', $data);
         $this->load->view('template/footer');
     }
-
-    public function proses_tambah()
-    {
-        // Aturan validasi
-        $this->form_validation->set_rules('nik', 'NIK', 'required|is_unique[penduduk.nik]');
-        $this->form_validation->set_rules('no_kk', 'No KK', 'required');
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
-        $this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required');
-        $this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
-        $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required');
-        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
-        $this->form_validation->set_rules('rt', 'RT', 'required');
-        $this->form_validation->set_rules('rw', 'RW', 'required');
-        $this->form_validation->set_rules('agama', 'Agama', 'required');
-        $this->form_validation->set_rules('pekerjaan', 'Pekerjaan', 'required');
-        $this->form_validation->set_rules('pendidikan', 'Pendidikan', 'required');
-        $this->form_validation->set_rules('status_perkawinan', 'Status Perkawinan', 'required');
-        $this->form_validation->set_rules('status', 'Status', 'required');
-        $this->form_validation->set_rules('golongan_darah', 'Golongan Darah', 'required');
-        $this->form_validation->set_rules('kewarganegaraan', 'Kewarganegaraan', 'required');
-        $this->form_validation->set_rules('keterarangan', 'Ketarangan', 'required');
-
-
-        if ($this->form_validation->run() == FALSE) {
-            // Jika validasi gagal, tampilkan form lagi dengan pesan kesalahan
-            $this->tambah();
+    public function proses_tambah() {
+        $this->load->library('upload');
+        
+        // Konfigurasi untuk upload file
+        $config['upload_path'] = './uploads/penduduk/';
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';
+        $config['max_size'] = 2048; // 2MB
+        $config['file_name'] = time() . '_' . $_FILES['foto']['name']; // Menggunakan timestamp untuk nama file unik
+    
+        $this->upload->initialize($config);
+    
+        if (!$this->upload->do_upload('foto')) {
+            // Unggah gagal, tambahkan pesan error
+            $error = array('error' => $this->upload->display_errors());
+            $this->session->set_flashdata('pesan', $error['error']);
+            redirect('penduduk/tambah'); // Redirect kembali ke form tambah data
         } else {
-            // Proses upload foto
-            $config['upload_path'] = './assets/foto';
-            $config['allowed_types'] = 'jpg|jpeg|png|tiff';
-            $this->load->library('upload', $config);
-
-            if (!$this->upload->do_upload('foto')) {
-                // Jika upload foto gagal, tampilkan pesan kesalahan
-                $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>Gagal mengupload foto!</strong> Silakan coba lagi.
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>');
-                redirect('penduduk/tambah');
-                return;
-            }
-
-            // Jika upload foto berhasil, ambil nama file
-            $foto = $this->upload->data('file_name');
-
-            // Masukkan data ke database
-            $data = array(
-                'nik' => $this->input->post('nik'),
-                'no_kk' => $this->input->post('no_kk'),
-                'nama' => ucwords($this->input->post('nama')),
-                'tempat_lahir' => ucwords($this->input->post('tempat_lahir')),
-                'tanggal_lahir' => $this->input->post('tanggal_lahir'),
-                'jenis_kelamin' => $this->input->post('jenis_kelamin'),
-                'alamat' => ucwords($this->input->post('alamat')),
-                'rt' => $this->input->post('rt'),
-                'rw' => $this->input->post('rw'),
-                'agama' => $this->input->post('agama'),
-                'pekerjaan' => ucwords($this->input->post('pekerjaan')),
-                'pendidikan' => $this->input->post('pendidikan'),
-                'status_perkawinan' => $this->input->post('status_perkawinan'),
-                'status' => $this->input->post('status'),
-                'golongan_darah' => ucwords($this->input->post('golongan_darah')),
-                'kewarganegaraan' => $this->input->post('kewarganegaraan'),
-                'kewarganegaraan' => $this->input->post('kewarganegaraan'),
-                'foto' => $foto, // Simpan nama foto ke dalam database
-            );
-            $this->m_penduduk->tambah($data);
-
-            $this->session->set_flashdata('sukses', 'Data Dengan NIK ' . $this->input->post('nik') . ' berhasil ditambahkan.');
-            redirect(base_url('Penduduk/'));
+            // Unggah berhasil
+            $uploadData = $this->upload->data();
+            $data['foto'] = $uploadData['file_name'];
         }
+    
+        // Mengumpulkan data form lainnya
+        $data['nik'] = $this->input->post('nik');
+        $data['no_kk'] = $this->input->post('no_kk');
+        $data['nama'] = $this->input->post('nama');
+        $data['tempat_lahir'] = $this->input->post('tempat_lahir');
+        $data['tanggal_lahir'] = $this->input->post('tanggal_lahir');
+        $data['jenis_kelamin'] = $this->input->post('jenis_kelamin');
+        $data['alamat'] = $this->input->post('alamat');
+        $data['rt'] = $this->input->post('rt');
+        $data['rw'] = $this->input->post('rw');
+        $data['agama'] = $this->input->post('agama');
+        $data['status_perkawinan'] = $this->input->post('status_perkawinan');
+        $data['pendidikan'] = $this->input->post('pendidikan');
+        $data['pekerjaan'] = $this->input->post('pekerjaan');
+        $data['status'] = $this->input->post('status');
+        $data['golongan_darah'] = $this->input->post('golongan_darah');
+        $data['kewarganegaraan'] = $this->input->post('kewarganegaraan');
+    
+        // Insert ke database
+        $this->db->insert('penduduk', $data);
+    
+        // Redirect dengan pesan sukses
+        $this->session->set_flashdata('pesan', 'Data berhasil ditambahkan.');
+        redirect('penduduk');
     }
+    
+
 
     public function edit($nik)
     {
         $data['title'] = "Edit penduduk - Desa Serpong";
         $data['penduduk'] = $this->m_penduduk->edit($nik);
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->load->view('template/header');
         $this->load->view('template/sidebar');

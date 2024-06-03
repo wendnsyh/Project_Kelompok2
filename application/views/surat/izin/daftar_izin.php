@@ -22,7 +22,7 @@
                 }
                 ?>
                 <p>
-                    <a href="<?php echo base_url('Surat_izin_keluarga/tambah/'); ?>" class="btn btn-success ml-2">Tambah Surat
+                    <a href="<?php echo base_url('SuratBekerja/tambah/'); ?>" class="btn btn-success ml-2">Tambah Surat
                         Izin Keluarga</a>
                 </p>
                 <table id="data" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -34,6 +34,7 @@
                             <th style="text-align:center">NIK Anak</th>
                             <th style="text-align:center">Nama Anak</th>
                             <th style="text-align:center">Tujuan</th>
+                            <th style="text-align:center">Surat Pengantar</th>
                             <th style="text-align:center">Tanda Tangan</th>
                             <th style="text-align:center">Aksi</th>
                         </tr>
@@ -52,11 +53,12 @@
                                 <td><?php echo $anak->nik; ?></td>
                                 <td><?php echo $anak->nama; ?></td>
                                 <td><?php echo $surat->tujuan_izin_keluarga; ?></td>
+                                <td style="text-align:center"><?= $surat->surat_pengantar? 'Yes' : 'No'; ?></td>
                                 <td><?php echo $surat->nama_pejabat; ?></td>
                                 <td style="text-align:center">
-                                    <a href="<?php echo base_url('Surat_izin_keluarga/edit/' . $surat->id_izin_keluarga); ?>" class="btn btn-success btn-xs"><i class="fa fa-edit"></i> Edit</a>
-                                    <a href="<?php echo base_url('Surat_izin_keluarga/hapus/' . $surat->id_izin_keluarga); ?>" class="btn btn-danger btn-xs" onClick="return confirm('Yakin Akan Menghapus Data?');"><i class="fa fa-trash-o"></i> Hapus</a>
-                                    <a target="blank" href="<?php echo base_url('Surat_izin_keluarga/cetak/' . $surat->id_izin_keluarga); ?>" class="btn btn-info btn-xs"><i class="fa fa-print"></i> Cetak</a>
+                                    <a href="<?php echo base_url('SuratBekerja/edit/' . $surat->id_izin_keluarga); ?>" class="btn btn-success btn-xs"><i class="fa fa-edit"></i> Edit</a>
+                                    <a href="<?php echo base_url('SuratBekerja/hapus/' . $surat->id_izin_keluarga); ?>" class="btn btn-danger btn-xs" onClick="return confirm('Yakin Akan Menghapus Data?');"><i class="fa fa-trash-o"></i> Hapus</a>
+                                    <a target="blank" href="<?php echo base_url('SuratBekerja/cetak/' . $surat->id_izin_keluarga); ?>" class="btn btn-info btn-xs"><i class="fa fa-print"></i> Cetak</a>
                             </tr>
                             </td>
                         <?php

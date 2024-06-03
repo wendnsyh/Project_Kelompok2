@@ -33,6 +33,7 @@
                             <th style="text-align:center">Nama</th>
                             <th style="text-align:center">Jumlah Penghasilan</th>
                             <th style="text-align:center">Keperluan</th>
+                            <th style="text-align:center">Surat Pengantar</th>
                             <th style="text-align:center">Tanda Tangan</th>
                             <th style="text-align:center">Aksi</th>
                         </tr>
@@ -49,6 +50,7 @@
                                 <td><?php echo $surat->nama; ?></td>
                                 <td>Rp. <?= number_format($surat->jumlah_penghasilan,0, ',', '.'); ?></td>
                                 <td><?php echo $surat->keperluan_penghasilan; ?></td>
+                                <td style="text-align:center"><?= $surat->surat_pengantar ? 'Yes' : 'No'; ?></td>
                                 <td><?php echo $surat->nama_pejabat; ?></td>
                                 <td style="text-align:center">
                                     <a href="<?php echo base_url('Penghasilan/edit/' . $surat->id_penghasilan); ?>" class="btn btn-success btn-xs"><i class="fa fa-edit"></i> Edit</a>

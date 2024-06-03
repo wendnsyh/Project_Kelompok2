@@ -37,10 +37,14 @@
                                             ?>
                                         </select>
                                     </div>
+                                    <div class="form-group">
+                                    <label>Surat Pengantar</label>
+                                    <input type="file" name="surat_pengantar" class="form-control" value="<?php echo $domisili->surat_pengantar; ?>" required />
+                                </div>
 
                                     <div class="form-group">
-                                        <label>Nomor Surat Pengantar RT/RW</label>
-                                        <input type="text" name="pengantar" class="form-control" placeholder="Nomor Surat Pengantar RT/RW" required value="<?php echo $domisili->no_surat_rt; ?>" />
+                                        <label>Alasan</label>
+                                        <input type="text" name="alasan" class="form-control" placeholder="alasan" required value="<?php echo $domisili->alasan; ?>" />
                                     </div>
                                     <div class="form-group">
                                         <label>Tanda Tangan</label>

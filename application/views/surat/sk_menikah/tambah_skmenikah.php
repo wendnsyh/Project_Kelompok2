@@ -15,7 +15,7 @@
                                 </div>
                             <?php endif; ?>
 
-                            <form action="<?= base_url('SkMenikah/tambah'); ?>" method="post">
+                            <form action="<?= base_url('SkMenikah/tambah'); ?>" method="post" enctype="multipart/form-data">
 
                                 <div class="form-group">
                                     <label>NIK</label>
@@ -26,6 +26,15 @@
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Alasan</label>
+                                    <input type="text" name="alasan" placeholder="alasan" required class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Surat Pengantar</label>
+                                    <input type="file" name="surat_pengantar"  class="form-control">
                                 </div>
 
                                 <div class="form-group">

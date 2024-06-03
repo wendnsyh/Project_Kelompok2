@@ -14,13 +14,12 @@
                                     <?= $this->session->flashdata('sukses'); ?>
                                 </div>
                             <?php endif; ?>
-                            <?php if ($this->session->flashdata('error')) : ?>
-                                <div class="alert alert-danger" role="alert">
-                                    <?= $this->session->flashdata('error'); ?>
-                                </div>
+                            <?php echo validation_errors(); ?>
+                            <?php if (!empty($error)) : ?>
+                                <p style="color: red;"><?php echo $error; ?></p>
                             <?php endif; ?>
 
-                            <form action="<?= base_url('Pemakaman/tambah'); ?>" method="post">
+                            <form action="<?= base_url('Pemakaman/tambah'); ?>" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label>NIK</label>
                                     <select name="nik" class="form-control" required>
@@ -55,7 +54,7 @@
                                     <label>Tanggal Dimakamkan</label>
                                     <div class="input-group date">
                                         <div class="input-group-addon">
-                                           
+
                                         </div>
                                         <input type="date" name="tanggal" class="form-control pull-right" placeholder="Tanggal Dimakamkan" required>
                                     </div>
@@ -69,6 +68,11 @@
                                             <i class="fa fa-clock-o"></i>
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Surat Pengantar</label>
+                                    <input type="file" name="surat_pengantar" class="form-control">
                                 </div>
 
                                 <div class="form-group">

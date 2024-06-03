@@ -33,6 +33,8 @@
                             <th style="text-align:center">Nama Anak</th>
                             <th style="text-align:center">NIK Ayah</th>
                             <th style="text-align:center">Nama Ayah</th>
+                            <th style="text-align:center">Surat Pengantar</th>
+                            <th style="text-align:center">Alasan</th>
                             <th style="text-align:center">Tanda Tangan</th>
                             <th style="text-align:center">Aksi</th>
                         </tr>
@@ -50,6 +52,8 @@
                                 <td><?php echo $surat->nama; ?></td>
                                 <td><?php echo $ayah->nik; ?></td>
                                 <td><?php echo $ayah->nama; ?></td>
+                                <td style="text-align:center"><?= $ayah->foto? 'Yes' : 'No'; ?></td>
+                                <td><?php echo $surat->alasan; ?></td>
                                 <td><?php echo $surat->nama_pejabat; ?></td>
                                 <td style="text-align:center">
                                     <a href="<?php echo base_url('Sktm/edit/' . $surat->id_sktm); ?>" class="btn btn-success btn-xs"><i class="fa fa-edit"></i> Edit</a>

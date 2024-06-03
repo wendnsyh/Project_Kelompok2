@@ -16,11 +16,24 @@
                                 </div>
                             <?php endif; ?>
 
-                            <form action="<?php echo base_url('SuratKelahiran/tambah'); ?>" method="post">
+                            <!-- Tampilkan pesan error validasi -->
+                            <?php if (validation_errors()) : ?>
+                                <div class="alert alert-danger" role="alert">
+                                    <?php echo validation_errors(); ?>
+                                </div>
+                            <?php endif; ?>
+
+                            <!-- Tampilkan pesan error upload -->
+                            <?php if (isset($error) && !empty($error)) : ?>
+                                <div class="alert alert-danger" role="alert">
+                                    <?php echo $error; ?>
+                                </div>
+                            <?php endif; ?>
+
+                            <form action="<?php echo base_url('SuratKelahiran/tambah'); ?>" method="post" enctype="multipart/form-data">
 
                                 <div class="form-group">
                                     <label>NIK Ayah</label>
-                                    <a href="<?php echo base_url(); ?>penduduk/tambah/" class="btn btn-sm btn-primary float-right">Tambah Penduduk</a>
                                     <select name="ayah" class="form-control" required>
                                         <?php foreach ($penduduk as $penduduk) : ?>
                                             <option value="<?php echo $penduduk->nik; ?>">
@@ -56,7 +69,14 @@
                                     <label>Nama Anak</label>
                                     <input type="text" name="nama" class="form-control" placeholder="Nama Anak" required>
                                 </div>
-
+                                <div class="form-group">
+                                    <label>Surat Pengantar</label>
+                                    <input type="file" name="surat_pengantar" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Bukti Kelahiran</label>
+                                    <input type="file" name="bukti_kelahiran" class="form-control" required>
+                                </div>
                                 <div class="form-group">
                                     <label>Jenis Kelamin Anak</label>
                                     <select name="kelamin" class="form-control" required>

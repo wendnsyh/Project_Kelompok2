@@ -16,7 +16,7 @@
                                 </div>
                             <?php endif; ?>
 
-                            <form action="<?php echo base_url('SuratKematian/surat_kematian/tambah'); ?>" method="post">
+                            <form action="<?php echo base_url('SuratKematian/tambah'); ?>" method="post" enctype="multipart/form-data">
 
                                 <div class="form-group">
                                     <label>NIK</label>
@@ -79,6 +79,12 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label>Surat Pengantar</label>
+                                    <input type="file" name="surat_pengantar" class="form-control" >
+                                </div>
+
+
+                                <div class="form-group">
                                     <label>Tanda Tangan</label>
                                     <select name="pejabat" class="form-control" required>
                                         <?php foreach ($pejabat as $data_pejabat) : ?>
@@ -90,7 +96,7 @@
 
                                 <div class="form-group">
                                     <input type="submit" name="tambah_surat_kematian" class="btn btn-success" value="Simpan">
-                                    <a href="<?php echo base_url('SuratKematian/surat_kematian/'); ?>" class="btn btn-danger">Batal</a>
+                                    <a href="<?php echo base_url('SuratKematian'); ?>" class="btn btn-danger">Batal</a>
                                 </div>
                             </form>
                         </div>

@@ -20,7 +20,7 @@
                                 </div>
                             <?php endif; ?>
 
-                            <form action="<?= base_url('Penghasilan/tambah'); ?>" method="post">
+                            <form action="<?= base_url('Penghasilan/tambah'); ?>" method="post" enctype="multipart/form-data">
 
                                 <div class="form-group">
                                     <label>NIK</label>
@@ -32,12 +32,7 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
-                                <?php /*
-                                <div class="form-group">
-                                    <label>Surat Pengantar</label>
-                                    <input type="file" name="surat_pengantar" class="form-control" placeholder="surat_pengantar" />
-                                    <small class="form-text text-muted">* Opsional: Anda tidak perlu mengunggah file jika tidak diperlukan.</small>
-                                </div>*/ ?>
+                              
 
                                 <div class="form-group">
                                     <label>Jumlah Penghasilan</label>
@@ -46,6 +41,10 @@
                                 <div class="form-group">
                                     <label>Keperluan</label>
                                     <input type="text" name="keperluan" class="form-control" placeholder="Keperluan" required />
+                                </div>
+                                <div class="form-group">
+                                    <label >Surat Pengantar</label>
+                                    <input type="file" name="surat_pengantar" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Tanda Tangan</label>

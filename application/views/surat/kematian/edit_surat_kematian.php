@@ -110,7 +110,7 @@
 
                                 <div class="form-group">
                                     <input type="submit" name="edit_surat_kematian" class="btn btn-success" value="Simpan">
-                                    <a href="<?php echo base_url('SuratKematian/surat_kematian/'); ?>" class="btn btn-danger">Batal</a>
+                                    <a href="<?php echo base_url('SuratKematian/'); ?>" class="btn btn-danger">Batal</a>
                                 </div>
                             </form>
                         </div>

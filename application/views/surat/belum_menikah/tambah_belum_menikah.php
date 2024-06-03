@@ -20,7 +20,7 @@
                                 </div>
                             <?php endif; ?>
 
-                            <form action="<?= base_url('BelumMenikah/tambah'); ?>" method="post">
+                            <form action="<?= base_url('BelumMenikah/tambah'); ?>" method="post" enctype="multipart/form-data">
 
                                 <div class="form-group">
                                     <label>NIK</label>
@@ -32,12 +32,14 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
-                                <?php /*
                                 <div class="form-group">
-                                    <label>Surat Pengantar</label>
-                                    <input type="file" name="surat_pengantar" class="form-control" placeholder="surat_pengantar" />
-                                    <small class="form-text text-muted">* Opsional: Anda tidak perlu mengunggah file jika tidak diperlukan.</small>
-                                </div>*/ ?>
+                                    <label>Alasan</label>
+                                    <input type="text" class="form-control" name="alasan" required>
+                                </div>
+                               <div class="form-group">
+                                <label>Surat Pengantar</label>
+                                <input type="file" name="surat_pengantar" class="form-control">
+                               </div>
 
                                 <div class="form-group">
                                     <label>Tanda Tangan</label>

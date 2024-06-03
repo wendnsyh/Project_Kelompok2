@@ -16,7 +16,7 @@
                                 </div>
                             <?php endif; ?>
 
-                            <form action="<?php echo base_url('BelumMenikah/edit/' . $id); ?>" method="post">
+                            <form action="<?php echo base_url('BelumMenikah/edit/' . $id); ?>" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label>NIK</label>
                                     <select name="nik" class="form-control" required>
@@ -27,6 +27,17 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
+
+                                <div class="form-group">
+                                    <label>Alasan</label>
+                                    <input type="text" name="alasan" class="form-control" placeholder="alasan" required value="<?php echo $belum_menikah->alasan; ?>" required />
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Surat Pengantar</label>
+                                    <input type="file" name="surat_pengantar" class="form-control" value="<?php echo $belum_menikah->surat_pengantar; ?>" required />
+                                </div>
+
                                 <div class="form-group">
                                     <label>Tanda Tangan</label>
                                     <select name="pejabat" class="form-control" required>

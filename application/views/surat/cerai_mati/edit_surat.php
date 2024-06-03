@@ -16,7 +16,7 @@
                                 </div>
                             <?php endif; ?>
 
-                            <form action="<?php echo base_url('SkCerai_mati/edit/' . $id); ?>" method="post">
+                            <form action="<?php echo base_url('CeraiMati/edit/' . $id); ?>" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label>NIK</label>
                                     <select name="nik" class="form-control" required>
@@ -26,6 +26,14 @@
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
+                                </div>
+                                <div class="form-gorup">
+                                    <label>Alasan</label>
+                                    <input type="text" name="alasan" value="<?php echo $cerai_mati->alasan; ?>" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label >Surat Pengantar</label>
+                                    <input type="file" name="surat_pengantar" class="form-control" value="<?php echo $cerai_mati->surat_pengantar; ?>" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Tanda Tangan</label>
@@ -38,11 +46,12 @@
                                     </select>
                                 </div>
 
+
                                 <div class="form-group">
                                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                                     <div class="form-group">
                                         <input type="submit" name="edit_cerai_mati" class="btn btn-success" value="Simpan">
-                                        <a href="<?= base_url('SkCerai_mati/'); ?>" class="btn btn-danger">Batal</a>
+                                        <a href="<?= base_url('CeraiMati/'); ?>" class="btn btn-danger">Batal</a>
                                     </div>
                             </form>
                         </div>

@@ -31,6 +31,8 @@
                             <th style="text-align:center">No</th>
                             <th style="text-align:center">NIK</th>
                             <th style="text-align:center">Nama</th>
+                            <th style="text-align:center">Alasan</th>
+                            <th style="text-align:center">Surat Pengantar</th>
                             <th style="text-align:center">Tanda Tangan</th>
                             <th style="text-align:center">Aksi</th>
                         </tr>
@@ -45,6 +47,8 @@
                                 <td style="text-align:center"><?php echo $no; ?></td>
                                 <td><?php echo $surat->nik; ?></td>
                                 <td><?php echo $surat->nama; ?></td>
+                                <td><?php echo $surat->alasan; ?></td>
+                               <td style="text-align:center"><?= !empty($surat->surat_pengantar) ? 'Yes' : 'No'; ?></td>
                                 <td><?php echo $surat->nama_pejabat; ?></td>
                                 <td style="text-align:center">
                                     <a href="<?php echo base_url('SuratDomisili/edit/' . $surat->id_domisili); ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>

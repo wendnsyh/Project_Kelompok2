@@ -20,7 +20,7 @@
                                 </div>
                             <?php endif; ?>
 
-                            <form action="<?= base_url('SkCerai_mati/tambah'); ?>" method="post">
+                            <form action="<?= base_url('CeraiMati/tambah'); ?>" method="post" enctype="multipart/form-data">
 
                                 <div class="form-group">
                                     <label>NIK</label>
@@ -32,12 +32,14 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
-                                <?php /*
+                                <div class="form-group">
+                                    <label>Alasan</label>
+                                    <input type="text" name="alasan" class="form-control" required>
+                                </div>
                                 <div class="form-group">
                                     <label>Surat Pengantar</label>
-                                    <input type="file" name="surat_pengantar" class="form-control" placeholder="surat_pengantar" />
-                                    <small class="form-text text-muted">* Opsional: Anda tidak perlu mengunggah file jika tidak diperlukan.</small>
-                                </div>*/ ?>
+                                    <input type="file" name="surat_pengantar" class="form-control">
+                                </div>
 
                                 <div class="form-group">
                                     <label>Tanda Tangan</label>
@@ -53,7 +55,7 @@
                                 <div class="form-group">
                                     <div class="form-group">
                                         <input type="submit" name="tambah_cerai_mati" class="btn btn-success" value="Simpan">
-                                        <a href="<?= base_url('SkCerai_mati/'); ?>" class="btn btn-danger">Batal</a>
+                                        <a href="<?= base_url('CeraiMati/'); ?>" class="btn btn-danger">Batal</a>
                                     </div>
                             </form>
                         </div>

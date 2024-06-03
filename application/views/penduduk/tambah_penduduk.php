@@ -10,7 +10,7 @@
                             <?php echo $this->session->flashdata('pesan'); ?>
 
 
-                            <form action="<?= base_url('penduduk/tambah'); ?>" method="post" enctype=multipart/form-data>
+                            <form action="<?= base_url('penduduk/proses_tambah'); ?>" method="post" enctype=multipart/form-data>
                             <div class="form-group" >
                                 <label>NIK</label>
                                 <input type="text" name="nik" class="form-control" value="<?= set_value('nik'); ?>" required />

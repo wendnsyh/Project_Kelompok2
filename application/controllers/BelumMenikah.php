@@ -14,86 +14,124 @@ class BelumMenikah extends CI_Controller
     {
         $data['title'] = "Data SK Belum Menikah";
         $data['surat'] = $this->M_belum_menikah->daftar_belum_menikah();
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $this->load->view('template/header');
+
+        $this->load->view('template/header',$data);
         $this->load->view('template/sidebar');
         $this->load->view('template/topbar');
         $this->load->view('surat/belum_menikah/daftar_belum_menikah', $data);
         $this->load->view('template/footer');
     }
-
     public function tambah()
     {
         $data['title'] = "Tambah SK Belum Menikah";
         $data['penduduk'] = $this->m_penduduk->tampil();
         $data['pejabat'] = $this->M_belum_menikah->pejabat();
-
-        if ($this->input->post('tambah_belum_menikah')) {
-            $data = array(
-                'nik' => $this->input->post('nik'),
-                'id_pejabat' => $this->input->post('pejabat'),
-                'tanggal_belum_menikah' => date('Y-m-d'),
-                //'surat_pengantar'        => $this->input->post('surat_pengantar'),//
-            );
-            // $config['upload_path'] = './assets/bukti/';
-            // $config['allowed_types'] = 'gif|jpg|png|jpeg';
-            // $config['max_size'] = 4096; // dalam kilobyte, jadi ini 4MB
-            // $config['max_width'] = 3000;
-            // $config['max_height'] = 3000;
-            // $this->load->library('upload', $config);
-
-            // // Upload Bukti Usaha
-            // if (!$this->upload->do_upload('surat_pengantar')) {
-            //     $error = $this->upload->display_errors();
-            //     $this->session->set_flashdata('error', $error);
-            //     redirect(base_url('SkUsaha/tambah'));
-            //     return; // Stop execution to prevent further processing
-            // } else {
-            //     $bukti_usaha = $this->upload->data('file_name');
-            // }
-
-
-            $this->M_belum_menikah->tambah_belum_menikah($data);
-            $this->session->set_flashdata('sukses', 'Data berhasil ditambahkan.');
-            redirect(base_url('BelumMenikah/'));
-        } else {
-
-            $this->load->view('template/header');
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+    
+        $this->form_validation->set_rules('nik', 'NIK', 'required');
+        $this->form_validation->set_rules('pejabat', 'Pejabat', 'required');
+        $this->form_validation->set_rules('alasan', 'Alasan', 'required');
+    
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');
             $this->load->view('template/topbar');
             $this->load->view('surat/belum_menikah/tambah_belum_menikah', $data);
             $this->load->view('template/footer');
+        } else {
+            $config['upload_path'] = './uploads/BelumMenikah/';
+            $config['allowed_types'] = 'jpg|jpeg|png|pdf';
+            $config['max_size'] = 10000;
+    
+            if (!is_dir($config['upload_path'])) {
+                mkdir($config['upload_path'], 0777, TRUE);
+            }
+    
+            $this->load->library('upload', $config);
+    
+            if (!$this->upload->do_upload('surat_pengantar')) {
+                $data['error'] = $this->upload->display_errors();
+                $this->load->view('template/header', $data);
+                $this->load->view('template/sidebar');
+                $this->load->view('template/topbar');
+                $this->load->view('surat/belum_menikah/tambah_belum_menikah', $data);
+                $this->load->view('template/footer');
+            } else {
+                $surat_pengantar = $this->upload->data('file_name');
+    
+                $data_surat = array(
+                    'nik' => $this->input->post('nik'),
+                    'id_pejabat' => $this->input->post('pejabat'),
+                    'alasan' => $this->input->post('alasan'),
+                    'tanggal_belum_menikah' => date('Y-m-d'),
+                    'surat_pengantar' => $surat_pengantar,
+                );
+    
+                $this->M_belum_menikah->tambah_belum_menikah($data_surat);
+                $this->session->set_flashdata('sukses', 'Data berhasil ditambahkan.');
+                redirect(base_url('BelumMenikah/'));
+            }
         }
     }
-
+    
     public function edit($id)
     {
-        $data['title'] = "Edit Data Sk Belum Menikah";
+        $data['title'] = "Edit Data SK Belum Menikah";
         $data['penduduk'] = $this->m_penduduk->tampil();
         $data['pejabat'] = $this->M_belum_menikah->pejabat();
         $data['belum_menikah'] = $this->M_belum_menikah->edit_belum_menikah($id);
         $data['id'] = $id;
-
-        if ($this->input->post('edit_belum_menikah')) {
-            $data_edit = array(
-                'nik' => $this->input->post('nik'),
-                'id_pejabat' => $this->input->post('pejabat'),
-            );
-            $where = array(
-                'id_belum_menikah' => $this->input->post('id'),
-            );
-            $this->M_belum_menikah->proses_edit_belum_menikah($where, $data_edit);
-            $this->session->set_flashdata('sukses', 'Data berhasil diedit.');
-            redirect(base_url('BelumMenikah/'));
-        } else {
-            $this->load->view('template/header');
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+    
+        $this->form_validation->set_rules('nik', 'NIK', 'required');
+        $this->form_validation->set_rules('pejabat', 'Pejabat', 'required');
+    
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');
             $this->load->view('template/topbar');
             $this->load->view('surat/belum_menikah/edit_belum_menikah', $data);
             $this->load->view('template/footer');
+        } else {
+            $config['upload_path'] = './uploads/BelumMenikah/';
+            $config['allowed_types'] = 'jpg|jpeg|png|pdf';
+            $config['max_size'] = 10000;
+    
+            //if (!is_dir($config['upload_path'])) {
+              //  mkdir($config['upload_path'], 0777, TRUE);
+           // }
+    
+            $this->load->library('upload', $config);
+    
+            if (!$this->upload->do_upload('surat_pengantar')) {
+                $data['error'] = $this->upload->display_errors();
+                $this->load->view('template/header', $data);
+                $this->load->view('template/sidebar');
+                $this->load->view('template/topbar');
+                $this->load->view('surat/belum_menikah/edit_belum_menikah', $data);
+                $this->load->view('template/footer');
+            } else {
+                $surat_pengantar = $this->upload->data('file_name');
+    
+                $data_edit = array(
+                    'nik' => $this->input->post('nik'),
+                    'id_pejabat' => $this->input->post('pejabat'),
+                    'alasan' => $this->input->post('alasan'),
+                    'surat_pengantar' => $surat_pengantar,
+                );
+                $where = array(
+                    'id_belum_menikah' => $this->input->post('id'),
+                );
+    
+                $this->M_belum_menikah->proses_edit_belum_menikah($where, $data_edit);
+                $this->session->set_flashdata('sukses', 'Data berhasil diedit.');
+                redirect(base_url('BelumMenikah/'));
+            }
         }
     }
-
+    
     public function hapus($id)
     {
 

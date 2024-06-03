@@ -38,6 +38,14 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
+                                <div class="form-group">
+                                    <label>foto</label>
+                                    <input type="file" name="foto" class="form-control" value="<?php echo $sktm->foto; ?>" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Alasan Kebutuhan</label>
+                                    <input type="text" name="alasan" class="form-control" placeholder="Alasan" value="<?php echo $sktm->alasan; ?>" required />
+                                </div>
 
                                 <div class="form-group">
                                     <label>Tanda Tangan</label>

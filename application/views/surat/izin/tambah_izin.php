@@ -15,7 +15,7 @@
                                 </div>
                             <?php endif; ?>
 
-                            <form action="<?= base_url('Surat_izin_keluarga/tambah/'); ?>" method="post">
+                            <form action="<?= base_url('SuratBekerja/tambah/'); ?>" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label>NIK Ayah</label>
                                     <select name="ayah" class="form-control" required>
@@ -42,6 +42,10 @@
                                     <input type="text" name="tujuan" class="form-control" placeholder="Tujuan" required />
                                 </div>
                                 <div class="form-group">
+                                    <label>Surat Pengantar</label>
+                                    <input type="file" name="surat_pengantar" class="form-control"/>
+                                </div>
+                                <div class="form-group">
                                     <label>Tanda Tangan</label>
                                     <select name="pejabat" class="form-control" required>
                                         <?php
@@ -57,7 +61,7 @@
 
                                 <div class="form-group">
                                     <input type="submit" name="tambah_izin" class="btn btn-success" value="Simpan">
-                                    <a href="<?= base_url('Surat_izin_keluarga/'); ?>" class="btn btn-danger">Batal</a>
+                                    <a href="<?= base_url('SuratBekerja/'); ?>" class="btn btn-danger">Batal</a>
                                 </div>
                             </form>
                         </div>
