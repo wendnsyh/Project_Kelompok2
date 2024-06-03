@@ -20,7 +20,7 @@ class Penduduk extends CI_Controller
 
         $this->load->view('template/header');
         $this->load->view('template/sidebar');
-        $this->load->view('template/topbar');
+        $this->load->view('template/topbar',$data);
         $this->load->view('penduduk/tampil_penduduk', $data);
         $this->load->view('template/footer');
     }
@@ -32,7 +32,7 @@ class Penduduk extends CI_Controller
 
         $this->load->view('template/header');
         $this->load->view('template/sidebar');
-        $this->load->view('template/topbar');
+        $this->load->view('template/topbar',$data);
         $this->load->view('penduduk/tambah_penduduk', $data);
         $this->load->view('template/footer');
     }
@@ -94,7 +94,7 @@ class Penduduk extends CI_Controller
 
         $this->load->view('template/header');
         $this->load->view('template/sidebar');
-        $this->load->view('template/topbar');
+        $this->load->view('template/topbar',$data);
         $this->load->view('penduduk/edit_penduduk', $data);
         $this->load->view('template/footer');
     }
@@ -164,10 +164,11 @@ class Penduduk extends CI_Controller
         $data['title'] = "Detail penduduk - Desa Serpong";
         $detail = $this->m_penduduk->detail($nik);
         $data['detail'] = $detail;
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->load->view('template/header');
         $this->load->view('template/sidebar');
-        $this->load->view('template/topbar');
+        $this->load->view('template/topbar',$data);
         $this->load->view('penduduk/detail_penduduk', $data);
         $this->load->view('template/footer');
     }

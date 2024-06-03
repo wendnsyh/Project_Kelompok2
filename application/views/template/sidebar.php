@@ -67,6 +67,12 @@
                     <span >Pengumuman</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url('Pengaduan/list') ?>">
+                    <i class="fas fa-fw fa-bullhorn"></i>
+                    <span >Pengaduan</span>
+                </a>
+            </li>
 
             </li>
             <hr class="sidebar-divider mt-3">
