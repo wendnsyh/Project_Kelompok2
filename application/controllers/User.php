@@ -58,7 +58,6 @@ class User extends CI_Controller
         }
     }
 
-
     public function ubahPassword()
     {
         $data['judul'] = 'Ubah Password';
@@ -126,6 +125,85 @@ class User extends CI_Controller
 
         if (file_exists($image_path)) {
             unlink($image_path);
+        }
+    }
+
+    public function index2()
+    {
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['title'] = 'Profil Warga';
+
+        $this->load->view('template_warga/header', $data);
+        $this->load->view('profile-warga/index', $data);
+        $this->load->view('template_warga/footer', $data);
+    }
+
+    public function edit2()
+    {
+        $data['judul'] = 'Ubah Profil Warga';
+
+        $this->form_validation->set_rules('nama', 'Nama Lengkap', 'required');
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('template_warga/header', $data);
+            $this->load->view('profile-warga/edit', $data);
+            $this->load->view('template_warga/footer',$data);
+        } else {
+            $nama = $this->input->post('nama', true);
+            $nama = $this->input->post('nama', true);
+
+            $userProfile = $this->upload_image('image', 'user' . $data['user']['nama']);
+
+            if ($userProfile) {
+                $this->delete_old_image($data['user']['image']);
+                $this->db->set('image', $userProfile);
+            }
+
+            $this->db->set('nama', $nama);
+            $this->db->where('nama', $nama);
+            $this->db->update('user');
+
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data telah tersimpan!</div>');
+            redirect('user/index2');
+        }
+    }
+
+    public function ubahPassword2()
+    {
+        $data['judul'] = 'Ubah Password';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $this->form_validation->set_rules('current_password', 'Password Saat Ini', 'required|trim');
+        $this->form_validation->set_rules('new_password1', 'Password Baru', 'required|trim|min_length[6]|matches[new_password2]');
+        $this->form_validation->set_rules('new_password2', 'Konfirmasi Password Baru', 'required|trim|min_length[6]|matches[new_password1]');
+
+        if ($this->form_validation->run() == false) {
+            // Tampilkan form ubah password
+            $this->load->view('template_warga/header', $data);
+            $this->load->view('profile-warga/ubahPassword', $data);
+            $this->load->view('template_warga/footer',$data);
+        } else {
+            $current_password = $this->input->post('current_password');
+            $new_password = $this->input->post('new_password1');
+            if (!password_verify($current_password, $data['user']['password'])) {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password saat ini salah!</div>');
+                redirect('user/ubahPassword2');
+            } else {
+                if ($current_password == $new_password) {
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password baru tidak boleh sama dengan password saat ini!</div>');
+                    redirect('user/ubahPassword2');
+                } else {
+                    // Password is valid, update password
+                    $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+                    $this->db->set('password', $password_hash);
+                    $this->db->where('email', $this->session->userdata('email'));
+                    $this->db->update('user');
+
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Password berhasil diubah!</div>');
+                    redirect('user');
+                }
+            }
         }
     }
 }
