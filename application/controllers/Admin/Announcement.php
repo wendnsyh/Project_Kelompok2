@@ -17,10 +17,11 @@ class Announcement extends CI_Controller
         $this->form_validation->set_rules('deskripsi', 'announcement', 'required');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('template_admin/header_admin', $data);
-            $this->load->view('template_admin/sidebar_admin');
+            $this->load->view('template/header', $data);
+            $this->load->view('template/sidebar');
+            $this->load->view('template/topbar');
             $this->load->view('announcement/index', $data);
-            $this->load->view('template_admin/footer_admin');
+            $this->load->view('template/footer');
         } else {
             $this->db->insert('announcement', [
                 'judul' => $this->input->post('judul'),

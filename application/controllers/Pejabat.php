@@ -10,8 +10,7 @@ class Pejabat extends CI_Controller
         $this->load->model('M_pejabat');
     }
 
-    public function index()
-    {
+    public function index() {
         $data['title'] = "pejabat - Desa Serpong Rw 001";
         $data['pejabat'] = $this->M_pejabat->tampil();
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
@@ -23,8 +22,7 @@ class Pejabat extends CI_Controller
         $this->load->view('template/footer', $data);
     }
 
-    public function tambah()
-    {
+    public function tambah() {
         $data['title'] = "Tambah Data Staff - Kelurahan Serpong";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
@@ -42,7 +40,7 @@ class Pejabat extends CI_Controller
         } else {
             $this->load->view('template/header');
             $this->load->view('template/sidebar');
-            $this->load->view('template/topbar');
+            $this->load->view('template/topbar',$data);
             $this->load->view('pejabat/tambah_staff', $data);
             $this->load->view('template/footer');
         }

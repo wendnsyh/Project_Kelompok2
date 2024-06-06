@@ -19,22 +19,24 @@ class Kematian extends CI_Controller
     {
         $data['title'] = "Data Kematian - Desa Serpong";
         $data['kematian'] = $this->m_kematian->tampil();
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->load->view('template/header', $data);
         $this->load->view('template/sidebar');
         $this->load->view('template/topbar');
-        $this->load->view('kematian/tampil_kematian');
+        $this->load->view('kematian/tampil_kematian',$data);
         $this->load->view('template/footer');
     }
     public function tampil_kematian()
     {
         $data['title'] = "Data Kematian - Desa Serpong";
         $data['kematian'] = $this->m_kematian->tampil();
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->load->view('template/header', $data);
         $this->load->view('template/sidebar');
         $this->load->view('template/topbar');
-        $this->load->view('kematian/tampil_kematian2');
+        $this->load->view('kematian/tampil_kematian2',$data);
         $this->load->view('template/footer');
     }
 
@@ -42,11 +44,12 @@ class Kematian extends CI_Controller
     {
         $data['title'] = "Tambah Data Kematian - Desa Serpong";
         $data['penduduk'] =$this->m_penduduk->tampil();
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->load->view('template/header', $data);
         $this->load->view('template/sidebar');
         $this->load->view('template/topbar');
-        $this->load->view('kematian/tambah_kematian');
+        $this->load->view('kematian/tambah_kematian',$data);
         $this->load->view('template/footer');
     }
 
@@ -97,11 +100,13 @@ class Kematian extends CI_Controller
     {
         $data['title'] = "Edit kematian - Desa Serpong";
         $data['kematian'] = $this->m_kematian->edit($id_kematian);
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
 
         $this->load->view('template/header', $data);
         $this->load->view('template/sidebar');
         $this->load->view('template/topbar');
-        $this->load->view('kematian/edit_kematian');
+        $this->load->view('kematian/edit_kematian',$data);
         $this->load->view('template/footer');
     }
 
@@ -143,11 +148,12 @@ class Kematian extends CI_Controller
         $this->load->model('m_kematian');
         $detail = $this->m_kematian->detail($id_kematian);
         $data['detail'] = $detail;
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->load->view('template/header', $data);
         $this->load->view('template/sidebar');
         $this->load->view('template/topbar');
-        $this->load->view('kematian/detail_kematian');
+        $this->load->view('kematian/detail_kematian',$data);
         $this->load->view('template/footer');
     }
 }

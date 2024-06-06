@@ -18,9 +18,10 @@ class Pengaduan extends CI_Controller
     public function form()
     {
         $data['title'] = "Contact";
-        $this->load->view('template_warga/header', $data);
-        $this->load->view('warga/contact', $data);
-        $this->load->view('template_warga/footer');
+       
+        $this->load->view('home/header', $data);
+        $this->load->view('home/layanan', $data);
+        
     }
 
     // Menangani pengiriman form pengaduan
@@ -52,11 +53,6 @@ class Pengaduan extends CI_Controller
         }
     }
 
-    // Menampilkan pesan sukses
-    public function success()
-    {
-        $this->load->view('pengaduan_success');
-    }
 
     // Menampilkan daftar pengaduan di backend
     public function list()
@@ -91,6 +87,7 @@ class Pengaduan extends CI_Controller
     public function delete($id)
     {
         $this->Pengaduan_model->delete_pengaduan($id);
+        $this->session->set_flashdata('success', 'Pengaduan berhasil di Hapus');
         redirect('pengaduan/list');
     }
 }

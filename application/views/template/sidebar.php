@@ -60,17 +60,16 @@
                     <i class="fa fa-fw fa-users"></i>
                     <span>Data Staff</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link pb-0" href="<?= base_url('Pengaduan/list'); ?>">
+                    <i class="fa fa-fw fa-book"></i>
+                    <span>Pengaduan</span></a>
+            </li>
             <!-- Nav Item - Announcement -->
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('admin/Announcement') ?>">
                     <i class="fas fa-fw fa-bullhorn"></i>
-                    <span >Pengumuman</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('Pengaduan/list') ?>">
-                    <i class="fas fa-fw fa-bullhorn"></i>
-                    <span >Pengaduan</span>
+                    <span>Pengumuman</span>
                 </a>
             </li>
 
@@ -84,85 +83,85 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('SuratKelahiran') ?>">
                     <i class="fas fa-envelope"></i>
-                    <span >Surat Kelahiran</span>
+                    <span>Surat Kelahiran</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('SuratKematian') ?>">
                     <i class="fas fa-envelope"></i>
-                    <span >Surat Kematian</span>
+                    <span>Surat Kematian</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('SuratDomisili') ?>">
                     <i class="fas fa-envelope"></i>
-                    <span >Surat Keterangan Domisili</span>
+                    <span>Surat Keterangan Domisili</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('SkUsaha') ?>">
                     <i class="fas fa-envelope"></i>
-                    <span >Surat Keterangan Usaha</span>
+                    <span>Surat Keterangan Usaha</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('Sktm') ?>">
                     <i class="fas fa-envelope"></i>
-                    <span >SKTM</span>
+                    <span>SKTM</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('SuratBekerja') ?>">
                     <i class="fas fa-envelope"></i>
-                    <span >Surat Izin Bekerja</span>
+                    <span>Surat Izin Bekerja</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('SkMenikah') ?>">
                     <i class="fas fa-envelope"></i>
-                    <span >Surat Keterangan Menikah</span>
+                    <span>Surat Keterangan Menikah</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('BelumMenikah') ?>">
                     <i class="fas fa-envelope"></i>
-                    <span >Surat Keterangan Belum Menikah</span>
+                    <span>Surat Keterangan Belum Menikah</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('SkPindah') ?>">
                     <i class="fas fa-envelope"></i>
-                    <span >Surat Keterangan Pindah</span>
+                    <span>Surat Keterangan Pindah</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('SkBatal') ?>">
                     <i class="fas fa-envelope"></i>
-                    <span >Surat Keterangan Batal Pindah</span>
+                    <span>Surat Keterangan Batal Pindah</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('SuratKelahiran') ?>">
                     <i class="fas fa-envelope"></i>
-                    <span >Surat Keterangan Tanah</span>
+                    <span>Surat Keterangan Tanah</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('Penghasilan') ?>">
                     <i class="fas fa-envelope"></i>
-                    <span >Surat Keterangan Penghasilan</span>
+                    <span>Surat Keterangan Penghasilan</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('CeraiMati') ?>">
                     <i class="fas fa-envelope"></i>
-                    <span >Surat Keterangan Cerai Mati</span>
+                    <span>Surat Keterangan Cerai Mati</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('Pemakaman') ?>">
                     <i class="fas fa-envelope"></i>
-                    <span >Surat Keterangan Pemakaman</span>
+                    <span>Surat Keterangan Pemakaman</span>
                 </a>
             </li>
 
@@ -175,14 +174,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('Laporan/penduduk') ?>">
                     <i class="fas fa-envelope"></i>
-                    <span >Laporan Penduduk</span>
+                    <span>Laporan Penduduk</span>
                 </a>
             </li>
             <hr class="sidebar-divider mt-3">
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('autentifikasi/logout') ?>" onclick="return confirm('Yakin logout?')">
                     <i class="fas fa-fw fa-sign-out-alt"></i>
-                    <span >Logout</span>
+                    <span>Logout</span>
                 </a>
             </li>
 

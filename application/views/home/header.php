@@ -2,19 +2,20 @@
 <html>
 
 <head>
-    <title>PENDATAAN PENDUDUK</title>
+    <title>Kelurahan Serpong</title>
     <link rel="icon" href="<?= base_url('assets/img/logo/logo_web.png'); ?>" type="image/x-icon">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/assets-warga/css/style.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/assets-warga/css/custom.css">
-    <link href="<?php echo base_url() ?>/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
-        type="text/css">
+    <link href="<?php echo base_url() ?>/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <script src="http://cdn.ckeditor.com/4.7.1/full/ckeditor.js"></script>
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         .navbar-brand {
             font-size: 20px;
             font-weight: bold;
@@ -49,24 +50,23 @@
             </div>
             <div id="navbar">
                 <ul class="nav navbar-nav">
-                    <li><a href="<?php echo base_url(); ?>">Beranda</a></li>
-                    <li><a href="<?php echo base_url(); ?>pages/about">Tentang</a></li>
-                    <li><a href="<?php echo base_url(); ?>pages/layanan">Layanan</a></li>
-                    <li><a href="<?php echo base_url(); ?>pages/contact">Kontak</a></li>
+                    <li><a href="<?= base_url('pages/#beranda')?>">Beranda</a></li>
+                    <li><a href="<?= base_url('pages/#about')?>">Tentang</a></li>
+                    <li><a href="<?= base_url('pages/#Layanan')?>">Layanan</a></li>
+                    <li><a href="<?= base_url('pages/#informasi')?>">Informasi</a></li>
+                    <li><a href="<?= base_url('pages/#Kritik')?>">Kritik</a></li>
+                    <li><a href="<?= base_url('pages/#contact')?>r">Kontak</a></li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right" >
                     <?php if (!empty($this->session->userdata('email'))) { ?>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                aria-expanded="false">
-                                Selamat Datang <b><?php echo $this->session->userdata('email'); ?></b> <span
-                                    class="caret"></span>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Selamat Datang <b><?php echo $this->session->userdata('email'); ?></b> <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?= base_url('user/index2'); ?>">Profile Saya</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="<?php echo base_url('autentifikasi/logout') ?>"
-                                        onclick="return confirm('Yakin logout?')">Logout</a></li>
+                                <li><a href="<?php echo base_url('autentifikasi/logout') ?>" onclick="return confirm('Yakin logout?')">Logout</a></li>
                             </ul>
                         </li>
                     <?php } else { ?>
@@ -77,10 +77,3 @@
             </div>
         </div>
     </nav>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-
-</html>
