@@ -32,50 +32,54 @@
             </div>
         </div>
     </div>
-    <div class="row mt-5">
-        <div class="col-lg-12">
-            <div class="section-title text-center" data-aos="fade-up">
-                <h2 class="text-center fw-bold">PROFIL PEJABAT KELURAHAN</h2>
-                <div class="row mt-5 justify-content-center">
-                    <?php if (!empty($pejabat)) : ?>
-                        <?php foreach ($pejabat as $p) : ?>
-                            <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="flip-up">
-                                <div class="card text-center mx-auto">
-                                    <img src="<?php echo base_url('uploads/pejabat/') . $p->image; ?>" class="card-img-top img-fluid mx-auto" alt="Pejabat" style="object-fit: cover; width: 100%; height: 200px;">
-                                    <div class="card-body">
-                                        <h3 class="card-title"><?= $p->nama_pejabat; ?></h3>
-                                        <p class="card-text"><?= $p->jabatan_pejabat; ?></p>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    <?php else : ?>
-                        <p class="text-center">Data pejabat tidak tersedia.</p>
-                    <?php endif; ?>
-                </div>
+    <div class="container py-5">
+        <div class="row text-center">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="display-4 fw-bold">PROFIL PEJABAT KELURAHAN</h1>
             </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <?php if (!empty($pejabat)) : ?>
+                <?php foreach ($pejabat as $p) : ?>
+                    <div class="col-md-4">
+                        <div class="team-member text-center">
+                            <img src="<?php echo base_url('uploads/pejabat/') . $p->image; ?>" alt="Pejabat" class="img-fluid">
+                            <h5><?= $p->nama_pejabat; ?></h5>
+                            <p><?= $p->jabatan_pejabat; ?></p>
+
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else : ?>
+                <p class="text-center">Data pejabat tidak tersedia.</p>
+            <?php endif; ?>
         </div>
 
         <style>
-            .card {
-                border: 1px solid #ddd;
-                border-radius: 10px;
-                overflow: hidden;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            .team-member {
+                margin-bottom: 30px;
             }
 
-            .card-body {
-                padding: 15px;
+            .team-member img {
+                border-radius: 50%;
+                width: 150px;
+                height: 150px;
+                object-fit: cover;
             }
 
-            .card-title {
-                font-size: 1.25rem;
-                font-weight: bold;
+            .team-member h5 {
+                margin-top: 15px;
+                margin-bottom: 5px;
             }
 
-            .card-text {
-                font-size: 1rem;
-                color: #555;
+            .team-member p {
+                margin-bottom: 0;
+                color: #6c757d;
+            }
+
+            #map {
+                height: 400px;
+                width: 100%;
             }
         </style>
 
