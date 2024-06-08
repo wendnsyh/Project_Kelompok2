@@ -43,4 +43,14 @@ class M_penduduk extends CI_Model
         $query = $this->db->get_where('penduduk', array('nik' => $nik))->row();
         return $query;
     }
+    public function getJumlahPenduduk()
+    {
+        return $this->db->count_all_results('penduduk');
+    }
+
+    public function getPendudukByJk($jk)
+    {
+        $this->db->where('jenis_kelamin', $jk);
+        return $this->db->count_all_results('penduduk');
+    }
 }

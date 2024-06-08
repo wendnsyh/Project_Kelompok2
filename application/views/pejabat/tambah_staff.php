@@ -19,8 +19,13 @@
                                     <?= $this->session->flashdata('error'); ?>
                                 </div>
                             <?php endif; ?>
+                            <?php if (!empty($error)) : ?>
+                                <div class="alert alert-danger" role="alert">
+                                    <?= $error; ?>
+                                </div>
+                            <?php endif; ?>
 
-                            <form action="<?= base_url('pejabat/tambah'); ?>" method="post">
+                            <form action="<?= base_url('pejabat/tambah'); ?>" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label>NIP</label>
                                     <input type="text" name="nip" class="form-control">
@@ -48,6 +53,10 @@
                                         <option value="Seksi Sosial">Seksi Sosial</option>
                                         <option value="Seksi Kesejahteraan">Seksi Kesejahteraan Rakyat</option>
                                     </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Foto</label>
+                                    <input type="file" name="image" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Alamat</label>

@@ -25,7 +25,7 @@ class M_pejabat extends CI_Model
         return $this->db->insert('pejabat', $data);
     }
 
-    public function hapus_pengaturan($id)
+    public function hapus_pejabat($id)
     {
         $this->db->where('id_pejabat', $id);
         return $this->db->delete('pejabat');

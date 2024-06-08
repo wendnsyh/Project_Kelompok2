@@ -52,7 +52,7 @@ class Autentifikasi extends CI_Controller
                     if ($user['role_id'] == 1) {
                         redirect('admin/dashboard');
                     } elseif ($user['role_id'] == 2) {
-                        redirect('pages');
+                        redirect('Warga');
                     } else {
                         // Redirect ke halaman lain jika hak akses tidak mencukupi
                         redirect('autentifikasi/blok');

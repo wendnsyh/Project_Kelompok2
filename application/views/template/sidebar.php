@@ -65,9 +65,19 @@
                     <i class="fa fa-fw fa-book"></i>
                     <span>Pengaduan</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link pb-0" href="<?= base_url('Faq/admin'); ?>">
+                    <i class="fa fa-fw fa-book"></i>
+                    <span>Inovasi</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pb-0" href="<?= base_url('Berita/admin'); ?>">
+                    <i class="fa fa-fw fa-book"></i>
+                    <span>Berita</span></a>
+            </li>
             <!-- Nav Item - Announcement -->
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('admin/Announcement') ?>">
+                <a class="nav-link pb-0" href="<?php echo base_url('admin/Announcement') ?>">
                     <i class="fas fa-fw fa-bullhorn"></i>
                     <span>Pengumuman</span>
                 </a>
@@ -165,6 +175,7 @@
                 </a>
             </li>
 
+
             <hr class="sidebar-divider mt-3">
 
             <!-- Heading -->
@@ -172,9 +183,9 @@
                 Laporan
             </div>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('Laporan/penduduk') ?>">
+                <a class="nav-link" href="<?php echo base_url('Laporan') ?>">
                     <i class="fas fa-envelope"></i>
-                    <span>Laporan Penduduk</span>
+                    <span>Laporan Surat</span>
                 </a>
             </li>
             <hr class="sidebar-divider mt-3">

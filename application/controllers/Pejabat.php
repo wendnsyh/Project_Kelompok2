@@ -10,7 +10,8 @@ class Pejabat extends CI_Controller
         $this->load->model('M_pejabat');
     }
 
-    public function index() {
+    public function index()
+    {
         $data['title'] = "pejabat - Desa Serpong Rw 001";
         $data['pejabat'] = $this->M_pejabat->tampil();
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
@@ -22,27 +23,53 @@ class Pejabat extends CI_Controller
         $this->load->view('template/footer', $data);
     }
 
-    public function tambah() {
+    public function tambah()
+    {
         $data['title'] = "Tambah Data Staff - Kelurahan Serpong";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        if ($this->input->post('tambah_staff')) {
-            $data = array(
-                'nama_pejabat' => $this->input->post('nama'),
-                'nip_pejabat' => $this->input->post('nip'),
-                'jabatan_pejabat' => $this->input->post('jabatan'),
-                'alamat' => $this->input->post('alamat'),
-                'jenis_kelamin' => $this->input->post('kelamin'),
-            );
-            $this->M_pejabat->tambah_staff($data);
-            $this->session->set_flashdata('Sukses', 'Data berhasil di tambahkan');
-            redirect(base_url('pejabat/'));
-        } else {
-            $this->load->view('template/header');
-            $this->load->view('template/sidebar');
-            $this->load->view('template/topbar',$data);
+
+        $this->form_validation->set_rules('nip', 'Nip', 'required');
+        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('jabatan', 'Jabatan', 'required');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+        $this->form_validation->set_rules('kelamin', 'Kelamin', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('template/header', $data);
+            $this->load->view('template/sidebar', $data);
+            $this->load->view('template/topbar', $data);
             $this->load->view('pejabat/tambah_staff', $data);
             $this->load->view('template/footer');
+        } else {
+            $config['upload_path']          = './uploads/pejabat/';
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['max_size']             = 10240;
+            $config['max_width']            = 10240;
+            $config['max_height']           = 10240;
+
+            $this->load->library('upload', $config);
+            $this->upload->initialize($config);
+
+            if (!$this->upload->do_upload('image')) {
+                echo $this->upload->display_errors();
+            } else {
+                $image = $this->upload->data();
+                $image = $image['file_name'];
+
+                $data = array(
+                    'nama_pejabat' => $this->input->post('nama'),
+                    'nip_pejabat' => $this->input->post('nip'),
+                    'jabatan_pejabat' => $this->input->post('jabatan'),
+                    'alamat' => $this->input->post('alamat'),
+                    'jenis_kelamin' => $this->input->post('kelamin'),
+                    'image' => $image,
+                );
+                
+                $this->M_pejabat->tambah_staff($data);
+                $this->session->set_flashdata('Sukses', 'Data berhasil di tambahkan');
+                redirect(base_url('pejabat/'));
+            }
         }
     }
 

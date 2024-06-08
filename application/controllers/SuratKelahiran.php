@@ -102,6 +102,7 @@ class SuratKelahiran extends CI_Controller
                         'tanggal_surat_kelahiran' => date('Y-m-d'),
                         'surat_pengantar' => $surat_pengantar,
                         'bukti_kelahiran' => $bukti_kelahiran,
+                        'status' => 'belum di-acc',
                     );
 
                     $insert = $this->M_surat_kelahiran->tambah_surat_kelahiran($data);

@@ -19,6 +19,7 @@
                                     <?= $this->session->flashdata('error'); ?>
                                 </div>
                             <?php endif; ?>
+                            
 
                             <form action="<?= base_url('Penghasilan/tambah'); ?>" method="post" enctype="multipart/form-data">
 

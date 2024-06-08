@@ -20,6 +20,7 @@
                             <th style="text-align:center">NIP Pejabat</th>
                             <th style="text-align:center">Jenis Kelamin</th>
                             <th style="text-align:center">Jabatan</th>
+                            <th style="text-align:center">Foto</th>
                             <th style="text-align:center">Aksi</th>
                         </tr>
                     </thead>
@@ -33,6 +34,10 @@
                                 <td><?php echo $p->nip_pejabat; ?></td>
                                 <td><?php echo $p->jenis_kelamin; ?></td>
                                 <td><?php echo $p->jabatan_pejabat; ?></td>
+                                <td>
+                                    <img src="<?= base_url('uploads/pejabat/' . $p->image) ?>" alt="Foto" style="max-width: 100px; max-height: 100px;">
+                                </td>
+
                                 <td style="text-align:center">
                                     <a href="<?php echo base_url('pejabat/edit/' . $p->id_pejabat); ?>" class="btn btn-success btn-xs"><i class="fa fa-edit"></i> Edit</a>
                                     <a href="<?php echo base_url('pejabat/hapus/' . $p->id_pejabat); ?>" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</a>
