@@ -6,11 +6,18 @@ class M_penghasilan extends CI_Model
     {
         return $this->db->query("SELECT * FROM pejabat")->result();
     }
-    public function daftar_penghasilan()
+
+   public function daftar_penghasilan($role_id)
     {
         $this->db->from('penghasilan');
         $this->db->join('penduduk', 'penghasilan.nik=penduduk.nik');
         $this->db->join('pejabat', 'penghasilan.id_pejabat=pejabat.id_pejabat');
+
+        // If the user is a warga, only show data created by warga
+        if ($role_id == 2) {
+            $this->db->where('penghasilan.created_by', 2);
+        }
+
         return $this->db->get()->result();
     }
 

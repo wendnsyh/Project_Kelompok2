@@ -19,21 +19,23 @@
                                     <?= $this->session->flashdata('error'); ?>
                                 </div>
                             <?php endif; ?>
-                            
 
                             <form action="<?= base_url('Penghasilan/tambah'); ?>" method="post" enctype="multipart/form-data">
 
                                 <div class="form-group">
                                     <label>NIK</label>
-                                    <select name="nik" class="form-control" required>
-                                        <?php foreach ($penduduk as $p) : ?>
-                                            <option value="<?php echo $p->nik; ?>">
-                                                <?php echo $p->nik; ?> - <?php echo $p->nama; ?>
-                                            </option>
-                                        <?php endforeach; ?>
-                                    </select>
+                                    <?php if ($user['role_id'] == 1) : ?>
+                                        <select name="nik" class="form-control" required>
+                                            <?php foreach ($penduduk as $p) : ?>
+                                                <option value="<?= $p->nik; ?>">
+                                                    <?= $p->nik; ?> - <?= $p->nama; ?>
+                                                </option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    <?php else : ?>
+                                        <input type="text" name="nik" class="form-control" placeholder="Masukkan NIK" required />
+                                    <?php endif; ?>
                                 </div>
-                              
 
                                 <div class="form-group">
                                     <label>Jumlah Penghasilan</label>
@@ -44,7 +46,7 @@
                                     <input type="text" name="keperluan" class="form-control" placeholder="Keperluan" required />
                                 </div>
                                 <div class="form-group">
-                                    <label >Surat Pengantar</label>
+                                    <label>Surat Pengantar</label>
                                     <input type="file" name="surat_pengantar" class="form-control">
                                 </div>
                                 <div class="form-group">
@@ -63,6 +65,7 @@
                                         <input type="submit" name="tambah_penghasilan" class="btn btn-success" value="Simpan">
                                         <a href="<?= base_url('Penghasilan/'); ?>" class="btn btn-danger">Batal</a>
                                     </div>
+                                </div>
                             </form>
                         </div>
                     </div>

@@ -11,18 +11,29 @@ class SuratKelahiran extends CI_Controller
         $this->load->library('upload');
     }
 
+    private function loadTemplate($data, $view, $viewData)
+    {
+        if ($data['user']['role_id'] == 1) {
+            $this->load->view('template/header', $data);
+            $this->load->view('template/sidebar');
+            $this->load->view('template/topbar');
+        } elseif ($data['user']['role_id'] == 2) {
+            $this->load->view('template-warga/header', $data);
+            $this->load->view('template-warga/sidebar');
+            $this->load->view('template-warga/topbar');
+        }
+        $this->load->view($view, $viewData);
+        $this->load->view('template/footer');
+    }
+
+
     public function index()
     {
         $data['title'] = "Surat Kelahiran - Desa Serpong";
         $data['surat_kelahiran'] = $this->M_surat_kelahiran->daftar_surat_kelahiran();
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-
-        $this->load->view('template/header', $data);
-        $this->load->view('template/sidebar');
-        $this->load->view('template/topbar');
-        $this->load->view('surat/kelahiran/daftar_surat_kelahiran', $data);
-        $this->load->view('template/footer');
+        $this->loadTemplate($data, 'surat/kelahiran/daftar_surat_kelahiran', $data);
     }
 
     public function tambah()

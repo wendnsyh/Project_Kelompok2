@@ -2,28 +2,19 @@
     <section class="content">
         <div class="box box-info">
             <div class="box-header">
-
-
                 <h4 style="text-align:center"><b><?= $title ?></b></h4>
                 <hr>
             </div>
-
             <div class="box-body table-responsive">
-
-                <?php
-                if ($this->session->flashdata('sukses')) {
-                ?>
+                <?php if ($this->session->flashdata('sukses')) { ?>
                     <div class="callout callout-success">
                         <p style="font-size:14px">
                             <i class="fa fa-check"></i> <?php echo $this->session->flashdata('sukses'); ?>
                         </p>
                     </div>
-                <?php
-                }
-                ?>
+                <?php } ?>
                 <p>
-                    <a href="<?php echo base_url('Penghasilan/tambah'); ?>" class="btn btn-success ml-2">Tambah Surat
-                        Keterangan Penghasilan</a>
+                    <a href="<?php echo base_url('Penghasilan/tambah'); ?>" class="btn btn-success ml-2">Tambah Surat Keterangan Penghasilan</a>
                 </p>
                 <table id="data" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
@@ -36,7 +27,6 @@
                             <th style="text-align:center">Surat Pengantar</th>
                             <th style="text-align:center">Tanda Tangan</th>
                             <th style="text-align:center">Aksi</th>
-                        </tr>
                         </tr>
                     </thead>
                     <tbody>
@@ -53,11 +43,18 @@
                                 <td style="text-align:center"><?= $surat->surat_pengantar ? 'Yes' : 'No'; ?></td>
                                 <td><?php echo $surat->nama_pejabat; ?></td>
                                 <td style="text-align:center">
-                                    <a href="<?php echo base_url('Penghasilan/edit/' . $surat->id_penghasilan); ?>" class="btn btn-success btn-xs"><i class="fa fa-edit"></i> Edit</a>
-                                    <a href="<?php echo base_url('Penghasilan/hapus/' . $surat->id_penghasilan); ?>" class="btn btn-danger btn-xs" onClick="return confirm('Yakin Akan Menghapus Data?');"><i class="fa fa-trash-o"></i> Hapus</a>
-                                    <a target="blank" href="<?php echo base_url('Penghasilan/cetak/' . $surat->id_penghasilan); ?>" class="btn btn-info btn-xs"><i class="fa fa-print"></i> Cetak</a>
+                                    <?php if ($user['role_id'] == 1) { // Admin 
+                                    ?>
+                                        <a href="<?php echo base_url('Penghasilan/edit/' . $surat->id_penghasilan); ?>" class="btn btn-success btn-xs"><i class="fa fa-edit"></i> Edit</a>
+                                        <a href="<?php echo base_url('Penghasilan/hapus/' . $surat->id_penghasilan); ?>" class="btn btn-danger btn-xs" onClick="return confirm('Yakin Akan Menghapus Data?');"><i class="fa fa-trash-o"></i> Hapus</a>
+                                        <a target="blank" href="<?php echo base_url('Penghasilan/cetak/' . $surat->id_penghasilan); ?>" class="btn btn-info btn-xs"><i class="fa fa-print"></i> Cetak</a>
+                                    <?php } elseif ($user['role_id'] == 2) { // Warga 
+                                    ?>
+                                        <a href="<?php echo base_url('Penghasilan/edit/' . $surat->id_penghasilan); ?>" class="btn btn-success btn-xs"><i class="fa fa-edit"></i> Edit</a>
+                                        <a target="blank" href="<?php echo base_url('Penghasilan/cetak/' . $surat->id_penghasilan); ?>" class="btn btn-info btn-xs"><i class="fa fa-print"></i> Cetak</a>
+                                    <?php } ?>
+                                </td>
                             </tr>
-                            </td>
                         <?php
                             $no++;
                         }
@@ -65,5 +62,6 @@
                     </tbody>
                 </table>
             </div>
+        </div>
     </section>
 </div>

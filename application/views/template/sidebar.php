@@ -67,12 +67,12 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link pb-0" href="<?= base_url('Faq/admin'); ?>">
-                    <i class="fa fa-fw fa-book"></i>
+                    <i class="fa fa-fw fa-lightbulb"></i>
                     <span>Inovasi</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link pb-0" href="<?= base_url('Berita/admin'); ?>">
-                    <i class="fa fa-fw fa-book"></i>
+                    <i class="fa fa-fw fa-newspaper"></i>
                     <span>Berita</span></a>
             </li>
             <!-- Nav Item - Announcement -->
