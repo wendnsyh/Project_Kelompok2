@@ -16,9 +16,18 @@
 
 <body>
     <!----Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top" id="">
         <div class="container">
-            <a class="navbar-brand me-auto" href="#">Logo</a>
+            <div class="sidebar-brand-icon" style="margin-right: 7px;">
+                <?php
+                $logoPath = 'assets/img/logo/logo_web.png';
+                if (file_exists($logoPath)) {
+                    echo '<img src="' . base_url($logoPath) . '" alt="Logo" style="max-width: 100%; max-height: 50px;">';
+                } else {
+                    echo 'Logo tidak ditemukan';
+                }
+                ?>
+            </div>
 
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
@@ -28,22 +37,22 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link active mx-lg-2" aria-current="page" href="#">Home</a>
+                            <a class="nav-link  mx-lg-2"  href="<?= base_url('pages') ?>">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="#about-us">About Us</a>
+                            <a class="nav-link mx-lg-2" href="<?= base_url('#about-us') ?>">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="#Layanan">Layanan</a>
+                            <a class="nav-link mx-lg-2" href="<?= base_url('#Layanan') ?>">Layanan</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="#">Inovasi</a>
+                            <a class="nav-link mx-lg-2" href="<?= base_url('faq') ?>">Inovasi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="#">Berita</a>
+                            <a class="nav-link mx-lg-2" href="<?= base_url('Berita') ?>">Berita</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="#">Footer</a>
+                            <a class="nav-link mx-lg-2" href="#footer">Footer</a>
                         </li>
                     </ul>
                 </div>

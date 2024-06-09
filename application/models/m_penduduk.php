@@ -53,4 +53,12 @@ class M_penduduk extends CI_Model
         $this->db->where('jenis_kelamin', $jk);
         return $this->db->count_all_results('penduduk');
     }
+
+    public function hitung_umur($tanggal_lahir)
+    {
+        $tanggal_lahir = new DateTime($tanggal_lahir);
+        $today = new DateTime('today');
+        $umur = $tanggal_lahir->diff($today)->y;
+        return $umur;
+    }
 }

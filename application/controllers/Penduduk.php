@@ -6,10 +6,15 @@ class Penduduk extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+
+        if (!$this->session->userdata('logged_in')) {
+            redirect('autentifikasi'); // Alihkan ke halaman login jika belum login
+        }
         $this->load->model('m_penduduk');
-        
-        
-        $this->load->library('form_validation'); // Memuat library form_validation
+
+
+        $this->load->library('form_validation');
+        // Memuat library form_validation
     }
 
     public function index()
@@ -20,7 +25,7 @@ class Penduduk extends CI_Controller
 
         $this->load->view('template/header');
         $this->load->view('template/sidebar');
-        $this->load->view('template/topbar',$data);
+        $this->load->view('template/topbar', $data);
         $this->load->view('penduduk/tampil_penduduk', $data);
         $this->load->view('template/footer');
     }
@@ -32,32 +37,25 @@ class Penduduk extends CI_Controller
 
         $this->load->view('template/header');
         $this->load->view('template/sidebar');
-        $this->load->view('template/topbar',$data);
+        $this->load->view('template/topbar', $data);
         $this->load->view('penduduk/tambah_penduduk', $data);
         $this->load->view('template/footer');
     }
-    public function proses_tambah() {
+    public function proses_tambah()
+    {
         $this->load->library('upload');
-        
-        // Konfigurasi untuk upload file
-        $config['upload_path'] = './uploads/penduduk/';
-        $config['allowed_types'] = 'jpg|jpeg|png|gif';
-        $config['max_size'] = 2048; // 2MB
-        $config['file_name'] = time() . '_' . $_FILES['foto']['name']; // Menggunakan timestamp untuk nama file unik
-    
-        $this->upload->initialize($config);
-    
-        if (!$this->upload->do_upload('foto')) {
-            // Unggah gagal, tambahkan pesan error
-            $error = array('error' => $this->upload->display_errors());
-            $this->session->set_flashdata('pesan', $error['error']);
-            redirect('penduduk/tambah'); // Redirect kembali ke form tambah data
-        } else {
-            // Unggah berhasil
-            $uploadData = $this->upload->data();
-            $data['foto'] = $uploadData['file_name'];
+
+        $nik = $this->input->post('nik');
+        $cek_nik = $this->db->get_where('penduduk', ['nik' => $nik])->row();
+
+        // Jika NIK sudah ada, set flash data dan kembalikan ke halaman tambah
+        if ($cek_nik) {
+            $this->session->set_flashdata('error', 'NIK sudah ada dalam database. Silakan masukkan NIK yang berbeda.');
+            redirect('penduduk/tambah');
         }
-    
+
+
+
         // Mengumpulkan data form lainnya
         $data['nik'] = $this->input->post('nik');
         $data['no_kk'] = $this->input->post('no_kk');
@@ -75,15 +73,15 @@ class Penduduk extends CI_Controller
         $data['status'] = $this->input->post('status');
         $data['golongan_darah'] = $this->input->post('golongan_darah');
         $data['kewarganegaraan'] = $this->input->post('kewarganegaraan');
-    
+
         // Insert ke database
         $this->db->insert('penduduk', $data);
-    
+
         // Redirect dengan pesan sukses
         $this->session->set_flashdata('pesan', 'Data berhasil ditambahkan.');
         redirect('penduduk');
     }
-    
+
 
 
     public function edit($nik)
@@ -94,7 +92,7 @@ class Penduduk extends CI_Controller
 
         $this->load->view('template/header');
         $this->load->view('template/sidebar');
-        $this->load->view('template/topbar',$data);
+        $this->load->view('template/topbar', $data);
         $this->load->view('penduduk/edit_penduduk', $data);
         $this->load->view('template/footer');
     }
@@ -168,7 +166,7 @@ class Penduduk extends CI_Controller
 
         $this->load->view('template/header');
         $this->load->view('template/sidebar');
-        $this->load->view('template/topbar',$data);
+        $this->load->view('template/topbar', $data);
         $this->load->view('penduduk/detail_penduduk', $data);
         $this->load->view('template/footer');
     }

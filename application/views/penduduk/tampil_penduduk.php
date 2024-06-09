@@ -55,7 +55,6 @@
                         float: right;
                         margin-right: 80px;
                     }
-
                 </style>
 
                 <table id="data" class="styled-table">
@@ -67,7 +66,7 @@
                             <th>Tanggal Lahir</th>
                             <th>Jenis Kelamin</th>
                             <th>Pendidikan</th>
-                            <th>Foto</th>
+                            <th>umur</th>
                             <th>Status Tinggal</th>
                             <th>Aksi</th>
                         </tr>
@@ -82,7 +81,7 @@
                                 <td><?= date('d F Y', strtotime($p->tanggal_lahir)); ?></td>
                                 <td><?= $p->jenis_kelamin; ?></td>
                                 <td><?= $p->pendidikan; ?></td>
-                                <td><?= $p->foto; ?></td>
+                                <td><?= $this->m_penduduk->hitung_umur($p->tanggal_lahir) ?> tahun</td>
                                 <td><?= $p->status; ?></td>
                                 <td>
                                     <a href="<?= base_url('penduduk/edit/' . $p->nik); ?>" class="btn btn-success btn-sm mr-1 mb-1"><i class="fas fa-edit"></i> Edit</a>

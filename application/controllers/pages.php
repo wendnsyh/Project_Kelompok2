@@ -74,7 +74,7 @@ class Pages extends CI_Controller
         $data = [
             'judul' => 'Layanan Penduduk',
             'jumlahPenduduk' => $this->m_penduduk->getJumlahPenduduk(),
-            'pendudukPria' => $this->m_penduduk->getPendudukByJk('Laki-laki'),
+            'pendudukPria' => $this->m_penduduk->getPendudukByJk('Laki laki'),
             'pendudukWanita' => $this->m_penduduk->getPendudukByJk('Perempuan'),
         ];
 

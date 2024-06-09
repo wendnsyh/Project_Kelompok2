@@ -23,6 +23,10 @@
         <th> Tanggal Lahir </th>
         <td><?= date('d F Y', strtotime($detail->tanggal_lahir)); ?>
       </tr>
+      <tr>
+        <th> Umur </th>
+        <td><?= $this->m_penduduk->hitung_umur($detail->tanggal_lahir); ?> tahun</td>
+      </tr>
       </td>
       </tr>
       <tr>

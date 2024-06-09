@@ -24,19 +24,14 @@
 
                                 <div class="form-group">
                                     <label>NIK</label>
-                                    <?php if ($user['role_id'] == 1) : ?>
-                                        <select name="nik" class="form-control" required>
-                                            <?php foreach ($penduduk as $p) : ?>
-                                                <option value="<?= $p->nik; ?>">
-                                                    <?= $p->nik; ?> - <?= $p->nama; ?>
-                                                </option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    <?php else : ?>
-                                        <input type="text" name="nik" class="form-control" placeholder="Masukkan NIK" required />
-                                    <?php endif; ?>
+                                    <select name="nik" class="form-control" required>
+                                        <?php foreach ($penduduk as $p) : ?>
+                                            <option value="<?php echo $p->nik; ?>">
+                                                <?php echo $p->nik; ?> - <?php echo $p->nama; ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
-
                                 <div class="form-group">
                                     <label>Jumlah Penghasilan</label>
                                     <input type="number" name="jumlah" class="form-control" placeholder="Jumlah Penghasilan" required />

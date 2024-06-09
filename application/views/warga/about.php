@@ -35,7 +35,7 @@
     <div class="container py-5">
         <div class="row text-center">
             <div class="col-lg-8 mx-auto">
-                <h1 class="display-4 fw-bold">PROFIL PEJABAT KELURAHAN</h1>
+                <h3 class="display-4 fw-bold" style="font-size: 35px">PROFIL PEJABAT KELURAHAN</h3>
             </div>
         </div>
         <div class="row justify-content-center mt-4">
@@ -88,8 +88,8 @@
             <div class="col-lg-12">
                 <div class="section-title text-center"></div>
                 <div class="mt-5" data-aos="fade-up">
-                    <h2 class="text-center fw-bold">LOKASI KELURAHAN SERPONG</h2>
-                    <div id="map" style="height: 400px; width: 100%;"></div>
+                    <h2 class="text-center fw-bold" style="font-size: 35px;">LOKASI KELURAHAN SERPONG</h2>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.5638255678678!2d106.65939207411479!3d-6.320878493668573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e4c3739d964b%3A0x2b47e514109178ac!2sKantor%20Kelurahan%20Serpong!5e0!3m2!1sen!2sid!4v1717924352055!5m2!1sen!2sid" width="1100" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
@@ -100,20 +100,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
         AOS.init();
-
-        function initMap() {
-            var serpong = {
-                lat: -6.304078,
-                lng: 106.687103
-            };
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 15,
-                center: serpong
-            });
-            var marker = new google.maps.Marker({
-                position: serpong,
-                map: map
-            });
-        }
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKA3XHenTbj605xuqeJIlEM0Q9r8PYdlc&callback=initMap"></script>

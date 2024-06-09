@@ -8,27 +8,21 @@
   <!--===============================================================================================-->
   <link rel="icon" type="image/png" href="<?php echo base_url(); ?>assets/img/logo/logo web.png" />
   <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css"
-    href="<?php echo base_url(); ?>assets/login_/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/login_/vendor/bootstrap/css/bootstrap.min.css">
   <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css"
-    href="<?php echo base_url(); ?>assets/login_/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/login_/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
   <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css"
-    href="<?php echo base_url(); ?>assets/login_/fonts/iconic/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/login_/fonts/iconic/css/material-design-iconic-font.min.css">
   <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/login_/vendor/animate/animate.css">
   <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css"
-    href="<?php echo base_url(); ?>assets/login_/vendor/css-hamburgers/hamburgers.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/login_/vendor/css-hamburgers/hamburgers.min.css">
   <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css"
-    href="<?php echo base_url(); ?>assets/login_/vendor/animsition/css/animsition.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/login_/vendor/animsition/css/animsition.min.css">
   <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/login_/vendor/select2/select2.min.css">
   <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css"
-    href="<?php echo base_url(); ?>assets/login_/vendor/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/login_/vendor/daterangepicker/daterangepicker.css">
   <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/login_/css/util.css">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/login_/css/main.css">
@@ -41,8 +35,7 @@
     <div class="container-login100">
       <div>
 
-        <form class="login100-form validate-form" action="<?php echo base_url('autentifikasi'); ?>" method="post"
-          class="" role="form">
+        <form class="login100-form validate-form" action="<?php echo base_url('autentifikasi'); ?>" method="post" class="" role="form">
           <span class="login100-form-title p-b-26">
             SISTEM PENGELOLAAN DATA PENDUDUK <BR> KELURAHAN SERPONG
           </span>
@@ -50,17 +43,18 @@
           <span class="login100-form-title p-b-48">
             <img src="<?php echo base_url(); ?>/assets/img/logo/logo_web.png" width="200" height="200">
           </span>
-          <?php
-          if ($this->session->flashdata('gagal')) {
-            ?>
-            <div class="callout callout-danger">
-              <p style="font-size:15px">
-                <i class="fa fa-warning"></i> <?php echo $this->session->flashdata('gagal'); ?>
-              </p>
+
+          <?php if ($this->session->flashdata('error')) : ?>
+            <div class="alert alert-danger">
+              <?= $this->session->flashdata('error') ?>
             </div>
-            <?php
-          }
-          ?>
+          <?php endif; ?>
+
+          <?php if ($this->session->flashdata('success')) : ?>
+            <div class="alert alert-success">
+              <?= $this->session->flashdata('success') ?>
+            </div>
+          <?php endif; ?>
 
           <div class="wrap-input100 validate-input" data-validate="EMAIL HARUS DIISI!">
             <input class="input100" type="text" name="email">
@@ -78,8 +72,7 @@
           <div class="container-login100-form-btn">
             <div class="wrap-login100-form-btn">
               <div class="login100-form-bgbtn"></div>
-              <button class="btn btn-lg btn-block btn-success login100-form-btn" type="submit" name="Submit"
-                alt="sign in">
+              <button class="btn btn-lg btn-block btn-success login100-form-btn" type="submit" name="Submit" alt="sign in">
                 Login
               </button>
             </div>
@@ -88,8 +81,7 @@
           <div class="container-login100-form-btn mt-3">
             <div class="wrap-login100-form-btn">
               <div class="login100-form-bgbtn"></div>
-              <button class="btn btn-lg btn-block btn-success login100-form-btn" type="button"
-                onclick="location.href='<?php echo base_url('autentifikasi/register'); ?>'">
+              <button class="btn btn-lg btn-block btn-success login100-form-btn" type="button" onclick="location.href='<?php echo base_url('autentifikasi/register'); ?>'">
                 Register
               </button>
             </div>
