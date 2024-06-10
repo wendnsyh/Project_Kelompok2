@@ -39,8 +39,12 @@
                 <td><?php echo $detail->pukul; ?></td>
             </tr>
             <tr>
-                <th> Keterangan </th>
-                <td><?php echo $detail->keterangan; ?></td>
+                <th> Sebab Wafat </th>
+                <td><?php echo $detail->sebab_wafat ?></td>
+            </tr>
+            <tr>
+                <th> Tempat Wafat </th>
+                <td><?php echo $detail->tempat_wafat; ?></td>
             </tr>
 
             </tr>

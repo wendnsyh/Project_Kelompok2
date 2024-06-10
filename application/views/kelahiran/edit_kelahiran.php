@@ -92,12 +92,6 @@
                                     <option value="Perumahan Gading Elok 2">Perumahan Gading Elok 2</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label>KETERANGAN</label>
-                                <textarea name="keterangan" class="form-control" rows="2" required><?php echo $kelahiran->keterangan; ?></textarea>
-                            </div>
-
-
 
                             <div class="form-group">
                                 <button onClick="window.history.go(-1);" class="btn btn-success">Simpan</button>

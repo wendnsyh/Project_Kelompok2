@@ -68,7 +68,6 @@ class Penduduk extends CI_Controller
         $data['pendidikan'] = $this->input->post('pendidikan');
         $data['pekerjaan'] = $this->input->post('pekerjaan');
         $data['status'] = $this->input->post('status');
-        $data['golongan_darah'] = $this->input->post('golongan_darah');
         $data['kewarganegaraan'] = $this->input->post('kewarganegaraan');
 
         // Insert ke database
@@ -134,7 +133,6 @@ class Penduduk extends CI_Controller
                 'pendidikan' => $this->input->post('pendidikan'),
                 'status_perkawinan' => $this->input->post('status_perkawinan'),
                 'status' => $this->input->post('status'),
-                'golongan_darah' => ucwords($this->input->post('golongan_darah')),
                 'kewarganegaraan' => $this->input->post('kewarganegaraan'),
             );
             $where = array(

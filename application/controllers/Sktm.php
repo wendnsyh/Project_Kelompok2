@@ -8,7 +8,7 @@ class Sktm extends CI_Controller
         parent::__construct();
         $this->load->model('M_Sktm');
         $this->load->model('m_penduduk');
-        $this->load->library(;upload);
+        $this->load->library('upload');
     }
 
     public function index()

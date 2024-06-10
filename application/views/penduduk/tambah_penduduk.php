@@ -1,15 +1,19 @@
-<section class="content">
-    <div class="box box-info">
-        <div class="box-header">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h4 style="text-align: center;"><b><?= $title ?></b></h4>
-
-                        <div class="box-body">
-                            <?php if ($this->session->flashdata('error')) : ?>
-                                <div class="alert alert-danger" role="alert">
-                                    <?= $this->session->flashdata('error'); ?>
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container">
+            <div class="row justify-content">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="text-center"><b><?= $title ?></b></h4>
+                            <hr>
+                        </div>
+                        <div class="card-body">
+                            <?php if ($this->session->flashdata('sukses')) : ?>
+                                <div class="callout callout-success">
+                                    <p style="font-size:14px">
+                                        <i class="fa fa-check"></i> <?= $this->session->flashdata('sukses'); ?>
+                                    </p>
                                 </div>
                             <?php endif; ?>
 
@@ -72,16 +76,7 @@
 
                                 <div class="form-group">
                                     <label>RW</label>
-                                    <select name="rw" class="form-control" required>
-                                        <option value="" selected disabled>- pilih -</option>
-                                        <option value="Kepala Dusun Krajan 1" <?= set_select('rw', 'Kepala Dusun Krajan 1'); ?>>Kepala Dusun Krajan 1</option>
-                                        <option value="Kepala Dusun Krajan 2" <?= set_select('rw', 'Kepala Dusun Krajan 2'); ?>>Kepala Dusun Krajan 2</option>
-                                        <option value="Kepala Dusun Sukamaju" <?= set_select('rw', 'Kepala Dusun Sukamaju'); ?>>Kepala Dusun Sukamaju</option>
-                                        <option value="Kepala Dusun Sukamulya" <?= set_select('rw', 'Kepala Dusun Sukamulya'); ?>>Kepala Dusun Sukamulya</option>
-                                        <option value="Kepala Dusun WarnaJaya" <?= set_select('rw', 'Kepala Dusun WarnaJaya'); ?>>Kepala Dusun WarnaJaya</option>
-                                        <option value="Perumahan Bumi Karawang Permai" <?= set_select('rw', 'Perumahan Bumi Karawang Permai'); ?>>Perumahan Bumi Karawang Permai</option>
-                                        <option value="Perumahan Gading Elok 2" <?= set_select('rw', 'Perumahan Gading Elok 2'); ?>>Perumahan Gading Elok 2</option>
-                                    </select>
+                                    <input type="text" name="rw" class="form-control" value="<?= set_value('rw'); ?>" required />
                                     <?= form_error('rw', '<div class="text-danger">', '</div>'); ?>
                                 </div>
 
@@ -145,12 +140,6 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Golongan Darah</label>
-                                    <input type="text" name="golongan_darah" class="form-control" value="<?= set_value('golongan_darah'); ?>" required />
-                                    <?= form_error('golongan_darah', '<div class="text-danger">', '</div>'); ?>
-                                </div>
-
-                                <div class="form-group">
                                     <label>Kewarganegaraan</label>
                                     <select name="kewarganegaraan" class="form-control" required>
                                         <option value="" selected disabled>- pilih -</option>
@@ -170,5 +159,5 @@
                 </div>
             </div>
         </div>
-    </div>
+</div>
 </section>

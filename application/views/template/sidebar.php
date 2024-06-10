@@ -4,7 +4,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav sidebar bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar" ">
+        <ul class="navbar-nav sidebar sidebar sidebar-dark accordion" id="accordionSidebar" style="background: linear-gradient(45deg, #00274C, #0099FF); color: white;">
             <a class=" sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
             <div class="sidebar-brand-icon" style="margin-right: 7px;">
                 <?php
@@ -54,6 +54,11 @@
                 <a class="nav-link pb-0" href="<?= base_url('kematian'); ?>">
                     <i class="fa fa-fw fa-users"></i>
                     <span>Data Kematian</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pb-0" href="<?= base_url('pindah'); ?>">
+                    <i class="fa fa-fw fa-users"></i>
+                    <span>Data Pindah</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link pb-0" href="<?= base_url('pejabat'); ?>">
@@ -142,12 +147,6 @@
                 <a class="nav-link" href="<?php echo base_url('SkPindah') ?>">
                     <i class="fas fa-envelope"></i>
                     <span>Surat Keterangan Pindah</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('SkBatal') ?>">
-                    <i class="fas fa-envelope"></i>
-                    <span>Surat Keterangan Batal Pindah</span>
                 </a>
             </li>
             <li class="nav-item">

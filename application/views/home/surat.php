@@ -94,9 +94,4 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-5">
-            <div class="col-md-12 text-center">
-                <a href="<?= base_url('pages/persyaratan') ?>" class="btn btn-success btn-lg">Info lebih lanjut</a>
-            </div>
-        </div>
     </div>

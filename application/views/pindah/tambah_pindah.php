@@ -19,7 +19,7 @@
                                     <?= $this->session->flashdata('error'); ?>
                                 </div>
                             <?php endif; ?>
-                            <form action="<?php echo base_url('Pindah/proses_tambah'); ?>" method="post" enctype="multipart/form-data">
+                            <form action="<?php echo base_url('Pindah/tambah'); ?>" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label>Nomor Induk Kependudukan</label>
                                     <input type="text" name="nik" class="form-control" required />
@@ -54,16 +54,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>RW</label>
-                                    <select name="rw" class="form-control" required>
-                                        <option value="" selected disabled>- pilih -</option>
-                                        <option value="Kepala Dusun Krajan 1">Kepala Dusun Krajan 1</option>
-                                        <option value="Kepala Dusun Krajan 2">Kepala Dusun Krajan 2</option>
-                                        <option value="Kepala Dusun Sukamaju">Kepala Dusun Sukamaju</option>
-                                        <option value="Kepala Dusun Sukamulya">Kepala Dusun Sukamulya</option>
-                                        <option value="Kepala Dusun WarnaJaya">Kepala Dusun WarnaJaya</option>
-                                        <option value="Perumahan Bumi Karawang Permai">Perumahan Bumi Karawang Permai </option>
-                                        <option value=">Perumahan Gading Elok 2">Perumahan Gading Elok 2</option>
-                                    </select>
+                                    <input type="text" name="rw" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Alasan Pindah</label>
@@ -119,7 +110,7 @@
                                 </div>
                                 <center>
                                     <div class="form-group">
-                                        <button onClick="window.history.go(-1);" class="btn btn-success">Simpan</button>
+                                        <button class="btn btn-success">Simpan</button>
                                         <a href="<?php echo base_url('Pindah/'); ?>" class="btn btn-danger">Batal</a>
                                     </div>
                                 </center>

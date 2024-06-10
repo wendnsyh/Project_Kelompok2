@@ -46,17 +46,7 @@ class Autentifikasi extends CI_Controller
                         'email' => $user['email'],
                         'role_id' => $user['role_id']
                     ];
-                    $this->session->set_userdata($data);
 
-                    // Pemeriksaan hak akses setelah login
-                    if ($user['role_id'] == 1) {
-                        redirect('admin/dashboard');
-                    } elseif ($user['role_id'] == 2) {
-                        redirect('autentifikasi/blok');
-                    } else {
-                        // Redirect ke halaman lain jika hak akses tidak mencukupi
-                        redirect('autentifikasi/blok');
-                    }
                     $this->session->set_userdata($data);
                     redirect('admin/dashboard');
                 } else {
@@ -137,12 +127,12 @@ class Autentifikasi extends CI_Controller
             $data = [
                 'nama' => htmlspecialchars($this->input->post('nama', true)),
                 'email' => htmlspecialchars($this->input->post('email', true)),
-                'image' => 'gambar.jpg',
+                'image' => 'default.jpg',
                 'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                 'role_id' => 1,
                 'is_active' => 1,
                 'tanggal_input' => time(),
-                'level' => ('Penduduk')
+                'level' => ('staff desa')
             ];
 
             $this->M_login->simpanData($data); // Save user data using the model

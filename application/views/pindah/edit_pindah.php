@@ -15,7 +15,7 @@
                                     <?php echo $this->session->flashdata('sukses'); ?>
                                 </div>
                             <?php endif; ?>
-                            <form action="<?php echo base_url('Pindah/proses_edit'); ?>" method="post">
+                            <form action="<?php echo base_url('Pindah/edit/' . $nik); ?>" method="post">
                                 <div class="form-group">
                                     <label>Nomor Induk Kepindahan</label>
                                     <input type="text" name="nik" value="<?php echo $pindah->nik; ?>" class="form-control" required />
@@ -54,17 +54,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>RW</label>
-                                    <select name="rw" class="form-control" required>
-                                        <option value="<?php echo $pindah->rw; ?>" selected>
-                                            <?php echo $pindah->rw; ?></option>
-                                        <option value="Kepala Dusun Krajan 1">Kepala Dusun Krajan 1</option>
-                                        <option value="Kepala Dusun Krajan 2">Kepala Dusun Krajan 2</option>
-                                        <option value="Kepala Dusun Sukamaju">Kepala Dusun Sukamaju</option>
-                                        <option value="Kepala Dusun Sukamulya">Kepala Dusun Sukamulya</option>
-                                        <option value="Kepala Dusun WarnaJaya">Kepala Dusun WarnaJaya</option>
-                                        <option value="Perumahan Bumi Karawang Permai">Perumahan Bumi Karawang Permai
-                                        </option>
-                                    </select>
+                                    <input type="text" name="rw" value="<?php echo $pindah->rw; ?>" class="form-control" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Alasan Pindah</label>
@@ -84,8 +74,8 @@
                                     <div class="row">
                                         <div class="col-xs-12">
                                             <div class="input-group date">
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-calendar"></i>
+                                                <div class="input-group-addon ml-2">
+                                                    
                                                 </div>
                                                 <input type="date" name="tanggal_pindah" value="<?php echo $pindah->tanggal_pindah; ?>" class="form-control pull-right">
                                             </div>

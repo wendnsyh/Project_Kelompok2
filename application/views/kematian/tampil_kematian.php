@@ -25,7 +25,7 @@
                         <tr class="active">
                             <th style="text-align:center">No</th>
                             <th style="text-align:center">Nama</th>
-                            <th style="text-align:center">Umur</th>
+                            <th style="text-align:center">Tanggal Lahir</th>
                             <th style="text-align:center">Jenis Kelamin</th>
                             <th style="text-align:center">Alamat</th>
                             <th style="text-align:center">Tanggal Wafat</th>
@@ -40,7 +40,7 @@
                             <tr>
                                 <td style="text-align:center"><?php echo $no; ?></td>
                                 <td><?php echo $kematian->nama; ?></td>
-                                <td style="text-align:center"><?php echo $kematian->tanggal_lahir; ?> Tahun</td>
+                                <td><?= date('d F Y', strtotime($kematian->tanggal_lahir)); ?></td>
                                 <td><?php echo $kematian->jenis_kelamin; ?></td>
                                 <td><?php echo $kematian->alamat; ?></td>
                                 <td style="text-align:center"><?= date('d F Y', strtotime($kematian->tanggal_wafat)); ?></td>

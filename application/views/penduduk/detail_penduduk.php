@@ -66,10 +66,6 @@
         <td><?php echo $detail->status; ?></td>
       </tr>
       <tr>
-        <th> Golongan Darah </th>
-        <td><?php echo $detail->golongan_darah; ?></td>
-      </tr>
-      <tr>
         <th> Kewarganegaraan </th>
         <td><?php echo $detail->kewarganegaraan; ?></td>
       </tr>
