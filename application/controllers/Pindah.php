@@ -164,7 +164,7 @@ class Pindah extends CI_Controller
     public function detail($nik)
     {
         $data['title'] = "Detail Data Pindah - Kelurahan Serpong";
-        $this->load->model('M_pindah');
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $detail = $this->M_pindah->detail($nik);
         $data['detail'] = $detail;

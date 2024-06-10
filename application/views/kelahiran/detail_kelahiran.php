@@ -47,6 +47,14 @@
                 <th>Pekerjaan Ibu</th>
                 <td><?php echo $detail->pekerjaan_ibu; ?></td>
             </tr>
+            <tr>
+                <th>Rt</th>
+                <td><?php echo $detail->rt; ?></td>
+            </tr>
+            <tr>
+                <th>Rw</th>
+                <td><?php echo $detail->rw; ?></td>
+            </tr>
         </table>
         <button onclick="goBack()" class="btn btn-primary ml-2">Kembali</button>
         <script>

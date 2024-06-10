@@ -81,16 +81,7 @@
                             </div>
                             <div class="form-group">
                                 <label>RW</label>
-                                <select class="form-control selectlive" name="rw" required>
-                                    <option value="<?php echo $kelahiran->rw; ?>" selected><?php echo $kelahiran->rw; ?></option>
-                                    <option value="Kepala Dusun Krajan 1">Kepala Dusun Krajan 1</option>
-                                    <option value="Kepala Dusun Krajan 2">Kepala Dusun Krajan 2</option>
-                                    <option value="Kepala Dusun Sukamaju">Kepala Dusun Sukamaju</option>
-                                    <option value="Kepala Dusun Sukamulya">Kepala Dusun Sukamulya</option>
-                                    <option value="Kepala Dusun WarnaJaya">Kepala Dusun WarnaJaya</option>
-                                    <option value="Perumahan Bumi Karawang Permai">Perumahan Bumi Karawang Permai</option>
-                                    <option value="Perumahan Gading Elok 2">Perumahan Gading Elok 2</option>
-                                </select>
+                                <input type="text" name="rw" value="<?php echo $kelahiran->rw; ?>" class="form-control" required />
                             </div>
 
                             <div class="form-group">

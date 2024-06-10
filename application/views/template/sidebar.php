@@ -6,16 +6,16 @@
         <!-- Sidebar -->
         <ul class="navbar-nav sidebar sidebar sidebar-dark accordion" id="accordionSidebar" style="background: linear-gradient(45deg, #00274C, #0099FF); color: white;">
             <a class=" sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-            <div class="sidebar-brand-icon" style="margin-right: 7px;">
-                <?php
-                $logoPath = 'assets/img/logo/logo_web.png';
-                if (file_exists($logoPath)) {
-                    echo '<img src="' . base_url($logoPath) . '" alt="Logo" style="max-width: 100%; max-height: 50px;">';
-                } else {
-                    echo 'Logo tidak ditemukan';
-                }
-                ?>
-            </div>
+                <div class="sidebar-brand-icon" style="margin-right: 7px;">
+                    <?php
+                    $logoPath = 'assets/img/logo/logo_web.png';
+                    if (file_exists($logoPath)) {
+                        echo '<img src="' . base_url($logoPath) . '" alt="Logo" style="max-width: 100%; max-height: 50px;">';
+                    } else {
+                        echo 'Logo tidak ditemukan';
+                    }
+                    ?>
+                </div>
             </a>
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -182,11 +182,26 @@
                 Laporan
             </div>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('Laporan') ?>">
-                    <i class="fas fa-envelope"></i>
-                    <span>Laporan Surat</span>
-                </a>
+                <a class="nav-link pb-0" href="<?= base_url('Laporan/laporan_penduduk'); ?>">
+                    <i class="fa fa-fw fa-address-book"></i>
+                    <span>Laporan Data Penduduk</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link pb-0" href="<?= base_url('Laporan/laporan_kelahiran'); ?>">
+                    <i class="fa fa-fw fa-address-book"></i>
+                    <span>Laporan Data Kelahiran</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pb-0" href="<?= base_url('Laporan/laporan_kematian'); ?>">
+                    <i class="fa fa-fw fa-address-book"></i>
+                    <span>Laporan Data Kematian</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pb-0" href="<?= base_url('Laporan/laporan_pindah'); ?>">
+                    <i class="fa fa-fw fa-address-book"></i>
+                    <span>Laporan Data Pindah</span></a>
+            </li>
+
             <hr class="sidebar-divider mt-3">
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('autentifikasi/logout') ?>" onclick="return confirm('Yakin logout?')">
