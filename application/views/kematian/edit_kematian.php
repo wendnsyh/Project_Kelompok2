@@ -19,7 +19,6 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label>Nama Lengkap</label>
-                            <input type="hidden" name="id" value="<?php echo $kematian->id_kematian; ?>" class="form-control" />
                             <input type="text" name="nama" value="<?php echo $kematian->nama; ?>" class="form-control" required />
                         </div>
                         <div class="form-group">
@@ -73,24 +72,13 @@
                             </div>
                             <div class="form-group">
                                 <label>RW</label>
-                                <select class="form-control selectlive" name="rw" required>
-                                    <option value="<?php echo $kematian->rw; ?>" selected>
-                                        <?php echo $kematian->rw; ?>
-                                    </option>
-                                    <option value="Kepala Dusun Krajan 1">Kepala Dusun Krajan 1</option>
-                                    <option value="Kepala Dusun Krajan 2">Kepala Dusun Krajan 2</option>
-                                    <option value="Kepala Dusun Sukamaju">Kepala Dusun Sukamaju</option>
-                                    <option value="Kepala Dusun Sukamulya">Kepala Dusun Sukamulya</option>
-                                    <option value="Kepala Dusun WarnaJaya">Kepala Dusun WarnaJaya</option>
-                                    <option value="Perumahan Bumi Karawang Permai">Perumahan Bumi Karawang Permai</option>
-                                    <option value="Perumahan Gading Elok 2">Perumahan Gading Elok 2</option>
-                                </select>
+                                <input type="text" name="rw" value="<?php echo $kematian->rw; ?>" class="form-control" required />
                             </div>
                             <div class="form-group">
                                 <label>Tanggal Wafat</label>
                                 <div class="row">
                                     <div class="col-xs-4">
-                                        <select name="hari_wafat" class="form-control" required>
+                                        <select id="hari_wafat" name="hari_wafat" class="form-control" required>
                                             <option value="<?php echo $kematian->hari_wafat; ?>" selected>
                                                 <?php echo $kematian->hari_wafat; ?></option>
                                             <option value="Senin">Senin</option>
@@ -104,7 +92,7 @@
                                     </div>
                                     <div class="col-xs-5">
                                         <div class="input-group date ml-2">
-                                            <input type="date" name="tanggal_wafat" value="<?php echo $kematian->tanggal_wafat; ?>" class="form-control pull-right" placeholder="tanggal wafat">
+                                            <input type="date" id="tanggal_wafat" name="tanggal_wafat" value="<?php echo $kematian->tanggal_wafat; ?>" class="form-control pull-right" placeholder="tanggal wafat">
                                         </div>
                                     </div>
                                     <div class="col-xs-2">
@@ -115,6 +103,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="form-group">
                                 <button class="btn btn-success">Simpan</button>
                                 <a href="<?php echo base_url('kematian'); ?>" class="btn btn-danger">Batal</a>
@@ -126,3 +115,18 @@
         </div>
     </div>
 </div>
+<script>
+    document.getElementById('tanggal_wafat').addEventListener('change', function() {
+        const date = new Date(this.value);
+        const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+        const dayName = days[date.getDay()];
+        const hariWafatSelect = document.getElementById('hari_wafat');
+
+        for (let i = 0; i < hariWafatSelect.options.length; i++) {
+            if (hariWafatSelect.options[i].value === dayName) {
+                hariWafatSelect.selectedIndex = i;
+                break;
+            }
+        }
+    });
+</script>
