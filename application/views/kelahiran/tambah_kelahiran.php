@@ -22,13 +22,13 @@
                     ?>
 
                     <form action="<?php echo base_url('kelahiran/proses_tambah'); ?>" method="post">
+
                         <!-- kolom ke-1 -->
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>ID Monitoring</label>
-                                    <input type="hidden" name="" value="">
-                                    <input type="text" name="id_monitoring" class="form-control" required />
+                                    <label>Nama</label>
+                                    <input type="text" name="nama" id="nama" class="form-control" placeholder="Masukan Nama" required>
                                 </div>
 
                                 <div class="form-group">
@@ -36,6 +36,7 @@
 
                                     <div class="col-xs-5">
                                         <div class="input-group date">
+                                            <input type="text" name="tempat_lahir" id="tempat_lahir" placeholder="Masukan Tempat lahir" class="form-control" required>
                                             <input type="date" name="tanggal_lahir" class="form-control pull-right">
                                         </div>
                                     </div>
@@ -111,16 +112,11 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label>Keterangan</label>
-                                        <textarea name="Keterangan" class="form-control" rows="4" required></textarea>
-                                    </div>
-
                                     <button type="submit" class="btn btn-success">Simpan</button>
                                     <a href="<?php echo base_url('kelahiran'); ?>" class="btn btn-danger">Batal</a>
                                 </div>
                             </div>
-                            
+
                         </div>
                 </div>
                 </form>

@@ -37,7 +37,7 @@ class Faq extends CI_Controller
     public function add_faq()
     {
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['title']= "Tambah Inovasi";
+        $data['title'] = "Tambah Inovasi";
 
         $this->form_validation->set_rules('question', 'Question', 'required');
         $this->form_validation->set_rules('answer', 'Answer', 'required');
@@ -75,14 +75,25 @@ class Faq extends CI_Controller
 
     public function edit_faq($id)
     {
+        // Periksa apakah ID valid
+        if (empty($id) || !is_numeric($id)) {
+            show_error('Invalid ID');
+        }
+
+        // Ambil data user dari session
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        // Ambil data FAQ berdasarkan ID
+        $data['faq'] = $this->faq_model->get_faq_by_id($id);
+
+        if (empty($data['faq'])) {
+            show_error('FAQ not found');
+        }
 
         $this->form_validation->set_rules('question', 'Question', 'required');
         $this->form_validation->set_rules('answer', 'Answer', 'required');
 
         if ($this->form_validation->run() == FALSE) {
-            $data['faq'] = $this->faq_model->get_faqs($id);
-
             $this->load->view('template/header');
             $this->load->view('template/sidebar', $data);
             $this->load->view('template/topbar');
@@ -95,19 +106,19 @@ class Faq extends CI_Controller
 
             if ($this->upload->do_upload('image')) {
                 $upload_data = $this->upload->data();
-                $data = array(
+                $updated_data = array(
                     'question' => $this->input->post('question'),
                     'answer' => $this->input->post('answer'),
                     'image' => $upload_data['file_name']
                 );
             } else {
-                $data = array(
+                $updated_data = array(
                     'question' => $this->input->post('question'),
                     'answer' => $this->input->post('answer')
                 );
             }
 
-            $this->faq_model->edit_faq($id, $data);
+            $this->faq_model->edit_faq($id, $updated_data);
             redirect('faq/admin');
         }
     }

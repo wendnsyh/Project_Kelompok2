@@ -64,72 +64,47 @@ class SuratKelahiran extends CI_Controller
             $this->load->view('surat/kelahiran/tambah_surat_kelahiran', $data);
             $this->load->view('template/footer');
         } else {
-            $config['upload_path'] = './uploads/bukti/';
-            $config['allowed_types'] = 'jpg|jpeg|png|pdf';
-            $config['max_size'] = 10000;
-
-            // Ensure the upload path exists
-            if (!is_dir($config['upload_path'])) {
-                mkdir($config['upload_path'], 0777, TRUE);
-            }
+            $config['upload_path']          = './uploads/';
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['max_size']             = 10240;
+            $config['max_width']            = 10240;
+            $config['max_height']           = 10240;
 
             $this->load->library('upload', $config);
+            $this->upload->initialize($config);
 
-            if (!$this->upload->do_upload('surat_pengantar')) {
+            if (!$this->upload->do_upload('surat_pengantar') || !$this->upload->do_upload('bukti_kelahiran')) {
                 $data['error'] = $this->upload->display_errors();
                 $this->load->view('template/header', $data);
                 $this->load->view('template/sidebar', $data);
                 $this->load->view('template/topbar');
                 $this->load->view('surat/kelahiran/tambah_surat_kelahiran', $data);
-                $this->load->view('template/footer');
+                $this->load->view('template/footer', $data);
             } else {
                 $surat_pengantar = $this->upload->data('file_name');
+                $bukti_kelahiran = $this->upload->data('file_name');
 
-                // Reinitialize the upload library for the second file
-                $this->upload->initialize($config);
 
-                if (!$this->upload->do_upload('bukti_kelahiran')) {
-                    $data['error'] = $this->upload->display_errors();
-                    $this->load->view('template/header', $data);
-                    $this->load->view('template/sidebar', $data);
-                    $this->load->view('template/topbar');
-                    $this->load->view('surat/kelahiran/tambah_surat_kelahiran', $data);
-                    $this->load->view('template/footer');
-                } else {
-                    $bukti_kelahiran = $this->upload->data('file_name');
+                $data = array(
+                    'nik_ayah' => $this->input->post('ayah'),
+                    'nik_ibu' => $this->input->post('ibu'),
+                    'nik_pelapor' => $this->input->post('pelapor'),
+                    'nama_anak' => $this->input->post('nama'),
+                    'kelamin_anak' => $this->input->post('kelamin'),
+                    'tempat_lahir_anak' => $this->input->post('tempat'),
+                    'tanggal_lahir_anak' => $this->input->post('tanggal'),
+                    'jam_lahir_anak' => $this->input->post('jam'),
+                    'hari_lahir_anak' => $this->input->post('hari'),
+                    'id_pejabat' => $this->input->post('pejabat'),
+                    'hubungan_sebagai' => $this->input->post('hubungan'),
+                    'tanggal_surat_kelahiran' => date('Y-m-d'),
+                    'surat_pengantar' => $surat_pengantar,
+                    'bukti_kelahiran' => $bukti_kelahiran,
+                );
 
-                    $data = array(
-                        'nik_ayah' => $this->input->post('ayah'),
-                        'nik_ibu' => $this->input->post('ibu'),
-                        'nik_pelapor' => $this->input->post('pelapor'),
-                        'nama_anak' => $this->input->post('nama'),
-                        'kelamin_anak' => $this->input->post('kelamin'),
-                        'tempat_lahir_anak' => $this->input->post('tempat'),
-                        'tanggal_lahir_anak' => $this->input->post('tanggal'),
-                        'jam_lahir_anak' => $this->input->post('jam'),
-                        'hari_lahir_anak' => $this->input->post('hari'),
-                        'id_pejabat' => $this->input->post('pejabat'),
-                        'hubungan_sebagai' => $this->input->post('hubungan'),
-                        'tanggal_surat_kelahiran' => date('Y-m-d'),
-                        'surat_pengantar' => $surat_pengantar,
-                        'bukti_kelahiran' => $bukti_kelahiran,
-                        'status' => 'belum di-acc',
-                    );
-
-                    $insert = $this->M_surat_kelahiran->tambah_surat_kelahiran($data);
-                    if ($insert) {
-                        $this->session->set_flashdata('sukses', 'Data berhasil ditambahkan.');
-                        redirect(base_url('SuratKelahiran/'));
-                    } else {
-                        log_message('error', 'Gagal menyimpan data ke database');
-                        $data['error'] = 'Gagal menyimpan data ke database';
-                        $this->load->view('template/header', $data);
-                        $this->load->view('template/sidebar', $data);
-                        $this->load->view('template/topbar');
-                        $this->load->view('surat/kelahiran/tambah_surat_kelahiran', $data);
-                        $this->load->view('template/footer');
-                    }
-                }
+                $this->M_surat_kelahiran->tambah_surat_kelahiran($data);
+                $this->session->set_flashdata('sukses', 'Data berhasil ditambahkan.');
+                redirect(base_url('SuratKelahiran/'));
             }
         }
     }
@@ -165,22 +140,26 @@ class SuratKelahiran extends CI_Controller
             $this->load->view('surat/kelahiran/edit_surat_kelahiran', $data);
             $this->load->view('template/footer');
         } else {
-            $config['upload_path'] = './uploads/bukti/';
-            $config['allowed_types'] = 'jpg|jpeg|png';
-            $config['max_size'] = 1000; // 2MB
+            $config['upload_path']          = './uploads/';
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['max_size']             = 10240;
+            $config['max_width']            = 10240;
+            $config['max_height']           = 10240;
 
+            $this->load->library('upload', $config);
+            $this->upload->initialize($config);
 
-            $upload_surat_pengantar = $this->upload->do_upload('surat_pengantar');
-            $upload_bukti_kelahiran = $this->upload->do_upload('bukti_kelahiran');
-
-            if (!$upload_surat_pengantar && !$upload_bukti_kelahiran) {
+            if (!$this->upload->do_upload('surat_pengantar') || !$this->upload->do_upload('bukti_kelahiran')) {
                 $data['error'] = $this->upload->display_errors();
                 $this->load->view('template/header', $data);
-                $this->load->view('template/sidebar');
+                $this->load->view('template/sidebar', $data);
                 $this->load->view('template/topbar');
                 $this->load->view('surat/kelahiran/edit_surat_kelahiran', $data);
-                $this->load->view('template/footer');
+                $this->load->view('template/footer', $data);
             } else {
+                $surat_pengantar = $this->upload->data('file_name');
+                $bukti_kelahiran = $this->upload->data('file_name');
+
                 $data = array(
                     'nik_ayah' => $this->input->post('ayah'),
                     'nik_ibu' => $this->input->post('ibu'),
@@ -194,16 +173,6 @@ class SuratKelahiran extends CI_Controller
                     'id_pejabat' => $this->input->post('pejabat'),
                     'hubungan_sebagai' => $this->input->post('hubungan'),
                 );
-
-                if ($upload_surat_pengantar) {
-                    $upload_data_surat_pengantar = $this->upload->data();
-                    $data['surat_pengantar'] = $upload_data_surat_pengantar['file_name'];
-                }
-
-                if ($upload_bukti_kelahiran) {
-                    $upload_data_bukti = $this->upload->data();
-                    $data['bukti_kelahiran'] = $upload_data_bukti['file_name'];
-                }
 
                 $where = array(
                     'id_surat_kelahiran' => $this->input->post('id'),

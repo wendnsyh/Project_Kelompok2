@@ -7,28 +7,29 @@
     <div class="section-title text-center" data-aos="fade-up">
         <div class="logo-container"></div>
         <h2>KELURAHAN SERPONG</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-            consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat
-            sit in iste officiis commodi quidem hic quas.</p>
+        <p>Kelurahan Serpong adalah bagian dari Kecamatan Serpong, Kota Tangerang Selatan. Kami berkomitmen untuk memberikan pelayanan terbaik kepada masyarakat dan menjaga lingkungan yang bersih, aman, dan nyaman.</p>
     </div>
 
     <div class="row mt-5">
         <div class="col-lg-6" data-aos="fade-right">
             <div class="section-title text-center">
                 <h2>VISI KELURAHAN SERPONG</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem.
-                    Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias
-                    ea.
-                    Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                <p>Menjadi Kelurahan yang Sejahtera, Transparan, dan Inovatif dalam Melayani Masyarakat dengan Berlandaskan Nilai Kebersamaan dan Keadilan.</p>
             </div>
         </div>
         <div class="col-lg-6" data-aos="fade-left">
             <div class="section-title text-center">
                 <h2>MISI KELURAHAN SERPONG</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem.
-                    Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias
-                    ea.
-                    Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                <p>1. Peningkatan kualitas pelayanan publik
+                    <br>
+                    2. Pemberdayaan masyarakat
+                    <br>
+                    3. Transparansi dan akuntanbilitas
+                    <br>
+                    4. Peningkatan infrastruktur dan lingkungan
+                    <br>
+                    5. Pengembangan ekonomi lokal
+                </p>
             </div>
         </div>
     </div>

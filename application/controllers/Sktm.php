@@ -8,6 +8,7 @@ class Sktm extends CI_Controller
         parent::__construct();
         $this->load->model('M_Sktm');
         $this->load->model('m_penduduk');
+        $this->load->library(;upload);
     }
 
     public function index()
@@ -128,7 +129,7 @@ class Sktm extends CI_Controller
                 $foto = $upload_data['file_name'];
 
                 // Perbarui data yang akan diedit
-                $update_data = array(
+                $data = array(
                     'nik_ayah' => $this->input->post('ayah'),
                     'nik_anak' => $this->input->post('anak'),
                     'id_pejabat' => $this->input->post('pejabat'),
@@ -140,7 +141,7 @@ class Sktm extends CI_Controller
                     'id_sktm' => $this->input->post('id'),
                 );
 
-                $this->M_Sktm->proses_edit_sktm($where, $update_data);
+                $this->M_Sktm->proses_edit_sktm($where, $data);
                 $this->session->set_flashdata('Sukses', 'Data berhasil diedit');
                 redirect(base_url('Sktm/'));
             }

@@ -47,6 +47,7 @@
                                     <select name="jabatan" class="form-control" required>
                                         <option value="">--</option>
                                         <option value="lurah">Lurah</option>
+                                        <option value="lurah">Wakil Lurah</option>
                                         <option value="Sekretaris Kelurahan">Sekretaris Kelurahan</option>
                                         <option value="Seksi Pemerintahan">Seksi Pemerintahan</option>
                                         <option value="Seksi Pembangunan">Seksi Pembangunan</option>

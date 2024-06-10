@@ -12,6 +12,12 @@ class Faq_model extends CI_Model
         return $this->db->get('faq')->result_array();
     }
 
+    public function get_faq_by_id($id)
+    {
+        $this->db->where('id', $id);
+        return $this->db->get('faq')->row_array();
+    }
+
     public function add_faq($data)
     {
         $this->db->insert('faq', $data);

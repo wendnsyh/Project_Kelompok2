@@ -15,7 +15,7 @@
                                     <?php echo $this->session->flashdata('sukses'); ?>
                                 </div>
                             <?php endif; ?>
-                            <form action="<?php echo base_url('SuratDomisili/edit/' . $id); ?>" method="post">
+                            <form action="<?php echo base_url('SuratDomisili/edit/' . $id); ?>" method="post" enctype="multipart/form-data">
 
                                 <div class="card-body">
                                     <div class="form-group">

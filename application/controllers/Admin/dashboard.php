@@ -2,16 +2,7 @@
 
 class Dashboard extends CI_Controller
 {
-
-  public function __construct()
-  {
-    parent::__construct();
-
-    if (!$this->session->userdata('logged_in')) {
-      $this->session->set_flashdata('error', 'Anda harus login untuk mengakses halaman ini.');
-      redirect('autentifikasi'); // Alihkan ke halaman login jika belum login
-    }
-  }
+  
   public function index()
   {
 

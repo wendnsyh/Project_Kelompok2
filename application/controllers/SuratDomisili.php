@@ -65,7 +65,8 @@ class SuratDomisili extends CI_Controller
                     'alasan' => $this->input->post('alasan'),
                     'id_pejabat' => $this->input->post('pejabat'),
                     'tanggal_domisili' => date('Y-m-d'),
-                    'surat_pengantar' => $surat_pengantar
+                    'surat_pengantar' => $surat_pengantar,
+                    'no_surat_rt' => $this->input->post('no_surat_rt')
                 );
 
                 $this->M_domisili->tambah_domisili($data);
@@ -116,7 +117,8 @@ class SuratDomisili extends CI_Controller
                     'nik' => $this->input->post('nik'),
                     'alasan' => $this->input->post('alasan'),
                     'id_pejabat' => $this->input->post('pejabat'),
-                    'tanggal_domisili' => date('Y-m-d')
+                    'tanggal_domisili' => date('Y-m-d'),
+                    'no_surat_rt' => $this->input->post('no_surat_rt')
                 );
 
                 if ($upload_surat_pengantar) {

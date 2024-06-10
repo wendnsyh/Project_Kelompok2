@@ -90,7 +90,6 @@ class SkUsaha extends CI_Controller
         $this->form_validation->set_rules('nik', 'NIK', 'required|numeric');
         $this->form_validation->set_rules('pejabat', 'Pejabat', 'required');
         $this->form_validation->set_rules('nama', 'Nama Usaha', 'required');
-        $this->form_validation->set_rules('jenis', 'Jenis Usaha', 'required');
         $this->form_validation->set_rules('sejak', 'Sejak Usaha', 'required|numeric');
         $this->form_validation->set_rules('alamat', 'Alamat Usaha', 'required');
 
@@ -101,7 +100,7 @@ class SkUsaha extends CI_Controller
             $this->load->view('surat/usaha/edit_usaha', $data);
             $this->load->view('template/footer', $data);
         } else {
-            $config['upload_path'] = './uploads/';
+            $config['upload_path'] = './uploads/usaha/';
             $config['allowed_types'] = 'jpg|jpeg|png|pdf';
             $config['max_size'] = 2048;
 

@@ -52,7 +52,7 @@ class Autentifikasi extends CI_Controller
                     if ($user['role_id'] == 1) {
                         redirect('admin/dashboard');
                     } elseif ($user['role_id'] == 2) {
-                        redirect('Warga');
+                        redirect('autentifikasi/blok');
                     } else {
                         // Redirect ke halaman lain jika hak akses tidak mencukupi
                         redirect('autentifikasi/blok');
@@ -139,7 +139,7 @@ class Autentifikasi extends CI_Controller
                 'email' => htmlspecialchars($this->input->post('email', true)),
                 'image' => 'gambar.jpg',
                 'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
-                'role_id' => 2,
+                'role_id' => 1,
                 'is_active' => 1,
                 'tanggal_input' => time(),
                 'level' => ('Penduduk')

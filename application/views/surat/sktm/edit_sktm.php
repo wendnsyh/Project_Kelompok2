@@ -16,7 +16,7 @@
                                 </div>
                             <?php endif; ?>
 
-                            <form action="<?php echo base_url('Sktm/edit/' . $id); ?>" method="post">
+                            <form action="<?php echo base_url('Sktm/edit/' . $id); ?>" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label>NIK Ayah</label>
                                     <input type="hidden" name="id" value="<?= $sktm->id_sktm ?>">
@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>foto</label>
-                                    <input type="file" name="foto" class="form-control" value="<?php echo $sktm->foto; ?>" required />
+                                    <input type="file" name="surat_pengantar" class="form-control" value="<?php echo $sktm->surat_pengantar; ?>" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Alasan Kebutuhan</label>

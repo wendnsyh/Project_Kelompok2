@@ -52,7 +52,7 @@
                                 <td><?php echo $surat->nama_pejabat; ?></td>
                                 <td style="text-align:center">
                                     <a href="<?php echo base_url('SuratDomisili/edit/' . $surat->id_domisili); ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>
-                                    <a href="<?php echo base_url('Surat/Domisili/hapus/' . $surat->id_domisili); ?>" class="btn btn-danger btn-sm" onClick="return confirm('Yakin Akan Menghapus Data?');"><i class="fa fa-trash-o"></i> Hapus</a>
+                                    <a href="<?php echo base_url('SuratDomisili/hapus/' . $surat->id_domisili); ?>" class="btn btn-danger btn-sm" onClick="return confirm('Yakin Akan Menghapus Data?');"><i class="fa fa-trash-o"></i> Hapus</a>
                                     <a target="blank" href="<?php echo base_url('SuratDomisili/cetak/' . $surat->id_domisili); ?>" class="btn btn-info btn-sm"><i class="fa fa-print"></i> Cetak</a>
                             </tr>
                             </td>

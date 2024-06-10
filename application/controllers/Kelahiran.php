@@ -21,7 +21,7 @@ class Kelahiran extends CI_Controller
 		$this->load->view('template/header', $data);
 		$this->load->view('template/sidebar');
 		$this->load->view('template/topbar');
-		$this->load->view('kelahiran/tampil_kelahiran',$data);
+		$this->load->view('kelahiran/tampil_kelahiran', $data);
 		$this->load->view('template/footer');
 	}
 
@@ -35,46 +35,51 @@ class Kelahiran extends CI_Controller
 		$this->load->view('template/header', $data);
 		$this->load->view('template/sidebar');
 		$this->load->view('template/topbar');
-		$this->load->view('kelahiran/tambah_kelahiran',$data);
+		$this->load->view('kelahiran/tambah_kelahiran', $data);
 		$this->load->view('template/footer');
 	}
 
 	public function proses_tambah()
 	{
-		$id_kelahiran = $this->input->post('id_kelahiran');
-		$nama = $this->input->post('nama');
-		$hari = $this->input->post('hari');
-		$tempat_lahir = $this->input->post('tempat_lahir');
-		$tanggal_lahir = $this->input->post('tanggal_lahir');
-		$pukul = $this->input->post('pukul');
-		$jenis_kelamin = $this->input->post('jenis_kelamin');
-		$nama_ayah = $this->input->post('nama_ayah');
-		$nama_ibu = $this->input->post('nama_ibu');
-		$alamat = $this->input->post('alamat');
-		$rt = $this->input->post('rt');
-		$rw = $this->input->post('rw');
-		$keterangan = $this->input->post('keterangan');
+		// Validasi input
+		$this->form_validation->set_rules('nama', 'Nama', 'required');
+		$this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required');
+		$this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
+		$this->form_validation->set_rules('pukul', 'Pukul', 'required');
+		$this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required');
+		$this->form_validation->set_rules('nama_ayah', 'Nama Ayah', 'required');
+		$this->form_validation->set_rules('nama_ibu', 'Nama Ibu', 'required');
+		$this->form_validation->set_rules('alamat', 'Alamat', 'required');
+		$this->form_validation->set_rules('rt', 'RT', 'required');
+		$this->form_validation->set_rules('rw', 'RW', 'required');
 
-		$data = array(
+		if ($this->form_validation->run() == FALSE) {
+			// Jika validasi gagal, kembali ke halaman tambah data
+			$this->session->set_flashdata('error', validation_errors());
+			redirect('kelahiran/tambah');
+		} else {
+			// Jika validasi berhasil, lanjutkan proses penyimpanan data
+			$data = array(
+				'nama' => ucwords($this->input->post('nama')),
+				'hari' => ucwords($this->input->post('hari')),
+				'tempat_lahir' => ucwords($this->input->post('tempat_lahir')),
+				'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+				'pukul' => $this->input->post('pukul'),
+				'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+				'nama_ayah' => ucwords($this->input->post('nama_ayah')),
+				'pekerjaan_ayah' => ucwords($this->input->post('pekerjaan_ayah')),
+				'pekerjaan_ibu' => ucwords($this->input->post('pekerjaan_ibu')),
+				'nama_ibu' => ucwords($this->input->post('nama_ibu')),
+				'alamat' => ucwords($this->input->post('alamat')),
+				'rt' => $this->input->post('rt'),
+				'rw' => $this->input->post('rw'),
+			);
 
-			'nama' => ucwords($nama),
-			'hari' => ucwords($hari),
-			'tempat_lahir' => ucwords($tempat_lahir),
-			'tanggal_lahir' => $tanggal_lahir,
-			'pukul' => $pukul,
-			'jenis_kelamin' => $jenis_kelamin,
-			'nama_ayah' => ucwords($nama_ayah),
-			'nama_ibu' => ucwords($nama_ibu),
-			'alamat' => ucwords($alamat),
-			'rt' => $rt,
-			'rw' => $rw,
-			'keterangan' => $keterangan,
-		);
+			$this->m_kelahiran->tambah($data);
 
-		$this->m_kelahiran->tambah($data);
-
-		$this->session->set_flashdata('sukses', 'Data dengan ID ' . $id_kelahiran . ' berhasil ditambahkan.');
-		redirect(base_url('kelahiran/tampil'));
+			$this->session->set_flashdata('sukses', 'Data berhasil ditambahkan.');
+			redirect('kelahiran');
+		}
 	}
 
 	public function edit($id_kelahiran)
@@ -86,7 +91,7 @@ class Kelahiran extends CI_Controller
 		$this->load->view('template/header', $data);
 		$this->load->view('template/sidebar');
 		$this->load->view('template/topbar');
-		$this->load->view('kelahiran/edit_kelahiran',$data);
+		$this->load->view('kelahiran/edit_kelahiran', $data);
 		$this->load->view('template/footer');
 	}
 
@@ -106,7 +111,8 @@ class Kelahiran extends CI_Controller
 			'alamat' => $this->input->post('alamat'),
 			'rt' =>  $this->input->post('rt'),
 			'rw' =>  $this->input->post('rw'),
-			'keterangan' =>  $this->input->post('keterangan'),
+			'pekerjaan_ayah' => ucwords($this->input->post('pekerjaan_ayah')),
+			'pekerjaan_ibu' => ucwords($this->input->post('pekerjaan_ibu')),
 		);
 		$where = array(
 			'id_kelahiran' => $this->input->post('id'),

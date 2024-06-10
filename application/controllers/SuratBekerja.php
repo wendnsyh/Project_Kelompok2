@@ -116,7 +116,7 @@ class SuratBekerja extends CI_Controller
                 // If failed to upload photo
                 $data['error'] = $this->upload->display_errors();
                 $this->load->view('template/header');
-                $this->load->view('template/sidebar');
+                $this->load->view('template/sidebar',$data);
                 $this->load->view('template/topbar');
                 $this->load->view('surat/izin/edit_izin', $data);
                 $this->load->view('template/footer');

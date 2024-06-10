@@ -16,7 +16,22 @@
                                 </div>
                             <?php endif; ?>
 
-                            <form action="<?php echo base_url('SuratKelahiran/edit/' . $surat_kelahiran->id_surat_kelahiran); ?>" method="post">
+                            <!-- Tampilkan pesan error validasi -->
+                            <?php if (validation_errors()) : ?>
+                                <div class="alert alert-danger" role="alert">
+                                    <?php echo validation_errors(); ?>
+                                </div>
+                            <?php endif; ?>
+
+                            <!-- Tampilkan pesan error upload -->
+                            <?php if (isset($error) && !empty($error)) : ?>
+                                <div class="alert alert-danger" role="alert">
+                                    <?php echo $error; ?>
+                                </div>
+                            <?php endif; ?>
+
+
+                            <form action="<?php echo base_url('SuratKelahiran/edit/' . $surat_kelahiran->id_surat_kelahiran); ?>" method="post" enctype="multipart/form-data">
 
                                 <input type="hidden" name="id" value="<?php echo $surat_kelahiran->id_surat_kelahiran; ?>">
 
@@ -65,6 +80,17 @@
                                         <option value="Perempuan" <?php echo ($surat_kelahiran->kelamin_anak == 'Perempuan') ? 'selected' : ''; ?>>Perempuan</option>
                                     </select>
                                 </div>
+
+                                <div class="form-group">
+                                    <label>Surat Pengantar</label>
+                                    <input type="file" name="surat_pengantar" class="form-control" value="<?= $surat_kelahiran->surat_pengantar; ?>" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Bukti Kelahiran</label>
+                                    <input type="file" name="bukti_kelahiran" class="form-control" value="<?= $surat_kelahiran->bukti_kelahiran; ?>" required>
+                                </div>
+
 
                                 <div class="form-group">
                                     <label>Tempat Tanggal Lahir</label>

@@ -16,7 +16,7 @@
                                 </div>
                             <?php endif; ?>
 
-                            <form action="<?php echo base_url('SkUsaha/edit/' . $id); ?>" method="post">
+                            <form action="<?php echo base_url('SkUsaha/edit/' . $id); ?>" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label>NIK</label>
                                     <input type="hidden" name="id" value="<?= $usaha->id_usaha ?>">
@@ -39,6 +39,14 @@
                                 <div class="form-group">
                                     <label>Alamat Usaha</label>
                                     <input type="text" name="alamat" class="form-control" placeholder="Alamat" value="<?php echo $usaha->alamat_usaha; ?>" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Surat Pengantar</label>
+                                    <input type="file" name="surat_pengantar" class="form-control"  value="<?php echo $usaha->surat_pengantar; ?>" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Bukti Usaha</label>
+                                    <input type="file" name="bukti_usaha" class="form-control"  value="<?php echo $usaha->bukti_usaha; ?>" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Tanda Tangan</label>

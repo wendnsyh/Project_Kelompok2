@@ -16,7 +16,7 @@
                                 </div>
                             <?php endif; ?>
 
-                            <form action="<?php echo base_url('SuratKematian/surat_kematian/edit'); ?>" method="post">
+                            <form action="<?php echo base_url('SuratKematian/edit/' . $id); ?>" method="post" enctype="multipart/form-data">
                                 <input type="hidden" name="id" value="<?php echo $surat_kematian->id_surat_kematian; ?>" />
 
                                 <div class="form-group">
@@ -84,6 +84,11 @@
                                 <div class="form-group">
                                     <label>Pukul</label>
                                     <input type="time" name="jam" class="form-control" id="pukul" required value="<?php echo $surat_kematian->jam_kematian; ?>">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Surat Pengantar</label>
+                                    <input type="file" name="surat_pengantar" class="form-control"  required value="<?php echo $surat_kematian->surat_pengantar; ?>">
                                 </div>
 
                                 <div class="form-group">

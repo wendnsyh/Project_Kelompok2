@@ -42,6 +42,10 @@
                                     <input type="text" name="alasan" class="form-control" placeholder="alasan" required />
                                 </div>
                                 <div class="form-group">
+                                    <label>No Surat Rt</label>
+                                    <input type="text" name="no_surat_rt" class="form-control" placeholder="Masukan Nomo Surat Rt" required />
+                                </div>
+                                <div class="form-group">
                                     <label>Tanda Tangan</label>
                                     <select name="pejabat" class="form-control" required>
                                         <?php

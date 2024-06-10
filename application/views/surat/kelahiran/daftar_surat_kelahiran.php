@@ -46,8 +46,9 @@
                             <th style="text-align: center;">Jenis Kelamin</th>
                             <th style="text-align: center;">Tempat/Tanggal lahir</th>
                             <th style="text-align: center;">Hubungan</th>
-                            <th style="text-align: center;">Foto</th>
+                            <th style="text-align: center;">Surat Pengantar</th>
                             <th style="text-align: center;">Bukti Kelahiran</th>
+                            <th style="text-align: center;">Pejabat</th>
                             <th style="text-align: center;">Aksi</th>
                         </tr>
                     </thead>
@@ -66,9 +67,9 @@
                                 <td><?php echo $surat->tempat_lahir_anak; ?>/
                                     <?= date('d F Y', strtotime($surat->tanggal_lahir_anak)); ?></td>
                                 <td><?php echo $surat->hubungan_sebagai; ?></td>
-                                <td><?= $surat->nama_pejabat; ?></td>
                                 <td style="text-align:center"><?= $surat->surat_pengantar ? 'Yes' : 'No'; ?></td>
                                 <td style="text-align:center"><?= $surat->bukti_kelahiran ? 'Yes' : 'No'; ?></td>
+                                <td><?= $surat->nama_pejabat; ?></td>
                                 <td style="text-align:center">
                                     <a href="<?php echo base_url('SuratKelahiran/edit/' . $surat->id_surat_kelahiran); ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>
                                     <a href="<?php echo base_url('SuratKelahiran/hapus/' . $surat->id_surat_kelahiran); ?>" class="btn btn-danger btn-sm" onClick="return confirm('Yakin Akan Menghapus Data?');"><i class="fa fa-trash-o"></i> Hapus</a>

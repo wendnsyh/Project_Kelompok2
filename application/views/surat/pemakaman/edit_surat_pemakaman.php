@@ -10,13 +10,29 @@
                         </div>
 
                         <div class="card-body">
+
+                            <!-- Tampilkan pesan sukses jika ada -->
                             <?php if ($this->session->flashdata('sukses')) : ?>
-                                <div class="alert alert-success" role="alert">
+                                <div class="alert alert-success">
                                     <?= $this->session->flashdata('sukses'); ?>
                                 </div>
                             <?php endif; ?>
 
-                            <form action="<?= base_url('Pemakaman/edit/' . $id); ?>" method="post">
+                            <!-- Tampilkan pesan error validasi -->
+                            <?php if (validation_errors()) : ?>
+                                <div class="alert alert-danger">
+                                    <?= validation_errors(); ?>
+                                </div>
+                            <?php endif; ?>
+
+                            <!-- Tampilkan pesan error upload -->
+                            <?php if (isset($error)) : ?>
+                                <div class="alert alert-danger">
+                                    <?= $error; ?>
+                                </div>
+                            <?php endif; ?>
+
+                            <form action="<?= base_url('Pemakaman/edit/' . $id); ?>" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label>NIK</label>
                                     <select name="nik" class="form-control" required>
@@ -51,10 +67,15 @@
                                     <label>Tanggal Dimakamkan</label>
                                     <div class="input-group date">
                                         <div class="input-group-addon">
-                                          
+
                                         </div>
                                         <input type="date" name="tanggal" value="<?= $pemakaman->tanggal_dimakamkan; ?>" class="form-control pull-right" placeholder="Tanggal Dimakamkan" required>
                                     </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Surat Pengantar</label>
+                                    <input type="file" name="surat_pengantar" value="<?= $pemakaman->surat_pengantar; ?>" class="form-control" required>
                                 </div>
 
                                 <div class="form-group">

@@ -36,6 +36,7 @@
                                     <label>Jabatan</label>
                                     <select name="jabatan" class="select2 form-control custom-select" required>
                                         <option value="Lurah" <?php if ($pejabat->jabatan_pejabat == "Lurah") echo "selected"; ?>>Kepala Kelurahan</option>
+                                        <option value="Wakil Lurah" <?php if ($pejabat->jabatan_pejabat == "Wakil Lurah") echo "selected"; ?>>Wakil Kepala Kelurahan</option>
                                         <option value="Sekertaris Kelurahan" <?php if ($pejabat->jabatan_pejabat == "Sekertaris Kelurahan") echo "selected"; ?>>Sekertaris Kelurahan</option>
                                         <option value="Seksi Pemerintahan" <?php if ($pejabat->jabatan_pejabat == "Seksi Pemerintahan") echo "selected"; ?>>Seksi Pemerintahan</option>
                                         <option value="Seksi Pembangunan" <?php if ($pejabat->jabatan_pejabat == "Seksi Pembangunan") echo "selected"; ?>>Seksi Pembangunan</option>

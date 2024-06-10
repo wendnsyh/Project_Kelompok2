@@ -49,8 +49,8 @@
                                     <?php endif; ?>
                                 </td>
                                 <td style="text-align:center">
-                                    <a href="<?php echo base_url('b/edit_b/' . $b['id']); ?>" class="btn btn-warning btn-sm">Edit</a>
-                                    <a href="<?php echo base_url('b/delete_b/' . $b['id']); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus b ini?');">Hapus</a>
+                                    <a href="<?php echo base_url('berita/edit/' . $b['id']); ?>" class="btn btn-warning btn-sm">Edit</a>
+                                    <a href="<?php echo base_url('berita/delete/' . $b['id']); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus b ini?');">Hapus</a>
                                 </td>
                             </tr>
                         <?php

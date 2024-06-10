@@ -74,7 +74,7 @@
         </ol>
         <div class="carousel-inner" role="list-box">
             <div class="carousel-item active">
-                <img src="<?= base_url('assets/img/layouts/carousel-1.jpg') ?>" class="img-fluid" alt="Image">
+                <img src="<?= base_url('assets/img/layouts/layout2.jpg') ?>" class="img-fluid" alt="Image">
                 <div class="carousel-caption">
                     <div class="p-3" style="max-width: 900px;">
                         <h4 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">Kelurahan Serpong</h4>
@@ -83,13 +83,9 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="<?= base_url('assets/img/layouts/carousel-1.jpg') ?>" class="img-fluid" alt="Image">
+                <img src="<?= base_url('assets/img/layouts/layout1.jpg') ?>" class="img-fluid" alt="Image">
                 <div class="carousel-caption">
                     <div class="p-3" style="max-width: 900px;">
-                        <h4 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">Explore The World</h4>
-                        <h1 class="display-2 text-capitalize text-primary mb-4">Find Your Perfect Tour At Travel</h1>
-                        <p class="mb-5 fs-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                        </p>
 
                     </div>
                 </div>
@@ -188,7 +184,7 @@
         }
     </style>
 
-    <<footer class="bg-dark text-white py-4 mb-7" id="footer">
+    <footer class="bg-dark text-white py-4 mb-7" id="footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
