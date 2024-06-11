@@ -46,4 +46,12 @@ class M_kelahiran extends CI_Model
 		$query = $this->db->get_where('kelahiran', array('id_kelahiran' => $id_kelahiran))->row();
 		return $query;
 	}
+
+	public function search($keyword)
+	{
+		$this->db->select('*');
+		$this->db->from('kelahiran');
+		$this->db->like('nama', $keyword);
+		return $this->db->get()->result();
+	}
 }

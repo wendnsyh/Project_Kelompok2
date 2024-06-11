@@ -12,14 +12,45 @@ class Kematian extends CI_Controller
         // }
         $this->load->model('m_kematian');
         $this->load->model('m_penduduk');
+        $this->load->model('Pagination_model');
     }
 
 
     public function index()
     {
-        $data['title'] = "Data Kematian - Desa Serpong";
-        $data['kematian'] = $this->m_kematian->tampil();
+
+        $config['base_url'] = site_url('kematian/index');
+        $config['total_rows'] = $this->Pagination_model->get_total_rows('kematian');
+        $config['per_page'] = 3;
+        $config['uri_segment'] = 3;
+        $choice = $config["total_rows"] / $config['per_page'];
+        $config["num_links"] = floor($choice);
+
+        // Customizing pagination links
+        $config['full_tag_open'] = '<nav><ul class="pagination">';
+        $config['full_tag_close'] = '</ul></nav>';
+        $config['first_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['first_tag_close'] = '</span></li>';
+        $config['last_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['last_tag_close'] = '</span></li>';
+        $config['next_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['next_tag_close'] = '</span></li>';
+        $config['prev_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['prev_tag_close'] = '</span></li>';
+        $config['num_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['num_tag_close'] = '</span></li>';
+        $config['cur_tag_open'] = '<li class="page-item active"><span class="page-link">';
+        $config['cur_tag_close'] = '<span class="sr-only">(current)</span></span></li>';
+
+        $this->pagination->initialize($config);
+
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+
+        $data['title'] = "Data kematian - Kelurahan Serpong	";
+        $data['kematian'] = $this->Pagination_model->get_data('kematian', $config['per_page'], $page);
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $data['pagination'] = $this->pagination->create_links();
 
         $this->load->view('template/header', $data);
         $this->load->view('template/sidebar');
@@ -93,7 +124,7 @@ class Kematian extends CI_Controller
 
 
             $data = array(
-               
+
                 'nama' => ucwords($nama),
                 'jenis_kelamin' => $jenis_kelamin,
                 'tempat_lahir' => $tempat_lahir,
@@ -158,7 +189,7 @@ class Kematian extends CI_Controller
         } else {
             // Jika validasi berhasil, proses data
             $data = array(
-               
+
                 'nama' => $this->input->post('nama'),
                 'jenis_kelamin' => $this->input->post('jenis_kelamin'),
                 'tempat_lahir' => $this->input->post('tempat_lahir'),
@@ -206,6 +237,19 @@ class Kematian extends CI_Controller
         $this->load->view('template/sidebar');
         $this->load->view('template/topbar');
         $this->load->view('kematian/detail_kematian', $data);
+        $this->load->view('template/footer');
+    }
+    public function search()
+    {
+        $keyword = trim($this->input->post('keyword'));
+        $data['title'] = "Data Kematian";
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['kematian'] = $this->m_kematian->search($keyword);
+
+        $this->load->view('template/header', $data);
+        $this->load->view('template/sidebar');
+        $this->load->view('template/topbar');
+        $this->load->view('kematian/tampil_kematian', $data);
         $this->load->view('template/footer');
     }
 }

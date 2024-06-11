@@ -8,20 +8,35 @@
 
       <div class="box-body table-responsive">
 
-        <?php
-        if ($this->session->flashdata('sukses')) {
-        ?>
+        <?php if ($this->session->flashdata('sukses')) { ?>
           <div class="callout callout-success">
             <p style="font-size:14px">
               <i class="fa fa-check"></i> <?php echo $this->session->flashdata('sukses'); ?>
             </p>
           </div>
-        <?php
-        }
-        ?>
+        <?php } ?>
+
         <p>
-          <a href="<?php echo base_url('Kelahiran/tambah'); ?>" class="btn btn-success ml-3">Tambah Data Kelahiran</a>
+          <a href="<?php echo base_url('Kelahiran/tambah'); ?>" class="btn btn-success ml-2">Tambah Data Kelahiran</a>
         </p>
+
+        <div class="navbar-search">
+          <!-- Form pencarian -->
+          <form class="form-inline mr-auto" action="<?php echo base_url('kelahiran/search') ?>" method="post">
+            <div class="input-group">
+              <input type="text" name="keyword" class="form-control bg-light border-2 small" placeholder="Search for..." style="border-color: #4e73df;">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Tombol kembali -->
+        <a href="<?php echo base_url('kelahiran') ?>" class="btn btn-secondary mt-3 mb-3">Kembali</a>
+
         <table id="data" class="table table-bordered" width="100%" cellspacing="0">
           <thead>
             <tr class="active">
@@ -34,33 +49,39 @@
               <th style="text-align:center">Nama Ibu</th>
               <th style="text-align:center">Aksi</th>
             </tr>
-            </tr>
           </thead>
           <tbody>
-            <?php
-            $no = 1;
-            foreach ($kelahiran as $kelahiran) {
-            ?>
+            <?php if (!empty($kelahiran)) {
+              $no = 1;
+              foreach ($kelahiran as $item) { ?>
+                <tr>
+                  <td style="text-align:center"><?php echo $no; ?></td>
+                  <td><?php echo $item->nama; ?></td>
+                  <td><?= date('d F Y', strtotime($item->tanggal_lahir)); ?></td>
+                  <td><?php echo $item->jenis_kelamin; ?></td>
+                  <td><?php echo $item->alamat; ?></td>
+                  <td><?php echo $item->nama_ayah; ?></td>
+                  <td><?php echo $item->nama_ibu; ?></td>
+                  <td style="text-align:center">
+                    <a href="<?php echo base_url('Kelahiran/edit/' . $item->id_kelahiran); ?>" class="btn btn-success btn-sm mb-2"><i class="fa fa-edit"></i> Edit</a>
+                    <a href="<?php echo base_url('Kelahiran/hapus/' . $item->id_kelahiran); ?>" class="btn btn-danger btn-sm mb-2" onClick="return confirm('Yakin Akan Menghapus Data?');"><i class="fa fa-trash-o"></i> Hapus</a>
+                    <a href="<?php echo base_url('Kelahiran/detail/' . $item->id_kelahiran); ?>" class="btn btn-info btn-sm mb-2"><i class="fa fa-info-circle"></i> Detail</a>
+                  </td>
+                </tr>
+              <?php $no++;
+              }
+            } else { ?>
               <tr>
-                <td style="text-align:center"><?php echo $no; ?></td>
-                <td><?php echo $kelahiran->nama; ?></td>
-                <td><?= date('d F Y', strtotime($kelahiran->tanggal_lahir)); ?></td>
-                <td><?php echo $kelahiran->jenis_kelamin; ?></td>
-                <td><?php echo $kelahiran->alamat; ?></td>
-                <td><?php echo $kelahiran->nama_ayah; ?></td>
-                <td><?php echo $kelahiran->nama_ibu; ?></td>
-                <td style="text-align:center">
-                  <a href="<?php echo base_url('Kelahiran/edit/' . $kelahiran->id_kelahiran); ?>" class="btn btn-success  btn-sm mb-2"><i class="fa fa-edit"></i> Edit</a>
-                  <a href="<?php echo base_url('Kelahiran/hapus/' . $kelahiran->id_kelahiran); ?>" class="btn btn-danger btn-sm mb-2" onClick="return confirm('Yakin Akan Menghapus Data?');"><i class="fa fa-trash-o"></i> Hapus</a>
-                  <a href="<?php echo base_url('Kelahiran/detail/' . $kelahiran->id_kelahiran); ?>" class="btn btn-info btn-sm mb-2"><i class="fa fa-info-circle"></i> Detail</a>
+                <td colspan="8" style="text-align:center">Data tidak ditemukan</td>
               </tr>
-              </td>
-            <?php
-              $no++;
-            }
-            ?>
+            <?php } ?>
           </tbody>
         </table>
+
+        <div class="pagination-links mt-3">
+          <?php echo isset($pagination) ? $pagination : ''; ?>
+        </div>
       </div>
+    </div>
   </section>
 </div>

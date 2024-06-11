@@ -150,9 +150,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('SuratKelahiran') ?>">
+                <a class="nav-link" href="<?php echo base_url('SkBatal_pindah') ?>">
                     <i class="fas fa-envelope"></i>
-                    <span>Surat Keterangan Tanah</span>
+                    <span>Surat Keterangan Batal Pindah</span>
                 </a>
             </li>
             <li class="nav-item">

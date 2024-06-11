@@ -61,4 +61,13 @@ class M_penduduk extends CI_Model
         $umur = $tanggal_lahir->diff($today)->y;
         return $umur;
     }
+
+    public function search($keyword)
+    {
+        $this->db->select('*');
+        $this->db->from('penduduk');
+        $this->db->like('nik', $keyword);
+        $this->db->or_like('nama', $keyword);
+        return $this->db->get()->result(); 
+    }
 }

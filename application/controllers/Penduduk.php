@@ -8,20 +8,51 @@ class Penduduk extends CI_Controller
         parent::__construct();
 
         $this->load->model('m_penduduk');
+        $this->load->model('Pagination_model');
 
 
         $this->load->library('form_validation');
-        // Memuat library form_validation
+        $this->load->library('pagination');
     }
 
     public function index()
     {
-        $data['title'] = "Data Penduduk - Desa Serpong";
-        $data['penduduk'] = $this->m_penduduk->tampil();
+        $config['base_url'] = site_url('penduduk/index');
+        $config['total_rows'] = $this->Pagination_model->get_total_rows('penduduk');
+        $config['per_page'] = 3;
+        $config['uri_segment'] = 3;
+        $choice = $config["total_rows"] / $config['per_page'];
+        $config["num_links"] = floor($choice);
+
+        // Customizing pagination links
+        $config['full_tag_open'] = '<nav><ul class="pagination">';
+        $config['full_tag_close'] = '</ul></nav>';
+        $config['first_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['first_tag_close'] = '</span></li>';
+        $config['last_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['last_tag_close'] = '</span></li>';
+        $config['next_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['next_tag_close'] = '</span></li>';
+        $config['prev_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['prev_tag_close'] = '</span></li>';
+        $config['num_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['num_tag_close'] = '</span></li>';
+        $config['cur_tag_open'] = '<li class="page-item active"><span class="page-link">';
+        $config['cur_tag_close'] = '<span class="sr-only">(current)</span></span></li>';
+
+        $this->pagination->initialize($config);
+
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+
+        $data['title'] = "Data Penduduk";
+        $data['penduduk'] = $this->Pagination_model->get_data('penduduk', $config['per_page'], $page);
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
+
+        $data['pagination'] = $this->pagination->create_links();
+
         $this->load->view('template/header');
-        $this->load->view('template/sidebar');
+        $this->load->view('template/sidebar', $data);
         $this->load->view('template/topbar', $data);
         $this->load->view('penduduk/tampil_penduduk', $data);
         $this->load->view('template/footer');
@@ -163,6 +194,20 @@ class Penduduk extends CI_Controller
         $this->load->view('template/sidebar');
         $this->load->view('template/topbar', $data);
         $this->load->view('penduduk/detail_penduduk', $data);
+        $this->load->view('template/footer');
+    }
+
+    public function search()
+    {
+        $keyword = trim($this->input->post('keyword'));
+        $data['title'] = "Data Penduduk";
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['penduduk'] = $this->m_penduduk->search($keyword);
+
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar', $data);
+        $this->load->view('template/topbar', $data);
+        $this->load->view('penduduk/tampil_penduduk', $data);
         $this->load->view('template/footer');
     }
 }

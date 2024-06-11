@@ -46,4 +46,13 @@ class M_kematian extends CI_Model
 		$query = $this->db->get_where('kematian', array('id_kematian' => $id_kematian))->row();
 		return $query;
 	}
+
+	public function search($keyword)
+	{
+		$this->db->select('*');
+		$this->db->from('kematian');
+		$this->db->like('nama', $keyword);
+		$this->db->or_like('jenis_kelamin', $keyword);
+		return $this->db->get()->result();
+	}
 }

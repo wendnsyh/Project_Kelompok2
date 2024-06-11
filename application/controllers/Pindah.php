@@ -6,21 +6,52 @@ class Pindah extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_pindah');
+        $this->load->model('Pagination_model');
         $this->load->library('form_validation');
     }
 
     public function index()
     {
-        $data['title'] = "Data Pindah - Kelurahan Serpong";
-        $data['pindah'] = $this->M_pindah->tampil();
+        $config['base_url'] = site_url('pindah/index');
+        $config['total_rows'] = $this->Pagination_model->get_total_rows('pindahdatang');
+        $config['per_page'] = 3;
+        $config['uri_segment'] = 3;
+        $choice = $config["total_rows"] / $config['per_page'];
+        $config["num_links"] = floor($choice);
+
+        // Customizing pagination links
+        $config['full_tag_open'] = '<nav><ul class="pagination justify-content">';
+        $config['full_tag_close'] = '</ul></nav>';
+        $config['first_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['first_tag_close'] = '</span></li>';
+        $config['last_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['last_tag_close'] = '</span></li>';
+        $config['next_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['next_tag_close'] = '</span></li>';
+        $config['prev_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['prev_tag_close'] = '</span></li>';
+        $config['num_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['num_tag_close'] = '</span></li>';
+        $config['cur_tag_open'] = '<li class="page-item active"><span class="page-link">';
+        $config['cur_tag_close'] = '<span class="sr-only">(current)</span></span></li>';
+
+        $this->pagination->initialize($config);
+
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+
+        $data['title'] = "Data pindah - Kelurahan Serpong";
+        $data['pindah'] = $this->Pagination_model->get_data('pindahdatang', $config['per_page'], $page);
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $this->load->view('template/header');
+        $data['pagination'] = $this->pagination->create_links();
+
+        $this->load->view('template/header', $data);
         $this->load->view('template/sidebar');
-        $this->load->view('template/topbar', $data);
+        $this->load->view('template/topbar');
         $this->load->view('pindah/tampil_pindah', $data);
         $this->load->view('template/footer');
     }
+
 
     public function tambah()
     {
@@ -42,7 +73,7 @@ class Pindah extends CI_Controller
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('template/header');
-            $this->load->view('template/sidebar',$data);
+            $this->load->view('template/sidebar', $data);
             $this->load->view('template/topbar');
             $this->load->view('pindah/tambah_pindah', $data);
             $this->load->view('template/footer');
@@ -109,7 +140,7 @@ class Pindah extends CI_Controller
         $this->form_validation->set_rules('klasifikasi_pindah', 'Klasifikasi Pindah', 'required');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header',$data);
+            $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');
             $this->load->view('template/topbar');
             $this->load->view('pindah/edit_pindah', $data);

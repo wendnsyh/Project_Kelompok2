@@ -4,7 +4,7 @@
             <div class="box-header">
 
 
-                <h4 style="text-align:center"><b><?+ $title?></b></h4>
+                <h4 style="text-align:center"><b><? +$title ?></b></h4>
                 <hr>
             </div>
 
@@ -62,6 +62,8 @@
                         ?>
                     </tbody>
                 </table>
-            </div>
+                <div class="pagination-links mt-3">
+                    <?php echo isset($pagination) ? $pagination : ''; ?>
+                </div>
     </section>
 </div>
