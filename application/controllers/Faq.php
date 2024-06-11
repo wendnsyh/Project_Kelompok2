@@ -82,6 +82,7 @@ class Faq extends CI_Controller
 
         // Ambil data user dari session
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['title'] = "Edit data Faq";
 
         // Ambil data FAQ berdasarkan ID
         $data['faq'] = $this->faq_model->get_faq_by_id($id);

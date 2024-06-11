@@ -1,11 +1,11 @@
 <div class="content-wrapper">
     <section class="content">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row justify-content">
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="text-center"><b>Edit FAQ</b></h4>
+                            <h4 class="text-center"><b><?= $title ?></b></h4>
                             <hr>
                         </div>
                         <div class="card-body">

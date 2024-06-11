@@ -90,8 +90,9 @@
                     </div>
                 </div>
             </div>
-            <div class="carousel-item" style="background-image: url('https://via.placeholder.com/1920x1080');">
-                <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-item">
+            <img src="<?= base_url('assets/img/layouts/layout3.jpg') ?>" class="img-fluid" alt="Image" style="width: 1599px; height:599px;">
+                <div class="carousel-caption">
                     <h5>Layanan Publik</h5>
                     <p>Layanan terbaik untuk masyarakat</p>
                 </div>

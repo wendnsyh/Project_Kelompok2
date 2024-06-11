@@ -52,7 +52,7 @@
                                 <td><?php echo $surat->nama; ?></td>
                                 <td><?php echo $ayah->nik; ?></td>
                                 <td><?php echo $ayah->nama; ?></td>
-                                <td style="text-align:center"><?= $ayah->foto? 'Yes' : 'No'; ?></td>
+                                <td style="text-align:center"><?= $surat->surat_pengantar ? 'Yes' : 'No'; ?></td>
                                 <td><?php echo $surat->alasan; ?></td>
                                 <td><?php echo $surat->nama_pejabat; ?></td>
                                 <td style="text-align:center">

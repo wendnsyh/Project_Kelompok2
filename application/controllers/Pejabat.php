@@ -12,7 +12,7 @@ class Pejabat extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "pejabat - Desa Serpong Rw 001";
+        $data['title'] = "Data Pejabat - Kelurahan Serpong";
         $data['pejabat'] = $this->M_pejabat->tampil();
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 

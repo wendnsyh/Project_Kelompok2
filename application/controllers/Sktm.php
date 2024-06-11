@@ -108,15 +108,15 @@ class Sktm extends CI_Controller
             $this->load->view('template/footer');
         } else {
             // Jika validasi berhasil, lanjutkan proses UPDATE
-            // Konfigurasi upload foto
-            $config['upload_path'] = './uploads/sktm/'; // Folder untuk menyimpan foto
+            // Konfigurasi upload surat_pengantar
+            $config['upload_path'] = './uploads/sktm/'; // Folder untuk menyimpan surat_pengantar
             $config['allowed_types'] = 'jpg|jpeg|png'; // Jenis file yang diizinkan
             $config['max_size'] = 2048; // Ukuran maksimum file (dalam kilobita)
 
             $this->load->library('upload', $config);
 
-            if (!$this->upload->do_upload('foto')) {
-                // Jika gagal mengunggah foto
+            if (!$this->upload->do_upload('surat_pengantar')) {
+                // Jika gagal mengunggah surat_pengantar
                 $data['error'] = $this->upload->display_errors();
                 $this->load->view('template/header', $data);
                 $this->load->view('template/sidebar');
@@ -124,9 +124,9 @@ class Sktm extends CI_Controller
                 $this->load->view('surat/sktm/edit_sktm', $data);
                 $this->load->view('template/footer');
             } else {
-                // Jika sukses mengunggah foto
+                // Jika sukses mengunggah surat_pengantar
                 $upload_data = $this->upload->data();
-                $foto = $upload_data['file_name'];
+                $surat_pengantar = $upload_data['file_name'];
 
                 // Perbarui data yang akan diedit
                 $data = array(
@@ -134,7 +134,7 @@ class Sktm extends CI_Controller
                     'nik_anak' => $this->input->post('anak'),
                     'id_pejabat' => $this->input->post('pejabat'),
                     'alasan' => $this->input->post('alasan'),
-                    'foto' => $foto // Simpan nama file foto ke database
+                    'surat_pengantar' => $surat_pengantar // Simpan nama file surat_pengantar ke database
                 );
 
                 $where = array(
