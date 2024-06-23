@@ -109,8 +109,6 @@ class Penduduk extends CI_Controller
         redirect('penduduk');
     }
 
-
-
     public function edit($nik)
     {
         $data['title'] = "Edit penduduk - Desa Serpong";
@@ -123,58 +121,35 @@ class Penduduk extends CI_Controller
         $this->load->view('penduduk/edit_penduduk', $data);
         $this->load->view('template/footer');
     }
-
     public function proses_edit()
     {
-        // Aturan validasi
-        $this->form_validation->set_rules('nik', 'NIK', 'required');
-        $this->form_validation->set_rules('no_kk', 'No KK', 'required');
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
-        $this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required');
-        $this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
-        $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required');
-        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
-        $this->form_validation->set_rules('rt', 'RT', 'required');
-        $this->form_validation->set_rules('rw', 'RW', 'required');
-        $this->form_validation->set_rules('agama', 'Agama', 'required');
-        $this->form_validation->set_rules('pekerjaan', 'Pekerjaan', 'required');
-        $this->form_validation->set_rules('pendidikan', 'Pendidikan', 'required');
-        $this->form_validation->set_rules('status_perkawinan', 'Status Perkawinan', 'required');
-        $this->form_validation->set_rules('status', 'Status', 'required');
-        $this->form_validation->set_rules('golongan_darah', 'Golongan Darah', 'required');
-        $this->form_validation->set_rules('kewarganegaraan', 'Kewarganegaraan', 'required');
+        // Prepare data for updating
+        $data = array(
+            'no_kk' => $this->input->post('no_kk'),
+            'nama' => ucwords($this->input->post('nama')),
+            'tempat_lahir' => ucwords($this->input->post('tempat_lahir')),
+            'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+            'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+            'alamat' => ucwords($this->input->post('alamat')),
+            'rt' => $this->input->post('rt'),
+            'rw' => $this->input->post('rw'),
+            'agama' => $this->input->post('agama'),
+            'pekerjaan' => ucwords($this->input->post('pekerjaan')),
+            'pendidikan' => $this->input->post('pendidikan'),
+            'status_perkawinan' => $this->input->post('status_perkawinan'),
+            'status' => $this->input->post('status'),
+            'kewarganegaraan' => $this->input->post('kewarganegaraan'),
+        );
 
-        if ($this->form_validation->run() == FALSE) {
-            // Jika validasi gagal, tampilkan form lagi dengan pesan kesalahan
-            $this->edit($this->input->post('nik'));
-        } else {
-            // Jika validasi berhasil, simpan data ke database
-            $data = array(
-                'nik' => $this->input->post('nik'),
-                'no_kk' => $this->input->post('no_kk'),
-                'nama' => ucwords($this->input->post('nama')),
-                'tempat_lahir' => ucwords($this->input->post('tempat_lahir')),
-                'tanggal_lahir' => $this->input->post('tanggal_lahir'),
-                'jenis_kelamin' => $this->input->post('jenis_kelamin'),
-                'alamat' => ucwords($this->input->post('alamat')),
-                'rt' => $this->input->post('rt'),
-                'rw' => $this->input->post('rw'),
-                'agama' => $this->input->post('agama'),
-                'pekerjaan' => ucwords($this->input->post('pekerjaan')),
-                'pendidikan' => $this->input->post('pendidikan'),
-                'status_perkawinan' => $this->input->post('status_perkawinan'),
-                'status' => $this->input->post('status'),
-                'kewarganegaraan' => $this->input->post('kewarganegaraan'),
-            );
-            $where = array(
-                'nik' => $this->input->post('nik'),
-            );
-            $this->m_penduduk->proses_edit($where, $data);
+        $where = array('nik' => $this->input->post('nik'));
 
-            $this->session->set_flashdata('sukses', 'Data Dengan NIK ' . $this->input->post('nik') . ' berhasil diedit.');
-            redirect(base_url('Penduduk/' . $this->input->post('nik')));
-        }
+        $this->m_penduduk->proses_edit($where, $data);
+
+        $this->session->set_flashdata('sukses', 'Data Dengan NIK ' . $this->input->post('nik') . ' berhasil diedit.');
+        redirect(base_url('Penduduk'));
     }
+
+
 
     public function hapus($nik)
     {

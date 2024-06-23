@@ -17,13 +17,9 @@
                             <?php endif; ?>
                             <form action="<?php echo base_url('Penduduk/proses_edit'); ?>" method="post">
                                 <div class="form-group">
-                                    <label>NIK</label>
-                                    <input type="text" name="nik" value="<?php echo $penduduk->nik; ?>" class="form-control" readonly />
-                                </div>
-
-                                <div class="form-group">
                                     <label>No Kartu Keluarga</label>
                                     <input type="text" name="no_kk" value="<?php echo $penduduk->no_kk; ?>" class="form-control" required />
+                                    <input type="hidden" name="nik" value="<?php echo $penduduk->nik; ?>" class="form-control" readonly />
                                 </div>
 
                                 <div class="form-group">

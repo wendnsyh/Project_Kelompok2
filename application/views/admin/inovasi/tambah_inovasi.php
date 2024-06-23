@@ -21,11 +21,11 @@
                             <?php endif; ?>
                             <?php echo form_open_multipart('faq/add_faq'); ?>
                             <div class="form-group">
-                                <label for="question">Pertanyaan:</label>
+                                <label for="question">Judul: </label>
                                 <input type="text" name="question" id="question" required class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="answer">Jawaban:</label>
+                                <label for="answer">Isi: </label>
                                 <textarea name="answer" id="answer" required class="form-control"></textarea>
                             </div>
                             <div class="form-group">

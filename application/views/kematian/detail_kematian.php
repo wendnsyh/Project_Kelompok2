@@ -3,10 +3,6 @@
         <table class="table">
             <h4 style="text-align: center;"><strong>Detail Kematian</strong></h4>
             <tr>
-                <th> NIK </th>
-                <td><?php echo $detail->nik ?> </td>
-            </tr>
-            <tr>
                 <th> Nama Lengkap </th>
                 <td><?php echo $detail->nama ?> </td>
             </tr>

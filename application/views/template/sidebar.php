@@ -66,11 +66,6 @@
                     <span>Data Staff</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url('Pengaduan/list'); ?>">
-                    <i class="fa fa-fw fa-book"></i>
-                    <span>Pengaduan</span></a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link pb-0" href="<?= base_url('Faq/admin'); ?>">
                     <i class="fa fa-fw fa-lightbulb"></i>
                     <span>Inovasi</span></a>
@@ -79,13 +74,6 @@
                 <a class="nav-link pb-0" href="<?= base_url('Berita/admin'); ?>">
                     <i class="fa fa-fw fa-newspaper"></i>
                     <span>Berita</span></a>
-            </li>
-            <!-- Nav Item - Announcement -->
-            <li class="nav-item">
-                <a class="nav-link pb-0" href="<?php echo base_url('admin/Announcement') ?>">
-                    <i class="fas fa-fw fa-bullhorn"></i>
-                    <span>Pengumuman</span>
-                </a>
             </li>
 
             </li>
@@ -150,12 +138,6 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('SkBatal_pindah') ?>">
-                    <i class="fas fa-envelope"></i>
-                    <span>Surat Keterangan Batal Pindah</span>
-                </a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('Penghasilan') ?>">
                     <i class="fas fa-envelope"></i>
                     <span>Surat Keterangan Penghasilan</span>
@@ -195,11 +177,6 @@
                 <a class="nav-link pb-0" href="<?= base_url('Laporan/laporan_kematian'); ?>">
                     <i class="fa fa-fw fa-address-book"></i>
                     <span>Laporan Data Kematian</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url('Laporan/laporan_pindah'); ?>">
-                    <i class="fa fa-fw fa-address-book"></i>
-                    <span>Laporan Data Pindah</span></a>
             </li>
 
             <hr class="sidebar-divider mt-3">

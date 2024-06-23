@@ -22,7 +22,7 @@ class Faq extends CI_Controller
 
     public function admin()
     {
-        $data['title'] = "Faq";
+        $data['title'] = "Inovasi";
         $data['faqs'] = $this->faq_model->get_faqs();
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 

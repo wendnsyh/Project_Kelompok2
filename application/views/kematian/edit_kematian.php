@@ -19,6 +19,7 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label>Nama Lengkap</label>
+                            <input type="hidden" name="id" value="<?php echo $kematian->id_kematian; ?>" class="form-control" />
                             <input type="text" name="nama" value="<?php echo $kematian->nama; ?>" class="form-control" required />
                         </div>
                         <div class="form-group">
@@ -73,6 +74,16 @@
                             <div class="form-group">
                                 <label>RW</label>
                                 <input type="text" name="rw" value="<?php echo $kematian->rw; ?>" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label>Sebab Wafat</label>
+                                <input type="text" name="sebab_wafat" class="form-control" id="sebab_wafat" required value="<?php echo $kematian->sebab_wafat ; ?>">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Tempat Wafat</label>
+                                <input type="text" name="tempat_wafat" class="form-control" id="tempat_wafat" required value="<?php echo $kematian->tempat_wafat ; ?>">
+                            </div>
                             </div>
                             <div class="form-group">
                                 <label>Tanggal Wafat</label>
